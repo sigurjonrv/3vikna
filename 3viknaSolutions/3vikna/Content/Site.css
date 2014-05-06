@@ -90,3 +90,8 @@ input[type="checkbox"].input-validation-error {
 #login a{
    color: black;
 }
+#search{
+   position: relative;
+   width: 25em;
+   float:right;
+}
