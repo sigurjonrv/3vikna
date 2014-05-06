@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-<div id="main">
+<div class="forsida">
     <!--<div id="logo">     SRV setja þetta í parcial view
         <h1>@Html.ActionLink("Skjátextar.is", "Index", "Home")</h1>
     </div>
@@ -52,11 +52,11 @@
 
     <div id="navbar">
         <ul>
+            <li><span class="item1"><a href="#">Beiðni</a></span></li>
+            <li><span class="item2"><a href="#">Skjátexti</a></span></li>
+            <li><span class="item3"><a href="#">Prófíll</a></span></li>
+            <li><span class="item4">@Html.ActionLink("Hjálp", "Contact", "Home")</span></li>
 
-            <li><a href="#">Beiðni</a></li>
-            <li><a href="#">Skjátexti</a></li>
-            <li><a href="#">Prófíll</a></li>
-            <li>@Html.ActionLink("Hjálp", "Contact", "Home")</li>
         </ul>
     </div>
     <div id="search">
