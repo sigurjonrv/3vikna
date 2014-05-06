@@ -36,10 +36,10 @@ namespace _3vikna.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Lykilord")]
+        [Display(Name = "Lykilorð")]
         public string Password { get; set; }
 
-        [Display(Name = "Viltu lata muna eftir ter?")]
+        [Display(Name = "Viltu láta muna eftir þér?")]
         public bool RememberMe { get; set; }
     }
 
@@ -63,13 +63,17 @@ namespace _3vikna.Models
         public string email { get; set; }
 
         [Required]
+        [Display(Name = "Karl")]          // breytti Notandanafni ur User Name
+        public bool Karl { get; set; }
+
+        [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Lykilord")]
+        [Display(Name = "Lykilorð")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Endurtaka lykilord")]
+        [Display(Name = "Endurtaka lykilorð")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
