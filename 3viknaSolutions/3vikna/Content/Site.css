@@ -42,7 +42,7 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
-#main{
+.forsida{
     padding: 2em;
     padding-bottom: 20em;
     padding-top: 0em;
@@ -51,6 +51,15 @@ input[type="checkbox"].input-validation-error {
     border-radius: 20px;
     background-color: white;*/
 }
+.hjalp {
+    padding: 2em;
+    padding-bottom: 20em;
+    padding-top: 0em;
+}
+.hjalp #navbar li .item4 a{
+ color: black;
+ height:auto;
+}
 #navbar{
     clear: both;
     /*padding: .5em 1em;*/
@@ -58,6 +67,7 @@ input[type="checkbox"].input-validation-error {
     list-style-type: none; 
     border-radius: 5px;
 }
+
 #navbar li{
    margin-left: auto;
     margin-right: auto;
@@ -72,7 +82,7 @@ input[type="checkbox"].input-validation-error {
      font-size:2em;
      text-decoration:none;
 }
-#navbar li a:hover{
+#navbar li  a:hover{
     color: black;
 }
 #logo h1 a{

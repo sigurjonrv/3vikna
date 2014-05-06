@@ -1,9 +1,18 @@
 ﻿@{
     ViewBag.Title = "Hjálparsíða";
 }
-<div id="hjalp">
+<div class="hjalp">
     <h2>@ViewBag.Title</h2>
-    <h3>Ef þú ert ekki að skilja hvernig síðan okkar virkar mundi ég halda áfram að lesa</h3>
+    <div id="navbar">
+        <ul>
+            <li><span class="item1"><a href="#">Beiðni</a></span></li>
+            <li><span class="item2"><a href="#">Skjátexti</a></span></li>
+            <li><span class="item3"><a href="#">Prófíll</a></span></li>
+            <li><span class="item4">@Html.ActionLink("Hjálp", "Contact", "Home")</span></li>
+
+        </ul>
+    </div>
+    <h3>Ef þú ert ekki að skilja hvernig síðan okkar virkar myndi ég halda áfram að lesa</h3>
     <h4>Um Vefsíðuna</h4>
     <p>
         Vefsíðan er gerð af íslensku fyrirtæki og er þar af leiðandi hugsuð aðallega fyrir Íslendinga. 
