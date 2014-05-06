@@ -36,10 +36,10 @@ namespace _3vikna.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Lykilord")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Viltu lata muna eftir ter?")]
         public bool RememberMe { get; set; }
     }
 
