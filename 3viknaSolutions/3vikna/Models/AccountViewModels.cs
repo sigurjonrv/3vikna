@@ -31,7 +31,7 @@ namespace _3vikna.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "Notandanafn")]
         public string UserName { get; set; }
 
         [Required]
