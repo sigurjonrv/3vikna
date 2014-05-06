@@ -2,6 +2,13 @@
     ViewBag.Title = "Home Page";
 }
 <div id="main">
+    <!--<div id="logo">     SRV setja þetta í parcial view
+        <h1>@Html.ActionLink("Skjátextar.is", "Index", "Home")</h1>
+    </div>
+    <div id="login">
+        @Html.Partial("_LoginPartial")
+    </div>-->
+
     <div class="jumbotron">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -45,10 +52,10 @@
 
     <div id="navbar">
         <ul>
-            <li><a>Beðnir</a></li>
-            <li><a>Skjátexti</a></li>
-            <li><a>Prófíll</a></li>
-            <li><a>Hjálp</a></li>
+            <li>@Html.ActionLink("Beðnir", "Contact", "Home")</li>
+            <li><a href="#">Skjátexti</a></li>
+            <li><a href="#">Prófíll</a></li>
+            <li><a href="#">Hjálp</a></li>
         </ul>
     </div>
 
