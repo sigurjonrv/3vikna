@@ -315,7 +315,9 @@ body {
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
-  background-color: #ffffff;
+  background-image:url("http://i91.photobucket.com/albums/k305/sjon2/black_backround_1600x900_zps3dbd7445.jpg"); /*SRV*/
+  /*background-color: gray; /*SRV bakrunnur*/
+
 }
 
 input,
@@ -438,7 +440,7 @@ cite {
 }
 
 .text-danger {
-  color: #b94a48;
+  color: black;
 }
 
 .text-success {
@@ -1877,11 +1879,11 @@ textarea.input-lg {
 
 .has-error .help-block,
 .has-error .control-label {
-  color: #b94a48;
+  color: black;
 }
 
 .has-error .form-control {
-  border-color: #b94a48;
+  border-color: black;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
@@ -1893,9 +1895,9 @@ textarea.input-lg {
 }
 
 .has-error .input-group-addon {
-  color: #b94a48;
+  color: black;
   background-color: #f2dede;
-  border-color: #b94a48;
+  border-color: black;
 }
 
 .has-success .help-block,
@@ -4934,7 +4936,8 @@ a.list-group-item.active > .badge,
   font-weight: 200;
   line-height: 2.1428571435;
   color: inherit;
-  background-color: #eeeeee;
+ /* background-color: rgb(34,34,34); /*SRV*/
+  width: 100%; /*SRV*/
 }
 
 .jumbotron h1 {
@@ -4947,13 +4950,13 @@ a.list-group-item.active > .badge,
 }
 
 .container .jumbotron {
-  border-radius: 6px;
+  border-radius: 0px;
 }
 
 @media screen and (min-width: 768px) {
   .jumbotron {
     padding-top: 48px;
-    padding-bottom: 48px;
+    padding-bottom: 80px;
   }
   .container .jumbotron {
     padding-right: 60px;
@@ -5078,7 +5081,7 @@ a.thumbnail:focus {
 }
 
 .alert-danger {
-  color: #b94a48;
+  color: black;
   background-color: #f2dede;
   border-color: #eed3d7;
 }
@@ -5515,7 +5518,7 @@ a.list-group-item:focus {
 }
 
 .panel-danger > .panel-heading {
-  color: #b94a48;
+  color: black;
   background-color: #f2dede;
   border-color: #eed3d7;
 }
