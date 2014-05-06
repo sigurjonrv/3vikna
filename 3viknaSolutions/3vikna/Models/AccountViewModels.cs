@@ -46,17 +46,30 @@ namespace _3vikna.Models
     public class RegisterViewModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "Notandanafn")]          // breytti Notandanafni ur User Name
         public string UserName { get; set; }
+
+        [Required]
+        [Display(Name = "Fullt nafn")]          // breytti Notandanafni ur User Name
+        public string full_name { get; set; }
+
+        [Required]
+        [Display(Name = "Aldur")]          // breytti Notandanafni ur User Name
+        public string age { get; set; }
+
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "email")]          // breytti Notandanafni ur User Name
+        public string email { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Lykilord")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "Endurtaka lykilord")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
