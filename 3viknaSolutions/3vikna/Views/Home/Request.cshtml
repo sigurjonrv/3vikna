@@ -3,22 +3,21 @@
     ViewBag.Title = "Request";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="request">
-    <h2>@ViewBag.Title</h2>
+
+<h2>@ViewBag.Title</h2>
     <div id="navbar">
         <ul>
             <li><span class="item4">@Html.ActionLink("Beiðni", "Request", "Home")</span></li>
             <li><span class="item2"><a href="#">Skjátexti</a></span></li>
             <li><span class="item3"><a href="#">Prófíll</a></span></li>
-            <li><span class="item1"><a href="#">Hjálp</a></span></li>
+            <li><span class="item1"><a href="#">Hjálp</a></span></li>            
         </ul>
     </div>
-<<<<<<< HEAD
-</div>
-=======
-    <table border="1">
+
+    <table id="BeidniTafla">
     <thead>
-        <tr>
+        <tr id="BeidniTaflaHeader">
+            <th class="head"></th>
             <th class="head">Myndir</th>
             <th class="head">Útgáfuár</th>
             <th class="head">Dagsetning</th>
@@ -27,34 +26,37 @@
         </tr>
     </thead>
     <tbody>
-            <tr id="Tafla1">
-                <td class="row1"><img src="photo.png" alt="photo" />John doe</td> <!--er ad vinna herna ANDRI-->
-                <td class="row1">2014</td>
-                <td class="row2">12.02.14</td>
-                <td class="row2">555 4321</td>
-                <td class="row2"><img src="photo.png" alt="photo" /></td>
-            </tr>
-            <tr id="Tafla2">
-                <td class="row1"><img src="photo.png" alt="photo" />John doe</td>
-                <td class="row1">2014</td>
-                <td class="row2">12.02.14</td>
-                <td class="row2">555 4321</td>
-                <td class="row2"><img src="photo.png" alt="photo" /></td>
-            </tr>
-            <tr id="Tafla1">
-                <td class="row1"><img src="photo.png" alt="photo" />John doe</td>
-                <td class="row1">2014</td>
-                <td class="row2">12.02.14</td>
-                <td class="row2">555 4321</td>
-                <td class="row2"><img src="photo.png" alt="photo" /></td>
-            </tr>
-        <tr id="Tafla2">
-            <td class="row1"><img src="photo.png" alt="photo" />John doe</td>
+        <tr id="Tafla1">
+            <td class="row2"><img src="photo.png" alt="photo" /></td>
+            <td class="row1">John doe</td> <!--er ad vinna herna ANDRI-->
             <td class="row1">2014</td>
             <td class="row2">12.02.14</td>
             <td class="row2">555 4321</td>
-            <td class="row2"><img src="photo.png" alt="photo" /></td>
+            <td class="row2"><img src="https://fbcdn-photos-h-a.akamaihd.net/hphotos-ak-prn2/v/t34.0-11/10306971_578242318958052_2069168489_t.jpg?oh=43193cddb8a7557e26de3eddd40328e9&oe=536C8873&__gda__=1399612150_e7214f058f835ec492b617185e261525" alt="photo" /></td>
+        </tr>
+        <tr id="Tafla2">
+            <td class="row1"><img src="" alt="photo" /></td>
+            <td class="row1">John doe</td>
+            <td class="row1">2014</td>
+            <td class="row2">12.02.14</td>
+            <td class="row2">555 4321</td>
+            <td class="row2"><img src="https://fbcdn-photos-h-a.akamaihd.net/hphotos-ak-prn2/v/t34.0-11/10306971_578242318958052_2069168489_t.jpg?oh=43193cddb8a7557e26de3eddd40328e9&oe=536C8873&__gda__=1399612150_e7214f058f835ec492b617185e261525" alt="photo" /></td>            <!--er ad vinna herna ANDRI-->
+        </tr>
+        <tr id="Tafla1">
+            <td class="row1"><img src="photo.png" alt="photo" /></td>
+            <td class="row1">John doe</td>
+            <td class="row1">2014</td>
+            <td class="row2">12.02.14</td>
+            <td class="row2">555 4321</td>
+            <td class="row2"><img src="https://fbcdn-photos-h-a.akamaihd.net/hphotos-ak-prn2/v/t34.0-11/10318562_578244485624502_726244654_t.jpg?oh=9b05c793b4f35c3c7c79a27723a3aed9&oe=536C651C&__gda__=1399598570_f4b491a5da9dcaf585a15ab2d7be343e" alt="photo" /></td>
+        </tr>
+        <tr id="Tafla2">
+            <td class="row1"><img src="photo.png" alt="photo" /></td>
+            <td class="row1">John doe</td>
+            <td class="row1">2014</td>
+            <td class="row2">12.02.14</td>
+            <td class="row2">555 4321</td>
+            <td class="row2"><img src="https://fbcdn-photos-h-a.akamaihd.net/hphotos-ak-prn2/v/t34.0-11/10306971_578242318958052_2069168489_t.jpg?oh=43193cddb8a7557e26de3eddd40328e9&oe=536C8873&__gda__=1399612150_e7214f058f835ec492b617185e261525" alt="photo" /></td>
         </tr>
     </tbody>
-</table>		
->>>>>>> d580643641bfd4acb32d95bca435dc521634458a
+</table>
