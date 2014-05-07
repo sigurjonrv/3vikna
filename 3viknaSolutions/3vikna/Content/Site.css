@@ -138,7 +138,13 @@ body{
     list-style: none;
 }
 
-#BeidniTaflaHeader{
+#picturesize{
+    
+    max-width: 50px;
+    max-height: 40px;
+}
+
+#RequestTableHeader{
 
     background-color: black;
     color:white;
@@ -146,16 +152,12 @@ body{
     text-align:center;
      
 }
-#Tafla1{
+#Table1{
     background-color:rgb(242,242,242);
      
 }
 
-#Tafla2{
-    background-color: rgb(242,242,242);
-}
-
-#BeidniTafla{
+#RequestTable{
     width:50%;
     position:relative;
     left:300px;
