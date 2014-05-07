@@ -17,6 +17,8 @@ namespace _3vikna.Controllers
             MainPageModelView vm = new MainPageModelView();
             vm.Sub = SubtitleRepo.GetAllSubtitles();
             vm.Req = RequestsRepo.GetAllRequests();
+            vm.ReqNotFinished = RequestsRepo.GetAllUnFinishedRequests();
+            
             /*var model = SubtitleRepo.GetAllSubtitles();
             return View(model);*/
             return View(vm);
