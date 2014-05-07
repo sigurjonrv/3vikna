@@ -115,3 +115,7 @@ body{
    width: 25em;
    float:right;
 }
+
+.noDotsInMainPageList{
+    list-style: none;
+}
