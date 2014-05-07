@@ -6,11 +6,9 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding: 2em;
-    padding-bottom: 20em;
-    padding-top: 0em;
+    padding-left: 0px;
+    padding-right: 0px;
     background-color: white; /*SRV*/
-    min-height: 65em; /*SRV*/
 }
 /* Set width on the form input elements since they're 100% wide by default */
 input,
@@ -43,33 +41,40 @@ input[type="checkbox"].input-validation-error {
 
 .validation-summary-valid {
     display: none;
+<<<<<<< HEAD
+}/*
+=======
 
 
 }
 /*
+>>>>>>> ca476d1cba5feaa71cb358dfba0f8b65774a031e
 body{
      padding: 2em;
      padding-bottom: 20em;
      padding-top: 0em;
 }*/
+<<<<<<< HEAD
+.forsida{
+=======
 
 
 /*.forsida{
 
+>>>>>>> ca476d1cba5feaa71cb358dfba0f8b65774a031e
     padding: 2em;
     padding-bottom: 20em;
     padding-top: 0em;
+    /*border-style:solid;
+    border-width:2px;
+    border-radius: 20px;
+    background-color: white;*/
 }
 .hjalp {
     padding: 2em;
     padding-bottom: 20em;
     padding-top: 0em;
 }
-.request{
-     padding: 2em;
-    padding-bottom: 20em;
-    padding-top: 0em;
-}*/
 .hjalp #navbar li .item4 a{
  color: black;
  height:auto;
@@ -133,7 +138,34 @@ body{
     list-style: none;
 }
 
-.row{
+#BeidniTaflaHeader{
+
+    background-color: black;
+    color:white;
+    font-size: 14px;
+    text-align:center;
+     
+}
+#Tafla1{
+    background-color:rgb(242,242,242);
+     
+}
+
+#Tafla2{
+    background-color: rgb(242,242,242);
+}
+
+#BeidniTafla{
+    width:50%;
+    position:relative;
+    left:300px;
+    right:auto;
+    bottom:auto;
+    border:2px solid black;
+}
+
+/*.row{
     padding-top: 40px;
     position:relative;
 }
+    */
