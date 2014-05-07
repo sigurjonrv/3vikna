@@ -6,9 +6,11 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding: 2em;
+    padding-bottom: 20em;
+    padding-top: 0em;
     background-color: white; /*SRV*/
+    min-height: 65em; /*SRV*/
 }
 /* Set width on the form input elements since they're 100% wide by default */
 input,
@@ -41,26 +43,22 @@ input[type="checkbox"].input-validation-error {
 
 .validation-summary-valid {
     display: none;
-}/*
-body{
-     padding: 2em;
-     padding-bottom: 20em;
-     padding-top: 0em;
-}*/
-.forsida{
+}
+/*.forsida{
     padding: 2em;
     padding-bottom: 20em;
     padding-top: 0em;
-    /*border-style:solid;
-    border-width:2px;
-    border-radius: 20px;
-    background-color: white;*/
 }
 .hjalp {
     padding: 2em;
     padding-bottom: 20em;
     padding-top: 0em;
 }
+.request{
+     padding: 2em;
+    padding-bottom: 20em;
+    padding-top: 0em;
+}*/
 .hjalp #navbar li .item4 a{
  color: black;
  height:auto;

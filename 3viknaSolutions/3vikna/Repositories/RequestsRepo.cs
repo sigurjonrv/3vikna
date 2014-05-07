@@ -10,7 +10,7 @@ namespace _3vikna.Repositories
     {
         private static List<Requests> m_requests = new List<Requests>();
 
-        public List<Requests> GetAllRequests()
+        public static List<Requests> GetAllRequests()
         {
             if (m_requests.Count == 0)
             {
