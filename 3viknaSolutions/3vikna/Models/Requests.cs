@@ -11,6 +11,7 @@ namespace _3vikna.Models
         public string MediaName { get; set; }
         public string YearPublished { get; set; }
         public bool IsFinished { get; set; }
+        public string Category { get; set; }
 
     }
 }
