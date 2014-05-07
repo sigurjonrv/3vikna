@@ -28,6 +28,11 @@ namespace _3vikna.Controllers
             return View();
         }
 
+        public ActionResult ScreenText()
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description pagee.";
