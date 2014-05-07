@@ -6013,7 +6013,7 @@ body.modal-open,
 .carousel-inner {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  overflow: hidden; /*SRV*/
   max-height:16em; /*SRV*/
 }
 
