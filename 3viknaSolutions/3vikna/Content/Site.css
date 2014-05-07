@@ -116,7 +116,8 @@ body{
 }
 #search{
    position: relative;
-   width: 25em;
+   padding-top: 1em;
+   float:right;
 }
 
 .image{
@@ -127,4 +128,9 @@ body{
 }
 .noDotsInMainPageList{
     list-style: none;
+}
+
+.row{
+    padding-top: 40px;
+    position:relative;
 }
