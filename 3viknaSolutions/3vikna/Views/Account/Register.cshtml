@@ -1,6 +1,6 @@
 ﻿@model _3vikna.Models.RegisterViewModel
 @{
-    ViewBag.Title = "Ny Skraning";
+    ViewBag.Title = "Ný Skráning";
 }
 
 <h2>@ViewBag.Title.</h2>
@@ -8,7 +8,7 @@
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Budu til nyjan adgang.</h4>
+    <h4>Búðu til nýjan aðgang.</h4>
     <hr />
     @Html.ValidationSummary() //eg byrjadi ad gera eitthvad herna
     <div class="form-group">                                         <!-- gerdi  herna ANDRI-->
@@ -30,10 +30,10 @@
         </div>
     </div> 
     <div class="form-group"> 
-        <div class="col-md-10">                                                    <!-- gerdi  herna ANDRI-->
-            @Html.RadioButtonFor(m => m.Karl, "false", new { id = "male", @class = "col-md-2 control-label" })
+        <div class="col-md-4 control-label">                                                    <!-- gerdi  herna ANDRI-->
+            @Html.RadioButtonFor(m => m.Karl, "false", new { id = "male" })
             @Html.Label("male", "Male")
-            @Html.RadioButtonFor(m => m.Karl, "true", new { id = "female", @class = "col-md-2 control-label" })
+            @Html.RadioButtonFor(m => m.Karl, "true", new { id = "female" })
             @Html.Label("female", "Female")
         </div>
         </div>       
@@ -58,7 +58,7 @@
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
+            <input type="submit" class="btn btn-default" value="Ný Skráning" />
         </div>
     </div>
 }
