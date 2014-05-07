@@ -44,8 +44,8 @@ input[type="checkbox"].input-validation-error {
 }
 body{
      padding: 2em;
-    padding-bottom: 20em;
-    padding-top: 0em;
+     padding-bottom: 20em;
+     padding-top: 0em;
 }
 /*.forsida{
     padding: 2em;
@@ -113,9 +113,5 @@ body{
 #search{
    position: relative;
    width: 25em;
-   /*float:left;*/
-}
-
-.MainPageLists{
-    list-style: none;
+   float:right;
 }
