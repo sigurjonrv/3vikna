@@ -43,7 +43,7 @@ input[type="checkbox"].input-validation-error {
 
 .validation-summary-valid {
     display: none;
-<<<<<<< HEAD
+
 
 }
 /*
@@ -52,11 +52,10 @@ body{
      padding-bottom: 20em;
      padding-top: 0em;
 }*/
-.forsida{
-=======
-}
+
+
 /*.forsida{
->>>>>>> 9fee37b2bf573199c5347c9f362bd11c6ecd8d3f
+
     padding: 2em;
     padding-bottom: 20em;
     padding-top: 0em;
@@ -120,16 +119,13 @@ body{
    width: 25em;
    float:right;
 }
-<<<<<<< HEAD
+
 .image{
 
 
     margin-left:5px;
     margin-right:5px;
 }
-=======
-
 .noDotsInMainPageList{
     list-style: none;
 }
->>>>>>> 9fee37b2bf573199c5347c9f362bd11c6ecd8d3f

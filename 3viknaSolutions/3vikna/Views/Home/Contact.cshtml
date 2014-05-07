@@ -5,14 +5,19 @@
     <h2>@ViewBag.Title</h2>
     <div id="navbar">
         <ul>
-            <li><span class="item1"><a href="#">Beiðni</a></span></li>
+            <li><span class="item1">@Html.ActionLink("Beiðni", "Request", "Home")</span></li>
             <li><span class="item2"><a href="#">Skjátexti</a></span></li>
             <li><span class="item3"><a href="#">Prófíll</a></span></li>
             <li><span class="item4">@Html.ActionLink("Hjálp", "Contact", "Home")</span></li>
         </ul>
     </div>
-        <h2>Hvað viltu vita???</h2>
-        <a href=""
+        <h2>Hvað hefur þú áhuga að vita um?</h2><br />
+        <a href="#Um">Um Vefsíðuna?</a><br />
+        <a href="#Ná">Að ná í skrá?</a><br />
+        <a href="#Skrá">Að skrá sig inn?</a><br />
+        <a href="#Búa">Að búa til skrá?</a><br />
+        <a href="#Tengja">Tengja srt skrá við spilaran?</a><br />
+      
         <h2>Stofnendur</h2>
         <img src="http://i91.photobucket.com/albums/k305/sjon2/10346900_10203627639711508_1797830612_a_zps086a3fe0.jpg" alt="Andri" class="image">
      
@@ -25,7 +30,7 @@
         <img src="http://i91.photobucket.com/albums/k305/sjon2/10338941_10203627641471552_1546092725_a_zpscb010ecb.jpg" alt="Sveinn" class="image">
         <p>Andri Fannar Freysson Ólafur Helgi Jónsson Ólafur Ívar Jónsson Sigurjón Rúnar Vikarsson Sveinn Henrik Kristinsson</p>
         <h3>Ef þú ert ekki að skilja hvernig síðan okkar virkar myndi ég halda áfram að lesa</h3>
-        <h4>Um Vefsíðuna</h4>
+        <h4 id="Um">Um Vefsíðuna</h4>
         <p>
             Vefsíðan er gerð af íslensku fyrirtæki og er þar af leiðandi hugsuð aðallega fyrir Íslendinga. 
 
@@ -42,15 +47,15 @@
             nota skjátexta sér til þæginda. 
         </p>
 
-        <h4>Að ná í skrá</h4>
+        <h4 id="Ná">Að ná í skrá</h4>
         <p>Einna sem þú vilt gera er að leita af þeirri mynd sem þú vilt fá skjátexta undir og ýtta á örina til hægri og þá byrjar hún að niðurhalast</p>
 
-        <h4>Að skrá sig inn</h4>
+        <h4 id="Skrá">Að skrá sig inn</h4>
         <p>Til þess að skrá sig þarftu bara að fara upp í hægra hornið og ýtta á "skrá sig inn" og svo filla inn í kröfurnar. Þegar þú ert búinn skrá þig opnast ýmsir valkostir</p>
 
-        <h4>Að búa til skrá</h4>
+        <h4 id="Búa">Að búa til skrá</h4>
         <p>Þú þarft að vera innskráður notandi til þess að búa til skrá. Þegar þú ert orðinn skráður notandi ferð þú í "BÚATILNÝTT,(kanski mynd)" Þar hefur þú valmöguleikana að setja inn útlenska srt skrá, getur þýtt beint eftir texta, eða að búa til glænýja, sem þú byrjar alveg frá grunni.</p>
-        <h4>Tengja srt skrá við spilaran</h4>
+        <h4 id="Tengja">Tengja srt skrá við spilaran</h4>
         <p>Þú kanski veist að það er ekki nóg að niðurahala síðuni þú verður líka að tengja srt skrána við myndinna sem þú vilt horfa á og ef þú fylgir þessu reglum að neðan verður það ekkert mál.</p>
         <ol>
             <li>Fyrsta sem þú gerir er að búa til tóma skrá sem þú getur skírt eftir myndinn þinni</li>
