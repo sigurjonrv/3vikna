@@ -10,8 +10,7 @@
     padding-bottom: 20em;
     padding-top: 0em;
     background-color: white; /*SRV*/
-   /* padding-bottom: 20em; /*SRV*/
-   min-height: 65em; /*SRV*/
+    min-height: 65em; /*SRV*/
 }
 /* Set width on the form input elements since they're 100% wide by default */
 input,
