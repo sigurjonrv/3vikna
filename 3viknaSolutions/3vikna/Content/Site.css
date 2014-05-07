@@ -41,13 +41,27 @@ input[type="checkbox"].input-validation-error {
 
 .validation-summary-valid {
     display: none;
+<<<<<<< HEAD
 }/*
+=======
+
+
+}
+/*
+>>>>>>> ca476d1cba5feaa71cb358dfba0f8b65774a031e
 body{
      padding: 2em;
      padding-bottom: 20em;
      padding-top: 0em;
 }*/
+<<<<<<< HEAD
 .forsida{
+=======
+
+
+/*.forsida{
+
+>>>>>>> ca476d1cba5feaa71cb358dfba0f8b65774a031e
     padding: 2em;
     padding-bottom: 20em;
     padding-top: 0em;
@@ -105,17 +119,21 @@ body{
 #login a{
    color: black;
 }
-#hjalp {
-    margin-left: 25px;
-    margin-right: 10px;
-}
-
-#search{
+#search form{
    position: relative;
-   width: 25em;
-   float:right;
+   padding-top: 1em;
+   padding-left: 9em;
+   padding-right: 9em;
+   margin-left:auto;
+   margin-right:auto;
 }
 
+.image{
+
+    margin-left:5px;
+    margin-right:5px;
+    text-align:center;
+}
 .noDotsInMainPageList{
     list-style: none;
 }
@@ -126,8 +144,7 @@ body{
     color:white;
     font-size: 14px;
     text-align:center;
-    
-    
+     
 }
 #Tafla1{
     background-color:rgb(242,242,242);
@@ -146,3 +163,9 @@ body{
     bottom:auto;
     border:2px solid black;
 }
+
+/*.row{
+    padding-top: 40px;
+    position:relative;
+}
+    */
