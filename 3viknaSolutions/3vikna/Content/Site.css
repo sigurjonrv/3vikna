@@ -42,16 +42,15 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
-<<<<<<< HEAD
-.forsida{
-=======
+
+
+
 body{
      padding: 2em;
      padding-bottom: 20em;
      padding-top: 0em;
 }
 /*.forsida{
->>>>>>> 22086644bc9f520daf3b21690fdc7427b48987be
     padding: 2em;
     padding-bottom: 20em;
     padding-top: 0em;
@@ -61,9 +60,6 @@ body{
     background-color: white;*/
 }
 .hjalp {
-    padding: 2em;
-    padding-bottom: 20em;
-    padding-top: 0em;
     margin-left: 25px;
     margin-right: 10px;
 }
