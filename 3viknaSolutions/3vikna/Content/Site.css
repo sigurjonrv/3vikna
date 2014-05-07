@@ -55,6 +55,8 @@ input[type="checkbox"].input-validation-error {
     padding: 2em;
     padding-bottom: 20em;
     padding-top: 0em;
+     margin-left: 25px;
+    margin-right: 10px;
 }
 .hjalp #navbar li .item4 a{
  color: black;
@@ -100,11 +102,6 @@ input[type="checkbox"].input-validation-error {
 #login a{
    color: black;
 }
-#hjalp {
-    margin-left: 25px;
-    margin-right: 10px;
-}
-
 #search{
    position: relative;
    width: 25em;
