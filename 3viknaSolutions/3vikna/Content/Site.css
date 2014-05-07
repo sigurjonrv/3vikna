@@ -111,7 +111,6 @@ input[type="checkbox"].input-validation-error {
 #search{
    position: relative;
    width: 25em;
-   float:right;
 }
 
 .noDotsInMainPageList{
