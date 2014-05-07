@@ -10,10 +10,12 @@ namespace _3vikna.Controllers
 {
     public class HomeController : Controller
     {
-        SubtitlesRepo repo = new SubtitlesRepo();
+        SubtitlesRepo SubtitleRepo = new SubtitlesRepo();
+
+        RequestsRepo RequestRepo = new RequestsRepo();
         public ActionResult Index()
         {
-            var model = repo.GetAllSubtitles();
+            var model = SubtitleRepo.GetAllSubtitles();
             return View(model);
         }
         public ActionResult Request()
