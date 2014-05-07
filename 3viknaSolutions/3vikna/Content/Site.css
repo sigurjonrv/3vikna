@@ -108,5 +108,9 @@ input[type="checkbox"].input-validation-error {
 #search{
    position: relative;
    width: 25em;
-   float:right;
+   /*float:left;*/
+}
+
+.MainPageLists{
+    list-style: none;
 }
