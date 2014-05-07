@@ -16,6 +16,10 @@ namespace _3vikna.Controllers
             var model = repo.GetAllSubtitles();
             return View(model);
         }
+        public ActionResult Request()
+        {
+            return View();
+        }
 
         public ActionResult About()
         {
