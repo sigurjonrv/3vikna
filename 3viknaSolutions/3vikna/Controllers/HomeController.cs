@@ -25,7 +25,7 @@ namespace _3vikna.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Your application description pagee.";
 
             return View();
         }
