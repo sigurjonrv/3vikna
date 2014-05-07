@@ -6014,6 +6014,7 @@ body.modal-open,
   position: relative;
   width: 100%;
   overflow: hidden;
+  max-height:16em;
 }
 
 .carousel-inner > .item {
