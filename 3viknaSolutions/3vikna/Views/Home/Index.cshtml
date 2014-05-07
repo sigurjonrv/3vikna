@@ -1,4 +1,4 @@
-﻿@model IEnumerable<_3vikna.Models.Subtitles>
+﻿@model _3vikna.Models.MainPageModelView
 @{
     ViewBag.Title = "Home Page";
 }
@@ -70,9 +70,9 @@
             <h2>Vinsælustu Beiðnir</h2>
             <p>
                 <ul>
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.Req)
                     {
-                        <li class="MainPageLists">@item.MediaName</li>
+                        <li class="noDotsInMainPageList">@item.MediaName</li>
                     }
                 </ul>
             </p>
@@ -80,7 +80,14 @@
         </div>
         <div class="col-md-4">
             <h2>Nýjustu skjátextar</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p>
+                <ul>
+                    @foreach (var item in Model.Sub)
+                    {
+                        <li class="noDotsInMainPageList">@item.MediaName</li>
+                    }
+                </ul>
+            </p>
             <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
         </div>
         <div class="col-md-4">
