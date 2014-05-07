@@ -6,8 +6,9 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding: 2em;
+    padding-bottom: 20em;
+    padding-top: 0em;
     background-color: white; /*SRV*/
 }
 /* Set width on the form input elements since they're 100% wide by default */
@@ -16,7 +17,6 @@ select,
 textarea {
     max-width: 280px;
 }
-
 
 /* styles for validation helpers */
 .field-validation-error {
@@ -42,6 +42,7 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
 /*
 body{
      padding: 2em;
@@ -66,6 +67,7 @@ body{
     padding-bottom: 20em;
     padding-top: 0em;
 }
+
 .hjalp #navbar li .item4 a{
  color: black;
  height:auto;
