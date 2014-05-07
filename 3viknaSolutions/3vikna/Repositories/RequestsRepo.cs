@@ -14,12 +14,24 @@ namespace _3vikna.Repositories
         {
             if (m_requests.Count == 0)
             {
-                m_requests.Add(new Requests { ID = 1, MediaName = "Screen 1", YearPublished = "1999" });
-                m_requests.Add(new Requests { ID = 2, MediaName = "Scary Movie 2", YearPublished = "2002" });
-                m_requests.Add(new Requests { ID = 3, MediaName = "Lion King", YearPublished = "1998" });
-                m_requests.Add(new Requests { ID = 4, MediaName = "Catch Me If You Can", YearPublished = "2001" });
+                m_requests.Add(new Requests { ID = 1, MediaName = "Screen 1", YearPublished = "1999", IsFinished = true});
+                m_requests.Add(new Requests { ID = 2, MediaName = "Scary Movie 2", YearPublished = "2002", IsFinished = true });
+                m_requests.Add(new Requests { ID = 3, MediaName = "Lion King", YearPublished = "1998, IsFinished = true" });
+                m_requests.Add(new Requests { ID = 4, MediaName = "Catch Me If You Can", YearPublished = "2001", IsFinished = true });
+                m_requests.Add(new Requests { ID = 5, MediaName = "X-Men: Days of Future Past", YearPublished = "2014", IsFinished = false });
+                m_requests.Add(new Requests { ID = 6, MediaName = "Bad Neighbours", YearPublished = "2014", IsFinished = false });
+                m_requests.Add(new Requests { ID = 7, MediaName = "Fed Up", YearPublished = "2014", IsFinished = false });
             }
             return m_requests;
+        }
+
+        public static IEnumerable<Requests> GetAllUnFinishedRequests()
+        {
+            var result = (from req in m_requests
+                          where req.IsFinished == false
+                          orderby req.MediaName ascending
+                          select req);
+            return result;
         }
     }
 }
