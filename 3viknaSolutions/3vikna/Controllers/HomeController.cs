@@ -28,6 +28,11 @@ namespace _3vikna.Controllers
             return View();
         }
 
+        public ActionResult NewRequest()
+        {
+            return View();
+        }
+
         public ActionResult ScreenText()
         {
             return View();
