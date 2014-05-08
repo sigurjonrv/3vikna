@@ -15,9 +15,8 @@ namespace _3vikna.Controllers
         public ActionResult Index()
         {
             MainPageModelView vm = new MainPageModelView();
-            vm.Sub = SubtitleRepo.GetAllSubtitles();
-            vm.Req = RequestsRepo.GetAllRequests();
-            vm.ReqNotFinished = RequestsRepo.GetAllUnFinishedRequests();
+            vm.Req = RequestRepo.GetAllByDate();
+            vm.Sub = SubtitleRepo.GetAllSubs();
             
             /*var model = SubtitleRepo.GetAllSubtitles();
             return View(model);*/

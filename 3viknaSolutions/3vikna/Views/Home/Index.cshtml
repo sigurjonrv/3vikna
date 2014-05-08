@@ -46,35 +46,7 @@
     </div>
     @Html.Partial("navigationbar")
 
-    <div id="search"> 
-       
-            <form>
-                <p>
-                    Leita:
-                    <input type="text" name="search" size="40" value="" />
-                    <select>
-                        <option value="0">(Öllum flokkum)</option>
-                        <option value="1">Kvikmyndir</option>
-                        <option value="2">Þættir</option>
-                        <option value="3">Annað</option>
-                    </select>
-                    <b>Birta: </b>
-                    Ókláraðar Þýðingar <input type="checkbox" name="oklarad" value="4" />
-                    Ísl Texta <input type="checkbox" name="Islenska" value="5" />
-                    Eng Texta <input type="checkbox" name="Enska" value="6" />
-                    <input type="button" value="Leita!" />
-                </p>
-</form>
-
-        <!--<input type="text" value="" name="Search" size="30"/>
-        <input type="button" value="Leita" name="search" />-->
-        <!--<select>
-            <option value="Kvikmyndir">Kvikmyndir</option>
-            <option value="þættir">þættir</option>
-            <option value="Heimildarefni">Heimildarefni</option>
-            <option value="Annað">Annað</option>
-        </select>-->
-    </div>
+    @Html.Partial("Search")
 
     <div class="row">
         <div class="col-md-4">
@@ -104,12 +76,7 @@
         <div class="col-md-4">
             <h2>Í vinnslu</h2>
             <p>
-                <ul>
-                    @foreach (var item in Model.ReqNotFinished)
-                    {
-                        <li class="noDotsInMainPageList">@item.MediaName</li>
-                    }
-                </ul>
+                A
             </p>
             <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
         </div>
