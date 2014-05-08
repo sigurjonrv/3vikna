@@ -3,21 +3,15 @@
     ViewBag.Title = "Home Page";
 }
 <div class="forsida">
-    <!--<div id="logo">     SRV setja þetta í parcial view
-        <h1>@Html.ActionLink("Skjátextar.is", "Index", "Home")</h1>
-    </div>
-    <div id="login">
-        @Html.Partial("_LoginPartial")
-    </div>-->
 
     <div class="jumbotron">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
-            <ol class="carousel-indicators">
+            <!--<ol class="carousel-indicators">
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-            </ol>
+            </ol>-->
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
@@ -50,18 +44,8 @@
             </a>
         </div>
     </div>
+    @Html.Partial("navigationbar")
 
-    <div id="navbar2">
-        <ul>
-            <img src="http://png-1.findicons.com/files/icons/1580/devine_icons_part_2/512/home.png" alt="home" id="navhome">
-            <li><span class="item1">@Html.ActionLink("Skjátexti", "ScreenText", "Home")</span></li>
-            <li><span class="item2">@Html.ActionLink("Beiðni", "Request", "Home")</span></li>
-            <li><span class="item3"><a href="#">Prófíll</a></span></li>
-            <li><span class="item4">@Html.ActionLink("Hjálp", "Contact", "Home")</span></li>
-            <li><span class="item5"><a href="#">About</a></span></li>
-            <li><span class="item6"><a href="#">&nbsp;</a></span></li>
-        </ul>
-    </div>
     <div id="search"> 
        
             <form>

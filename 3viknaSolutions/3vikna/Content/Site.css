@@ -7,10 +7,13 @@
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding: 2em;
-    padding-bottom: 20em;
+    padding-bottom: 0em;
     padding-top: 0em;
     background-color: white; /*SRV*/
+    min-height: 90em;
 }
+
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
