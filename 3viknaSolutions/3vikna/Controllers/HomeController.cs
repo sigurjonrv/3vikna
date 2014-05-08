@@ -35,6 +35,7 @@ namespace _3vikna.Controllers
 
         public ActionResult ScreenText()
         {
+           
             return View();
         }
 
@@ -51,5 +52,6 @@ namespace _3vikna.Controllers
 
             return View();
         }
+
     }
 }
