@@ -8,8 +8,8 @@ namespace _3vikna.Repositories
 {
     public class SubtitlesRepo
     {
-        private static List<Subtitles> m_subtitles = new List<Subtitles>();
-
+        private List<Subtitles> m_subtitles = new List<Subtitles>();
+        AppDataContext db = new AppDataContext();
         public List<Subtitles> GetAllSubtitles()
         {
             if (m_subtitles.Count == 0)
@@ -20,6 +20,14 @@ namespace _3vikna.Repositories
                 m_subtitles.Add(new Subtitles { ID = 4, MediaName = "Hangover 1", YearPublished = "2010" });
             }
             return m_subtitles;
+        }
+
+        public IQueryable<Subtitles> GetAllSubs()
+        {
+            var result = (from s in db.Subtitles
+                          where s.MediaName == "A"
+                          select s);
+            return result;
         }
     }
 }
