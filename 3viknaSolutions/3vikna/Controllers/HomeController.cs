@@ -33,9 +33,17 @@ namespace _3vikna.Controllers
             return View();
         }
 
-        public ActionResult ScreenText()
+        public ActionResult ScreenText() //ER AD VINNA HERNA
         {
-            return View();
+           if(User.IsInRole("Administrator"))
+           {
+               return View("NewRequest");
+           }
+           else
+           {
+               return View();
+           }
+           
         }
 
         public ActionResult About()
@@ -51,5 +59,6 @@ namespace _3vikna.Controllers
 
             return View();
         }
+
     }
 }
