@@ -43,11 +43,11 @@ input[type="checkbox"].input-validation-error {
     display: none;
 }
 
-.hjalp {
+/*.hjalp {              
     padding: 2em;
     padding-bottom: 20em;
     padding-top: 0em;
-}
+}*/
 .hjalp #navbar2 li .item4 a{
  color: black;
  height:auto;
@@ -78,25 +78,31 @@ input[type="checkbox"].input-validation-error {
 #navbar2 li .item1 a{
     position:relative;
     float:left;
-    width: 9em;
+    width: 10.1em;
     text-align:center;
 }
 #navbar2 li .item2 a{
     position:relative;
     float:left;
-    width: 9em;
+    width: 10.1em;
     text-align:center;
 }
 #navbar2 li .item3 a{
     position:relative;
     float:left;
-    width: 9em;
+    width: 10.1em;
     text-align:center;
 }
 #navbar2 li .item4 a{
     position:relative;
     float:left;
-    width: 9em;
+    width: 10.1em;
+    text-align:center;
+}
+#navbar2 li .item5 a{
+    position:relative;
+    float:left;
+    width: 10.1em;
     text-align:center;
 }
 
@@ -109,7 +115,7 @@ input[type="checkbox"].input-validation-error {
     max-height:1.8em;
     max-width:1.8em;
     float:left;
-    margin-left: 2em;
+    margin-left: 3em;
 }
 #logo h1 a{
     position: relative;
@@ -186,3 +192,8 @@ input[type="checkbox"].input-validation-error {
 
 }
 
+#RequestButton{
+
+    margin-left: 780px;
+    padding: 2px;
+}
