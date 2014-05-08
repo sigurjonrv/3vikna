@@ -54,6 +54,17 @@ input[type="checkbox"].input-validation-error {
 .hjalp #navbar2 li .item4 a{
  color: black;
  height:auto;
+  background : -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(40,40,40)));
+}
+.screentext #navbar2 li .item1 a{
+ color: black;
+ height:auto;
+  background : -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(40,40,40)));
+}
+.request #navbar2 li .item2 a{
+ color: black;
+ height:auto;
+  background : -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(40,40,40)));
 }
 #navbar2{
      background : -webkit-gradient(linear, left top, left bottom, from(rgb(168,168,168)), to(rgb(69,69,69)));
