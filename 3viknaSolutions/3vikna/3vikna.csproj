@@ -222,6 +222,7 @@
     <Content Include="Views\Home\Request.cshtml" />
     <Content Include="Views\Home\ScreenText.cshtml" />
     <Content Include="Views\Home\NewRequest.cshtml" />
+    <Content Include="Views\Shared\navigationbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

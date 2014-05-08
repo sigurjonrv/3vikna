@@ -3,25 +3,18 @@
 }
     <div class="hjalp">
     <h2>@ViewBag.Title</h2>
-        <div id="navbar2">
-            <ul>
-                <img src="http://png-1.findicons.com/files/icons/1580/devine_icons_part_2/512/home.png" alt="home" id="navhome">
-                <li><span class="item1">@Html.ActionLink("Skjátexti", "ScreenText", "Home")</span></li>
-                <li><span class="item2">@Html.ActionLink("Beiðni", "Request", "Home")</span></li>
-                <li><span class="item3"><a href="#">Prófíll</a></span></li>
-                <li><span class="item4">@Html.ActionLink("Hjálp", "Contact", "Home")</span></li>
-                <li><span class="item5"><a href="#">About</a></span></li>
-                <li><span class="item6"><a href="#">&nbsp;</a></span></li>
-            </ul>
-        </div>
-        <h2>Hvað hefur þú áhuga að vita um?</h2>
-        <ol class="tengir">
-            <li><a href="#Ná">Að ná í skrá</a></li>
-            <li><a href="#Skrá">Að skrá sig inn</a></li>
-            <li><a href="#Búa">Að búa til skrá</a></li>
-            <li><a href="#Tengja">Tengja srt skrá við spilaran</a></li>
-        </ol>
-    
+
+        
+
+        @Html.Partial("navigationbar")
+
+        <h2>Hvað hefur þú áhuga að vita um?</h2><br />
+        <a href="#Um">Um Vefsíðuna?</a><br />
+        <a href="#Ná">Að ná í skrá?</a><br />
+        <a href="#Skrá">Að skrá sig inn?</a><br />
+        <a href="#Búa">Að búa til skrá?</a><br />
+        <a href="#Tengja">Tengja srt skrá við spilaran?</a><br />
+      
         <h4 id="Ná">Að ná í skrá</h4>
         <p>Einna sem þú vilt gera er að leita af þeirri mynd sem þú vilt fá skjátexta undir og ýtta á örina til hægri og þá byrjar hún að niðurhalast</p>
 
