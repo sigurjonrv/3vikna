@@ -172,4 +172,17 @@ input[type="checkbox"].input-validation-error {
     bottom:auto;
     border:2px solid black;
 }
+.tengir{
+
+    text-decoration:none;
+    list-style-type:none;
+
+}
+.tengir li a{
+
+    text-decoration:none;
+    color:black;
+    font-size:15pt;
+
+}
 
