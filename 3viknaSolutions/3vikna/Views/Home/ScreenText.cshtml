@@ -60,14 +60,3 @@
     </tbody>
 </table>
     
-@if (User.IsInRole("User"))
-{ 
-    <div id="RequestButton">
-    <form action="http://localhost:65081/Home/NewRequest">
-        <input type="submit" value="Ný Beiðni">
-    </form>
-</div>
-}
-else
-{
-}
