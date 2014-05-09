@@ -10,8 +10,12 @@ namespace _3vikna.Models
         public int ID { get; set; }
         public string MediaName { get; set; }
         public string YearPublished { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public string Category { get; set; }
 
+        public Requests()
+        {
+            Date = DateTime.Now;
+        }
     }
 }
