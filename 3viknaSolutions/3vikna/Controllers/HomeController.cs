@@ -58,10 +58,21 @@ namespace _3vikna.Controllers
            
         }
         [Authorize]
-        public ActionResult NewScreenText()
+        public ActionResult NewScreenText(int? id, FormCollection form)
         {
             ViewBag.Message = "Nýr Skjátexti";
 
+            List<SelectListItem> Categories = new List<SelectListItem>();
+            Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
+            Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
+            Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
+            ViewBag.Categories = Categories;
+
+            Requests item = new Requests();
+
+            subtitleRepo.AddRequest(item);
+            UpdateModel(item);
+            requestRepo.Save();
             return View();
         }
 
