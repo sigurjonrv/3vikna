@@ -22,12 +22,13 @@ namespace _3vikna.Repositories
             return m_subtitles;
         }
 
-        public IQueryable<Subtitles> GetAllSubs()
+        public IQueryable<Subtitles> GetNewest()
         {
             var result = (from s in db.Subtitles
-                          where s.MediaName == "A"
+                          orderby s.DateCreated descending
                           select s);
             return result;
         }
+
     }
 }

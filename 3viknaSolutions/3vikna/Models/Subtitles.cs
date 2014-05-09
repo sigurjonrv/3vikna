@@ -12,6 +12,12 @@ namespace _3vikna.Models
         public string YearPublished { get; set; }
         public string Comments { get; set; }
         public string Category { get; set; }
+        public DateTime DateCreated { get; set; }
+
+        public Subtitles()
+        {
+            DateCreated = DateTime.Now;
+        }
 
     }
 }

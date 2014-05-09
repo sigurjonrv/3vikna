@@ -16,7 +16,7 @@ namespace _3vikna.Controllers
         {
             MainPageModelView vm = new MainPageModelView();
             vm.Req = RequestRepo.GetAllByDate();
-            vm.Sub = SubtitleRepo.GetAllSubs();
+            vm.Sub = SubtitleRepo.GetNewest();
             
             /*var model = SubtitleRepo.GetAllSubtitles();
             return View(model);*/

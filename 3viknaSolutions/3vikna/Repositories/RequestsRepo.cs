@@ -37,7 +37,7 @@ namespace _3vikna.Repositories
         public IEnumerable<Requests> GetAllByDate()
         {
             var results = (from r in db.Requests
-                           where r.Date == "09-05-2014"
+                           orderby r.Date ascending
                            select r);
             return results;
         }
