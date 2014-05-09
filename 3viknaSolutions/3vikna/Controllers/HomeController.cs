@@ -28,7 +28,7 @@ namespace _3vikna.Controllers
         {
             return View();
         }
-
+        
         public ActionResult NewRequest(int? id, FormCollection form)
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
@@ -44,7 +44,7 @@ namespace _3vikna.Controllers
             requestRepo.Save();
             return View();
         }
-
+        
         public ActionResult ScreenText() //ER AD VINNA HERNA
         {
            if(User.IsInRole("Administrator"))
@@ -56,6 +56,13 @@ namespace _3vikna.Controllers
                return View();
            }
            
+        }
+        [Authorize]
+        public ActionResult NewScreenText()
+        {
+            ViewBag.Message = "Nýr Skjátexti";
+
+            return View();
         }
 
         public ActionResult About()
