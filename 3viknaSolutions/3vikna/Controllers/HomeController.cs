@@ -10,13 +10,15 @@ namespace _3vikna.Controllers
 {
     public class HomeController : Controller
     {
-        SubtitlesRepo SubtitleRepo = new SubtitlesRepo();
-        RequestsRepo RequestRepo = new RequestsRepo();
+
+        SubtitlesRepo subtitleRepo = new SubtitlesRepo();
+        RequestsRepo requestRepo = new RequestsRepo();
         public ActionResult Index()
         {
+
             MainPageModelView vm = new MainPageModelView();
-            vm.Req = RequestRepo.GetAllByDate();
-            vm.Sub = SubtitleRepo.GetNewest();
+            vm.Req = requestRepo.GetAllByDate();
+            vm.Sub = subtitleRepo.GetNewest();
             
             /*var model = SubtitleRepo.GetAllSubtitles();
             return View(model);*/
@@ -27,8 +29,19 @@ namespace _3vikna.Controllers
             return View();
         }
 
-        public ActionResult NewRequest()
+        public ActionResult NewRequest(int? id, FormCollection form)
         {
+            List<SelectListItem> Categories = new List<SelectListItem>();
+            Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
+            Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
+            Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
+            ViewBag.Categories = Categories;
+
+            Requests item = new Requests();
+
+            requestRepo.AddRequest(item);
+            UpdateModel(item);
+            requestRepo.Save();
             return View();
         }
 

@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "ScreenText";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -53,4 +52,13 @@
             </tr>
         </tbody>
     </table>
-    </div>
+</div>
+
+<div id="RequestButton">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form action="http://localhost:65081/Home/NewRequest">
+            <input type="submit" value="Ný Beiðni">
+        </form>
+    }
+</div>

@@ -41,5 +41,15 @@ namespace _3vikna.Repositories
                            select r);
             return results;
         }
+
+        public void AddRequest(Requests s)
+        {
+            db.Requests.Add(s);
+            //m_db.SaveChanges();
+        }
+        public void Save()
+        {
+            db.SaveChanges();
+        }
     }
 }

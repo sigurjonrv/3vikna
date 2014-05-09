@@ -5,15 +5,16 @@ namespace _3vikna.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<_3vikna.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<_3vikna.Models.AppDataContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "_3vikna.Models.ApplicationDbContext";
+            ContextKey = "AppDataContext";
+            AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(_3vikna.Models.ApplicationDbContext context)
+        protected override void Seed(_3vikna.Models.AppDataContext context)
         {
             //  This method will be called after migrating to the latest version.
 

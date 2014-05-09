@@ -70,7 +70,7 @@ input[type="checkbox"].input-validation-error {
      background : -webkit-gradient(linear, left top, left bottom, from(rgb(168,168,168)), to(rgb(69,69,69)));
     list-style-type: none; 
     border-radius: 5px;
-    position:relative;
+    
 }
 #navbar2 ul{
    padding: 0px;
@@ -88,10 +88,10 @@ input[type="checkbox"].input-validation-error {
      font-weight:300;
      font-size:1.4em;
      text-decoration:none;
+     display: inline-block;
 }
-#navbar2 li .item1 a{
-    position:relative;
-    float:left;
+#navbar2 li .item a{
+
     width: 10.1em;
     text-align:center;
 }
