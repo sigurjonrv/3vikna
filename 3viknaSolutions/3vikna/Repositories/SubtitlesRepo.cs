@@ -25,9 +25,19 @@ namespace _3vikna.Repositories
         public IQueryable<Subtitles> GetNewest()
         {
             var result = (from s in db.Subtitles
-                          orderby s.DateCreated descending
+                          orderby s.MediaName
                           select s);
             return result;
+        }
+
+        public void AddSubtitle(Subtitles s)
+        {
+            db.Subtitles.Add(s);
+            //m_db.SaveChanges();
+        }
+        public void Save()
+        {
+            db.SaveChanges();
         }
 
     }

@@ -28,7 +28,7 @@ namespace _3vikna.Controllers
         {
             return View();
         }
-
+        
         public ActionResult NewRequest(int? id, FormCollection form)
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
@@ -44,7 +44,7 @@ namespace _3vikna.Controllers
             requestRepo.Save();
             return View();
         }
-
+        
         public ActionResult ScreenText() //ER AD VINNA HERNA
         {
            if(User.IsInRole("Administrator"))
@@ -56,6 +56,24 @@ namespace _3vikna.Controllers
                return View();
            }
            
+        }
+        [Authorize]
+        public ActionResult NewScreenText(int? id, FormCollection form)
+        {
+            ViewBag.Message = "Nýr Skjátexti";
+
+            List<SelectListItem> Categories = new List<SelectListItem>();
+            Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
+            Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
+            Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
+            ViewBag.Categories = Categories;
+
+            Subtitles item = new Subtitles();
+
+            subtitleRepo.AddSubtitle(item);
+            UpdateModel(item);
+            subtitleRepo.Save();
+            return View();
         }
 
         public ActionResult About()
