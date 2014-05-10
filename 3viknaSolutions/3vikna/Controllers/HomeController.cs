@@ -83,6 +83,13 @@ namespace _3vikna.Controllers
             return View();
         }
 
+        public ActionResult Search()
+        {
+            ViewBag.Message = "Your application description pagee";
+
+            return View();
+        }
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
