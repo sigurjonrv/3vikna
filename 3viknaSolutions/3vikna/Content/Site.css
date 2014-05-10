@@ -66,7 +66,6 @@ input[type="checkbox"].input-validation-error {
     list-style-type: none; 
     border-radius: 5px;
 }
-
 #navbar2 img{
     max-height:1.8em;
     max-width:2em;
@@ -75,17 +74,14 @@ input[type="checkbox"].input-validation-error {
     margin-left: 1em;
     margin-right: 1em;
 }
-
 #navbar2 ul{
     padding: 0px;
 }
-
 #navbar2 li{
     margin-left: auto;
     margin-right: auto;
     display: inline;
 }
-
 #navbar2 li a{
      margin-right: 0em;
      margin-left: 0em;
@@ -100,30 +96,25 @@ input[type="checkbox"].input-validation-error {
     width: 10.1em;
     text-align:center;
 }
-
 #navbar2 li a:hover{
     color: black;
     background : -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(40,40,40)));
 }
-
 #navbar2 #navhome {
     max-height:1.8em;
     max-width:1.8em;
     float:left;
     margin-left: 3em;
 }
-
 #logo h1 a{
     position: relative;
     color: black;
     margin-left: 2em;
     width: 3em;
 }
-
 #logo h1 a:hover{
     text-decoration:none;
 }
-
 #login{
    padding-right: 4em;
 }
@@ -136,8 +127,7 @@ input[type="checkbox"].input-validation-error {
     border-bottom-left-radius:3px;
     color: white;
 }
-
-#search form{
+#search {
    position: relative;
    padding-top: 1em;
    padding-left: 9em;
@@ -151,17 +141,14 @@ input[type="checkbox"].input-validation-error {
     margin-right:5px;
     text-align:center;
 }
-
 .noDotsInMainPageList{
     list-style: none;
 }
-
 #picturesize{
     
     max-width: 50px;
     max-height: 40px;
 }
-
 #RequestTableHeader{
 
     background-color: black;
@@ -170,11 +157,9 @@ input[type="checkbox"].input-validation-error {
     text-align:center;
      
 }
-
 #Table1{
     background-color:rgb(242,242,242);
 }
-
 #RequestTable{
     width:50%;
     position:relative;
@@ -183,24 +168,39 @@ input[type="checkbox"].input-validation-error {
     bottom:auto;
     border:2px solid black;
 }
-
 .tengir{
 
     text-decoration:none;
     list-style-type:none;
 }
-
 .tengir li a{
     text-decoration:none;
     color:black;
     font-size:15pt;
 }
-
 #RequestButton{
     margin-left: 780px;
     padding: 2px;
 }
-#SearchButton{
-
-
+.col-md-4{
+    background: -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(60,60,60)));
+    height: 26em;
+    max-width: 17.4em;
+    min-width: 17.4em;
+    border-radius: 10px;
+    margin: 1em;
+    margin-top: 5em;
+    font-size: 1.4em;
+}
+.col-md-4 ul{
+    padding: 0em;
+}
+.col-md-4 ul li{
+    border-bottom: 2px solid black;
+    padding: 0em;
+    color:white;
+    font-weight:
+}
+.col-md-4 ul li:hover{
+    padding-left:1em;
 }
