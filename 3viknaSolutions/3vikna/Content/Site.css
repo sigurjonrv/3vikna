@@ -13,7 +13,6 @@
     min-height: 90em;
 }
 
-
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
@@ -45,42 +44,48 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
-
-/*.hjalp {              
-    padding: 2em;
-    padding-bottom: 20em;
-    padding-top: 0em;
-}*/
-.hjalp #navbar2 li .item4 a{
+/*þetta er svo að navbarinn sýni hvar maður er SRV*/
+.hjalp #navbar2 li .i4 a{
  color: black;
  height:auto;
   background : -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(40,40,40)));
 }
-.screentext #navbar2 li .item1 a{
+.screentext #navbar2 li .i1 a{
  color: black;
  height:auto;
   background : -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(40,40,40)));
 }
-.request #navbar2 li .item2 a{
+.request #navbar2 li .i2 a{
  color: black;
  height:auto;
-  background : -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(40,40,40)));
+ background : -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(40,40,40)));
 }
+/*þetta er svo að navbarinn sýni hvar maður er SRV*/
 #navbar2{
-     background : -webkit-gradient(linear, left top, left bottom, from(rgb(168,168,168)), to(rgb(69,69,69)));
+    background : -webkit-gradient(linear, left top, left bottom, from(rgb(168,168,168)), to(rgb(69,69,69)));
     list-style-type: none; 
     border-radius: 5px;
-    
 }
+
+#navbar2 img{
+    max-height:1.8em;
+    max-width:2em;
+    position:relative;
+    float:left;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
 #navbar2 ul{
-   padding: 0px;
+    padding: 0px;
 }
 
 #navbar2 li{
-   margin-left: auto;
+    margin-left: auto;
     margin-right: auto;
     display: inline;
 }
+
 #navbar2 li a{
      margin-right: 0em;
      margin-left: 0em;
@@ -95,57 +100,38 @@ input[type="checkbox"].input-validation-error {
     width: 10.1em;
     text-align:center;
 }
-#navbar2 li .item2 a{
-    position:relative;
-    float:left;
-    width: 10.1em;
-    text-align:center;
-}
-#navbar2 li .item3 a{
-    position:relative;
-    float:left;
-    width: 10.1em;
-    text-align:center;
-}
-#navbar2 li .item4 a{
-    position:relative;
-    float:left;
-    width: 10.1em;
-    text-align:center;
-}
-#navbar2 li .item5 a{
-    position:relative;
-    float:left;
-    width: 10.1em;
-    text-align:center;
-}
-
 
 #navbar2 li a:hover{
     color: black;
     background : -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(40,40,40)));
 }
+
 #navbar2 #navhome {
     max-height:1.8em;
     max-width:1.8em;
     float:left;
     margin-left: 3em;
 }
+
 #logo h1 a{
     position: relative;
     color: black;
     margin-left: 2em;
     width: 3em;
 }
+
 #logo h1 a:hover{
     text-decoration:none;
 }
+
 #login{
    padding-right: 4em;
 }
+
 #login a{
    color: black;
 }
+
 #search form{
    position: relative;
    padding-top: 1em;
@@ -154,13 +140,13 @@ input[type="checkbox"].input-validation-error {
    margin-left:auto;
    margin-right:auto;
 }
-
 .image{
 
     margin-left:5px;
     margin-right:5px;
     text-align:center;
 }
+
 .noDotsInMainPageList{
     list-style: none;
 }
@@ -179,6 +165,7 @@ input[type="checkbox"].input-validation-error {
     text-align:center;
      
 }
+
 #Table1{
     background-color:rgb(242,242,242);
      
@@ -192,22 +179,20 @@ input[type="checkbox"].input-validation-error {
     bottom:auto;
     border:2px solid black;
 }
+
 .tengir{
 
     text-decoration:none;
     list-style-type:none;
-
 }
-.tengir li a{
 
+.tengir li a{
     text-decoration:none;
     color:black;
     font-size:15pt;
-
 }
 
 #RequestButton{
-
     margin-left: 780px;
     padding: 2px;
 }
