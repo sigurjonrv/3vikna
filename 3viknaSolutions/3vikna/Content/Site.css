@@ -127,9 +127,14 @@ input[type="checkbox"].input-validation-error {
 #login{
    padding-right: 4em;
 }
-
 #login a{
    color: black;
+}
+#login a:hover{
+    background-color:black;
+    border-bottom-right-radius:3px;
+    border-bottom-left-radius:3px;
+    color: white;
 }
 
 #search form{
@@ -168,7 +173,6 @@ input[type="checkbox"].input-validation-error {
 
 #Table1{
     background-color:rgb(242,242,242);
-     
 }
 
 #RequestTable{

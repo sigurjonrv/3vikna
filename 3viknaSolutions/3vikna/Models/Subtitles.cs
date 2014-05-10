@@ -13,6 +13,7 @@ namespace _3vikna.Models
         public string Comments { get; set; }
         public string Category { get; set; }
         public DateTime DateCreated { get; set; }
+        public string File { get; set; }
 
         public Subtitles()
         {
