@@ -32,18 +32,18 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DateCreated, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DateCreated)
-                @Html.ValidationMessageFor(model => model.DateCreated)
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.Category, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.Category, ViewBag.Categories as List<SelectListItem>)
                 @Html.ValidationMessageFor(model => model.Category)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateCreated, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateCreated)
+                @Html.ValidationMessageFor(model => model.DateCreated)
             </div>
         </div>
 

@@ -68,17 +68,24 @@ namespace _3vikna.Controllers
             Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
             ViewBag.Categories = Categories;
 
-            Requests item = new Requests();
+            Subtitles item = new Subtitles();
 
-            subtitleRepo.AddRequest(item);
+            subtitleRepo.AddSubtitle(item);
             UpdateModel(item);
-            requestRepo.Save();
+            subtitleRepo.Save();
             return View();
         }
 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description pagee.";
+
+            return View();
+        }
+
+        public ActionResult Search()
+        {
+            ViewBag.Message = "Your application description pagee";
 
             return View();
         }
