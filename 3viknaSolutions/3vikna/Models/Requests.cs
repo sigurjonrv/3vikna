@@ -12,6 +12,7 @@ namespace _3vikna.Models
         public string YearPublished { get; set; }
         public DateTime Date { get; set; }
         public string Category { get; set; }
+        public string File { get; set; }
 
         public Requests()
         {
