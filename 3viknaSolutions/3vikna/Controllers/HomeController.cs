@@ -13,6 +13,7 @@ namespace _3vikna.Controllers
 
         SubtitlesRepo subtitleRepo = new SubtitlesRepo();
         RequestsRepo requestRepo = new RequestsRepo();
+        AppDataContext db = new AppDataContext();
         public ActionResult Index()
         {
 
@@ -24,11 +25,24 @@ namespace _3vikna.Controllers
             return View(model);*/
             return View(vm);
         }
-        public ActionResult Request()
+        public ActionResult RequestPage()
         {
+            return View(db.Requests);
+        }
+
+        [HttpGet]
+        public ActionResult NewRequest()
+        {
+            List<SelectListItem> Categories = new List<SelectListItem>();
+            Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
+            Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
+            Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
+            ViewBag.Categories = Categories;
+
             return View();
         }
-        
+
+        [HttpPost]
         public ActionResult NewRequest(int? id, FormCollection form)
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
@@ -53,7 +67,7 @@ namespace _3vikna.Controllers
            }
            else
            {
-               return View();
+               return View(db.Subtitles);
            }
            
         }
