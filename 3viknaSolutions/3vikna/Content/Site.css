@@ -183,24 +183,36 @@ input[type="checkbox"].input-validation-error {
     padding: 2px;
 }
 .forsida .col-md-4{
-    background: -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(60,60,60)));
-    height: 26em;
-    max-width: 17.4em;
-    min-width: 17.4em;
-    border-radius: 10px;
-    margin: 1em;
-    margin-top: 5em;
-    font-size: 1.4em;
+    margin: 50px;
+    padding: 0px;
+    width: 20em;
+}
+.forsida .col-md-4 h2{
+    text-align: center;
 }
 .forsida .col-md-4 ul{
-    padding: 0em;
+    list-style-type: none;
+    width: 300px;
+    padding:0px;
 }
-.forsida .col-md-4 ul li{
-    border-bottom: 2px solid black;
-    padding: 0em;
-    color:white;
-    font-weight:
+.forsida .col-md-4 h3{
+    font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+    padding:0em;
+    margin:0em;
 }
-.forsida .col-md-4 ul li:hover{
-    padding-left:1em;
+.forsida .col-md-4 li img{
+    float: left;
+    margin: 0 15px 0 0;
+    height: 4em;
+}
+.forsida .col-md-4 li p{
+    font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+.forsida .col-md-4 li{
+   padding: 10px;
+   overflow: auto;
+}
+.forsida.col-md-4 :hover{
+   background: #eee;
+  cursor: pointer;
 }

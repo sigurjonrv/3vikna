@@ -38,7 +38,7 @@ namespace _3vikna.Repositories
         {
             var results = (from r in db.Requests
                            orderby r.Date ascending
-                           select r);
+                           select r).Take(5);
             return results;
         }
 
