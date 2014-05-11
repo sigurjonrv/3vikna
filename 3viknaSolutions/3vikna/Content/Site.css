@@ -182,7 +182,7 @@ input[type="checkbox"].input-validation-error {
     margin-left: 780px;
     padding: 2px;
 }
-.col-md-4{
+.forsida .col-md-4{
     background: -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(60,60,60)));
     height: 26em;
     max-width: 17.4em;
@@ -192,15 +192,15 @@ input[type="checkbox"].input-validation-error {
     margin-top: 5em;
     font-size: 1.4em;
 }
-.col-md-4 ul{
+.forsida .col-md-4 ul{
     padding: 0em;
 }
-.col-md-4 ul li{
+.forsida .col-md-4 ul li{
     border-bottom: 2px solid black;
     padding: 0em;
     color:white;
     font-weight:
 }
-.col-md-4 ul li:hover{
+.forsida .col-md-4 ul li:hover{
     padding-left:1em;
 }
