@@ -225,7 +225,7 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Request.cshtml" />
+    <Content Include="Views\Home\RequestPage.cshtml" />
     <Content Include="Views\Home\ScreenText.cshtml" />
     <Content Include="Views\Home\NewRequest.cshtml" />
     <Content Include="Views\Shared\navigationbar.cshtml" />
