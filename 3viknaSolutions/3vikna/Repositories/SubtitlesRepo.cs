@@ -26,7 +26,7 @@ namespace _3vikna.Repositories
         {
             var result = (from s in db.Subtitles
                           orderby s.MediaName
-                          select s);
+                          select s).Take(5);
             return result;
         }
 
