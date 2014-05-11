@@ -65,8 +65,7 @@ input[type="checkbox"].input-validation-error {
     background : -webkit-gradient(linear, left top, left bottom, from(rgb(168,168,168)), to(rgb(69,69,69)));
     list-style-type: none; 
     border-radius: 5px;
-<<<<<<< HEAD
-=======
+
 }
 #navbar2 img{
     max-height:1.8em;
@@ -75,7 +74,7 @@ input[type="checkbox"].input-validation-error {
     float:left;
     margin-left: 1em;
     margin-right: 1em;
->>>>>>> 424b427f869a073cad87e28f6e577820c04e6093
+
 }
 
 #navbar2 img{
@@ -110,10 +109,7 @@ input[type="checkbox"].input-validation-error {
     width: 10.1em;
     text-align:center;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 424b427f869a073cad87e28f6e577820c04e6093
 #navbar2 li a:hover{
     color: black;
     background : -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(40,40,40)));
@@ -144,10 +140,8 @@ input[type="checkbox"].input-validation-error {
 #login a{
    color: black;
 }
-<<<<<<< HEAD
 
-#search form{
-=======
+
 #login a:hover{
     background-color:black;
     border-bottom-right-radius:3px;
@@ -155,7 +149,7 @@ input[type="checkbox"].input-validation-error {
     color: white;
 }
 #search {
->>>>>>> 424b427f869a073cad87e28f6e577820c04e6093
+
    position: relative;
    padding-top: 1em;
    padding-left: 9em;
@@ -204,10 +198,7 @@ input[type="checkbox"].input-validation-error {
     text-decoration:none;
     list-style-type:none;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 424b427f869a073cad87e28f6e577820c04e6093
 .tengir li a{
     text-decoration:none;
     color:black;
