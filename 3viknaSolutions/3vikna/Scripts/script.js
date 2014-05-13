@@ -1,4 +1,4 @@
-﻿/*function getAll() {
+﻿function getAll() {
     $.ajax({
         type: "GET",
         url: "/Home/GetUpvotes",
@@ -16,7 +16,7 @@
 
             }
     });
-}*/
+}
 $(document).ready(function () {
     getAll();
     $("#butid").click(function (evt) {
