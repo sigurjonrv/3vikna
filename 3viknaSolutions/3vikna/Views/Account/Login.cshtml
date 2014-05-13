@@ -11,7 +11,7 @@
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h4>Notaðu Notanda nafn og Lykilorð til þess ad skrá þig inn.</h4>
+                <h4>Notaðu Notandanafn og Lykilorð til þess ad skrá þig inn.</h4>
                 <hr />
                 @Html.ValidationSummary(true)
                 <div class="form-group">
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <p>
-                    @Html.ActionLink("Ny Skraning", "Register") Ef þú ert ekki nú þegar notandi geturðu ýtt a Nýskráning.
+                    @Html.ActionLink("Ný Skraning", "Register") Ef þú ert ekki nú þegar notandi geturðu ýtt a Nýskráning.
                 </p>
             }
         </section>
