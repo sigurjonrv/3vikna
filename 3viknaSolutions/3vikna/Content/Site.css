@@ -94,7 +94,6 @@ input[type="checkbox"].input-validation-error {
     margin-right: auto;
     display: inline;
 }
-
 #navbar2 li a{
      margin-right: 0em;
      margin-left: 0em;
@@ -104,6 +103,7 @@ input[type="checkbox"].input-validation-error {
      text-decoration:none;
      display: inline-block;
 }
+
 #navbar2 li .item a{
 
     width: 10.1em;
@@ -178,7 +178,6 @@ input[type="checkbox"].input-validation-error {
     color:white;
     font-size: 14px;
     text-align:center;
-     
 }
 
 #Table1{
@@ -242,6 +241,7 @@ input[type="checkbox"].input-validation-error {
    background: #eee;
   cursor: pointer;
 }
+
 .glyphicon-home{
  color:black;
   padding-left: 1.5em;
@@ -252,3 +252,28 @@ input[type="checkbox"].input-validation-error {
   text-decoration: none;
 
 }
+.profilepicture{
+    position:absolute; 
+    top: 50px; 
+    right: 100px;
+}
+
+#profileimage{
+     width: 170px;
+    height: 200px;
+    padding-bottom: 20px;
+}
+
+#loginname{
+    font-size: 20px;
+    font-style: italic;
+    left: 20px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.changepassword{
+    margin-left: 50px;
+}
+
