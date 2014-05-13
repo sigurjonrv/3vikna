@@ -157,7 +157,6 @@ namespace _3vikna.Controllers
         }
         public ActionResult EditSub(int id)
         {
-            id = 133;
             Requests model = new Requests();
             model = requestRepo.GetByID(id);
             string lines = model.File;
