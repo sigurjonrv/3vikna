@@ -243,4 +243,31 @@ input[type="checkbox"].input-validation-error {
   cursor: pointer;
 }
 
+.profilepicture{
+    position:absolute; 
+    top: 50px; 
+    right: 100px;
+}
+
+#profileimage{
+     width: 170px;
+    height: 200px;
+    padding-bottom: 20px;
+}
+
+#loginname{
+    font-size: 20px;
+    font-style: italic;
+    left: 20px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.changepassword{
+    margin-left: 50px;
+}
+
+
+
 
