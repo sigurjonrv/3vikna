@@ -112,10 +112,12 @@ namespace _3vikna.Controllers
         }
         public ActionResult EditSub(int id)
         {
-            id = 130;
+            id = 133;
             Requests model = new Requests();
             model = requestRepo.GetByID(id);
-
+            //model.File = model.File.Replace("\n \n", "<b /> yolo <br />");
+            model.File = model.File.Replace("\n\r\n", "<br /> yolo <br />");
+            model.File = model.File.Replace("\n", "<br />");
             return View(model);
         }
 

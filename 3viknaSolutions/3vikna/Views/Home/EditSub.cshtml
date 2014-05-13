@@ -11,9 +11,9 @@
 <ul class="list-group">
     @for(int i = 0; i < 1;i++)
     {
-    <li class="list-group-item">
+    <li class="list-group-item">    
         <span class="badge" id="sub">14</span>
-        @Model.File.OpenText;
+        @Html.Raw(Model.File);
         
 
     </li>
