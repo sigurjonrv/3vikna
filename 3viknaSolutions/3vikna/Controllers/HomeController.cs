@@ -16,18 +16,20 @@ namespace _3vikna.Controllers
         AppDataContext db = new AppDataContext();
         public ActionResult Index()
         {
-
             MainPageModelView vm = new MainPageModelView();
             vm.Req = requestRepo.GetAllByDate();
             vm.Sub = subtitleRepo.GetNewest();
+         
             
             /*var model = SubtitleRepo.GetAllSubtitles();
             return View(model);*/
             return View(vm);
         }
+        
         public ActionResult RequestPage()
-        {
-            return View(db.Requests);
+        {    
+           return View(db.Requests);
+
         }
 
         [HttpGet]
@@ -38,6 +40,7 @@ namespace _3vikna.Controllers
             Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
             Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
             ViewBag.Categories = Categories;
+            
 
             return View();
         }
@@ -97,11 +100,35 @@ namespace _3vikna.Controllers
             return View();
         }
 
-        public ActionResult Search()
+        public ActionResult Search(string searchBy, string search) //string searchBy, string search
         {
-            ViewBag.Message = "Your application description pagee";
 
-            return View();
+            if(searchBy == "MediaName")
+            {
+                if(search == "")
+                {
+                    return View(db.Requests.Where(x => x.Category == "Other"));
+                }
+                return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
+            }
+            else if (searchBy == "Episodes")
+            {
+                if(search == "")
+                {
+                    return View(db.Requests.Where(x => x.Category == "Episodes"));
+                }
+                return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
+            }
+            else
+            {
+                if(search == "")
+                {
+                    return View(db.Requests.Where(x => x.Category == "Movies"));
+                }
+                return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
+            }
+
+            //return View();
         }
 
         public ActionResult Contact()
