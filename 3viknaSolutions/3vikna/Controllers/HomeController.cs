@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using _3vikna.Models;
 using _3vikna.Repositories;
+using System.IO;
 
 namespace _3vikna.Controllers
 {
@@ -31,6 +32,12 @@ namespace _3vikna.Controllers
         }
 
         [HttpGet]
+        public ActionResult GetUpvotes()
+        {
+            var model = requestRepo.GetUpvotes();
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult NewRequest()
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
@@ -38,12 +45,11 @@ namespace _3vikna.Controllers
             Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
             Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
             ViewBag.Categories = Categories;
-
             return View();
         }
 
         [HttpPost]
-        public ActionResult NewRequest(int? id, FormCollection form)
+        public ActionResult NewRequest(int? id, FormCollection form, HttpPostedFileBase uploadFile)
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
             Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
@@ -51,31 +57,55 @@ namespace _3vikna.Controllers
             Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
             ViewBag.Categories = Categories;
 
+            var reader = new StreamReader(uploadFile.InputStream);
             Requests item = new Requests();
 
-            requestRepo.AddRequest(item);
-            UpdateModel(item);
-            requestRepo.Save();
-            return View();
+            item.File = reader.ReadToEnd();
+            if (form != null)
+            {
+                requestRepo.AddRequest(item);
+                UpdateModel(item);
+                requestRepo.Save();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View("Error");
+            }
         }
-        
+
         public ActionResult ScreenText() //ER AD VINNA HERNA
         {
-           if(User.IsInRole("Administrator"))
-           {
-               return View("NewRequest");
-           }
-           else
-           {
-               return View(db.Subtitles);
-           }
-           
+            if (User.IsInRole("Administrator"))
+            {
+                List<SelectListItem> Categories = new List<SelectListItem>();
+                Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
+                Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
+                Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
+                ViewBag.Categories = Categories;
+                return View("NewRequest");
+            }
+            else
+            {
+                return View(db.Subtitles);
+            }
+
         }
         [Authorize]
-        public ActionResult NewScreenText(int? id, FormCollection form)
+        public ActionResult NewScreenText()
         {
-            ViewBag.Message = "Nýr Skjátexti";
+            List<SelectListItem> Categories = new List<SelectListItem>();
+            Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
+            Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
+            Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
+            ViewBag.Categories = Categories;
 
+            return View();
+        }
+        [Authorize]
+        [HttpPost]
+        public ActionResult NewScreenText(int? id, FormCollection form, HttpPostedFileBase uploadFile)
+        {
             List<SelectListItem> Categories = new List<SelectListItem>();
             Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
             Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
@@ -83,11 +113,24 @@ namespace _3vikna.Controllers
             ViewBag.Categories = Categories;
 
             Subtitles item = new Subtitles();
+            if (uploadFile != null)
+            {
+                var reader = new StreamReader(uploadFile.InputStream);
+                item.File = reader.ReadToEnd();
 
-            subtitleRepo.AddSubtitle(item);
-            UpdateModel(item);
-            subtitleRepo.Save();
-            return View();
+            }
+
+            if (form != null)
+            {
+                subtitleRepo.AddSubtitle(item);
+                UpdateModel(item);
+                subtitleRepo.Save();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View("Error");
+            }
         }
 
         public ActionResult About()

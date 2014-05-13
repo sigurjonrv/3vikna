@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -44,19 +44,12 @@
                 @Html.ValidationMessageFor(model => model.Category)
             </div>
         </div>
-
-            @using (Html.BeginForm("UploadFiles", "home", FormMethod.Post, new {enctype="multipart/form-data"})){
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="file" name="FileUpload1" /><br />
-                        <input type="submit" value="Create" class="btn btn-default" />
-                    </div>
-                </div>
-        }
+        <div>
+            <input name="uploadFile" type="file" />
+            <input type="submit" value="Senda" class="btn btn-default" />
         </div>
+    </div>
 }
-
 <div>
     @Html.ActionLink("Back News", "Index")
 </div>
