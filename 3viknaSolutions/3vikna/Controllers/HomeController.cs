@@ -160,11 +160,28 @@ namespace _3vikna.Controllers
             id = 133;
             Requests model = new Requests();
             model = requestRepo.GetByID(id);
+            string lines = model.File;
+            string[] line = lines.Split('\r');
+            EditSub es = new EditSub();
+            es.req = model;
+            es.lines = line;
             //model.File = model.File.Replace("\n \n", "<b /> yolo <br />");
-            model.File = model.File.Replace("\n\r\n", "<br /> yolo <br />");
-            model.File = model.File.Replace("\n", "<br />");
-            return View(model);
+            //model.File = model.File.Replace("\n\r\n", "<br /> yolo <br />");
+            //model.File = model.File.Replace("\n", "<br />");
+            return View(es);
         }
+
+        [HttpPost]
+        public ActionResult EditSub(EditSub es)
+        {
+            UpdateModel(es.req.File);
+            requestRepo.Save();
+            //model.File = model.File.Replace("\n \n", "<b /> yolo <br />");
+            //model.File = model.File.Replace("\n\r\n", "<br /> yolo <br />");
+            //model.File = model.File.Replace("\n", "<br />");
+            return View(es);
+        }
+
 
     }
 }

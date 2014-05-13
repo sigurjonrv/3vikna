@@ -170,6 +170,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppDataContext.cs" />
+    <Compile Include="Models\EditSub.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MainPageModelView.cs" />
     <Compile Include="Models\Requests.cs" />

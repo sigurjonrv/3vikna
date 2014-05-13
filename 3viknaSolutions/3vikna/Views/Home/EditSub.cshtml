@@ -1,4 +1,4 @@
-﻿@model _3vikna.Models.Requests
+﻿@model _3vikna.Models.EditSub
 @{
     ViewBag.Title = "EditSub";
 }
@@ -7,17 +7,20 @@
 @Html.Partial("navigationbar")
 
 
-     
+@using (Html.BeginForm())
+{
 <ul class="list-group">
-    @for(int i = 0; i < 1;i++)
-    {
     <li class="list-group-item">    
         <span class="badge" id="sub">14</span>
-        @Html.Raw(Model.File);
+        @for (int i = 0; i < Model.lines.Length; i++)
+        {
+            @Html.LabelFor(model => model.lines, @Html.Raw("<input type='text' value=" + Model.lines[i] +"> '<br/>"));
+            
+        }
         
 
-    </li>
-    }
-</ul>
+         <input type="submit" value="Senda" class="btn btn-default" />
 
+</ul>
+}
 
