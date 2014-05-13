@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<_3vikna.Models.Requests>
 @{
     ViewBag.Title = "Search";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,56 +6,46 @@
 
 <h2>Search</h2>
 
-<<<<<<< HEAD
-=======
 @Html.Partial("navigationbar")
 
 @Html.Partial("Searchpartial")
 
-<table id="RequestTable">
-    <thead>
-        <tr id="RequestTableHeader">
-            <th class="head"></th>
-            <th class="head">Myndir</th>
-            <th class="head">Útgáfuár</th>
-            <th class="head">Dagsetning</th>
-            <th class="head">Staða</th>
-            <th class="head">Kjósa</th>
-        </tr>
-    </thead>
-    <tbody id="Table1">
-        <tr>
-            <td class="row3"></td>
-            <td class="row1"></td> <!--er ad vinna herna ANDRI-->
-            <td class="row1"></td>
-            <td class="row2"></td>
-            <td class="row2"></td>
-            <td class="row2"></td>
-        </tr>
-        <tr>
-            <td class="row3"></td>
-            <td class="row1"></td> <!--er ad vinna herna ANDRI-->
-            <td class="row1"></td>
-            <td class="row2"></td>
-            <td class="row2"></td>
-            <td class="row2"></td>
-        </tr>
-        <tr>
-            <td class="row3"></td>
-            <td class="row1"></td> <!--er ad vinna herna ANDRI-->
-            <td class="row1"></td>
-            <td class="row2"></td>
-            <td class="row2"></td>
-            <td class="row2"></td>
-        </tr>
-        <tr>
-            <td class="row3"></td>
-            <td class="row1"></td> <!--er ad vinna herna ANDRI-->
-            <td class="row1"></td>
-            <td class="row2"></td>
-            <td class="row2"></td>
-            <td class="row2"></td>
-        </tr>
-    </tbody>
-</table>
->>>>>>> 424b427f869a073cad87e28f6e577820c04e6093
+    <table id="RequestTable">
+        <thead>
+            <tr id="RequestTableHeader">
+                <th class="head"></th>
+                <th class="head">Myndir</th>
+                <th class="head">Útgáfuár</th>
+                <th class="head">Dagsetning</th>
+                <th class="head">Staða</th>
+                <th class="head">Kjósa</th>
+            </tr>
+        </thead>
+        @if (Model.Count() == 0)
+        {
+            <tbody id="Table1">
+                <tr>
+                    <td colspan="6">Engar niðurstöður fundust</td>
+
+                </tr>
+            </tbody>
+        }
+        else
+        {
+        <tbody id="Table1">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="row3"> <img src="http://content.clearchannel.com/cc-common/mlib/589/05/589_1369232682.jpg" id="picturesize" alt="photo" /></td>
+                    <td class="row1">@item.MediaName</td>
+                    <td class="row1">@item.YearPublished</td>
+                    <td class="row2">@item.Date</td>
+                    <td class="row2"><img src="https://fbcdn-photos-h-a.akamaihd.net/hphotos-ak-prn2/v/t34.0-11/10306971_578242318958052_2069168489_t.jpg?oh=43193cddb8a7557e26de3eddd40328e9&oe=536C8873&__gda__=1399612150_e7214f058f835ec492b617185e261525" alt="photo" /></td>
+                    <td></td>
+                </tr>
+            }
+        </tbody>
+        }
+    </table>
+        
+
