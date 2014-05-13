@@ -110,7 +110,5 @@ namespace _3vikna.Controllers
 
             return View();
         }
-
     }
 }
-
