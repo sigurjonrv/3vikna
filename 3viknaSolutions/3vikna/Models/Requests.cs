@@ -13,6 +13,7 @@ namespace _3vikna.Models
         public DateTime Date { get; set; }
         public string Category { get; set; }
         public string File { get; set; }
+        public int UpvoteID { get; set; }
 
         public Requests()
         {

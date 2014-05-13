@@ -42,6 +42,14 @@ namespace _3vikna.Repositories
             return results;
         }
 
+        public IEnumerable<Requests> GetUpvotes()
+        {
+            var result = from c in db.Requests
+                         orderby c.UpvoteID ascending
+                         select c;
+            return result;
+        }
+
         public void AddRequest(Requests s)
         {
             db.Requests.Add(s);
