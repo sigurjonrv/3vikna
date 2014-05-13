@@ -232,6 +232,7 @@
     <Content Include="Views\Shared\Searchpartial.cshtml" />
     <Content Include="Views\Home\NewScreenText.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\EditSub.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,23 @@
+﻿@model _3vikna.Models.Requests
+@{
+    ViewBag.Title = "EditSub";
+}
+
+<h2>EditSub</h2>
+@Html.Partial("navigationbar")
+
+
+     
+<ul class="list-group">
+    @for(int i = 0; i < 1;i++)
+    {
+    <li class="list-group-item">
+        <span class="badge" id="sub">14</span>
+        @Model.File.OpenText;
+        
+
+    </li>
+    }
+</ul>
+
+

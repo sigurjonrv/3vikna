@@ -110,6 +110,14 @@ namespace _3vikna.Controllers
 
             return View();
         }
+        public ActionResult EditSub(int id)
+        {
+            id = 130;
+            Requests model = new Requests();
+            model = requestRepo.GetByID(id);
+
+            return View(model);
+        }
 
     }
 }
