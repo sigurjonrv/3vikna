@@ -41,6 +41,22 @@ namespace _3vikna.Repositories
                            select r).Take(5);
             return results;
         }
+        //SRV
+        public Requests GetByID(int id)
+        {
+            var results = (from r in db.Requests
+                           where r.ID == id
+                           select r).SingleOrDefault();
+            return results;
+        }
+
+        public IEnumerable<Requests> GetUpvotes()
+        {
+            var result = from c in db.Requests
+                         orderby c.UpvoteID ascending
+                         select c;
+            return result;
+        }
 
         public void AddRequest(Requests s)
         {

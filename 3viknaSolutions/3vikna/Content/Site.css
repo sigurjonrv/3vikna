@@ -17,7 +17,7 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 600px;
 }
 
 /* styles for validation helpers */
@@ -94,7 +94,6 @@ input[type="checkbox"].input-validation-error {
     margin-right: auto;
     display: inline;
 }
-
 #navbar2 li a{
      margin-right: 0em;
      margin-left: 0em;
@@ -104,6 +103,7 @@ input[type="checkbox"].input-validation-error {
      text-decoration:none;
      display: inline-block;
 }
+
 #navbar2 li .item a{
 
     width: 10.1em;
@@ -178,7 +178,6 @@ input[type="checkbox"].input-validation-error {
     color:white;
     font-size: 14px;
     text-align:center;
-     
 }
 
 #Table1{
@@ -243,6 +242,16 @@ input[type="checkbox"].input-validation-error {
   cursor: pointer;
 }
 
+.glyphicon-home{
+ color:black;
+  padding-left: 1.5em;
+  padding-right: 1em;
+}
+.glyphicon-home:hover{
+  color:black;
+  text-decoration: none;
+
+}
 .profilepicture{
     position:absolute; 
     top: 50px; 
@@ -268,6 +277,7 @@ input[type="checkbox"].input-validation-error {
     margin-left: 50px;
 }
 
-
-
+.foo input {
+    width: 400px;
+}
 
