@@ -50,7 +50,6 @@
     <div class="row">
         <div class="col-md-4">
             <h2>Vinsælustu Beiðnir</h2>
-            <p>
                 <ul>
                     @foreach (var item in Model.Req)
                     {
@@ -67,16 +66,16 @@
                             }
                               <h3>@item.MediaName</h3>
                               <p> Útgáfu ár: @item.YearPublished</p>
+                              <p> Sett inn @item.Date</p>
                        </li>
                         //<li class="noDotsInMainPageList">@item.MediaName</li>
                     }
                 </ul>
-            </p>
             <!--<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>-->
         </div>
         <div class="col-md-4">
             <h2>Nýjustu skjátextar</h2>
-            <p>
+
                 <ul>
                     @foreach (var item in Model.Sub)
                     {
@@ -98,12 +97,10 @@
                         //<li class="noDotsInMainPageList">@item.MediaName</li>
                     }
                 </ul>
-            </p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
         </div>
         <div class="col-md-4">
             <h2>Í vinnslu</h2>
-            <p>
+
                 <ul>
                     @foreach (var item in Model.Sub)
                     {
@@ -123,9 +120,8 @@
                              <p> Sett inn @item.DateCreated</p>
                        </li>
                     }
-                    </ul>
-                    </p>
-                    <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+                  </ul>
+
                 </div>
     </div>
 </div>

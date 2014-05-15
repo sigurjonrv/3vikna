@@ -2,21 +2,22 @@
     ViewBag.Title = "Hjálparsíða";
 }
     <div class="hjalp">
+
     <h2>@ViewBag.Title</h2>
 
 
 
     @Html.Partial("navigationbar")
-
-    <h2>Hvað hefur þú áhuga á að vita um?</h2><br />
-    <a href="#Um">Um Vefsíðuna?</a><br />
-    <a href="#Ná">Að ná í skrá?</a><br />
-    <a href="#Beiðni">Að búa til beiðni</a><br />
-    <a href="#Skrá">Að skrá sig inn?</a><br />
-    <a href="#Búa">Að búa til skrá?</a><br />
-    <a href="#Breyta">Að breyta skrá?</a><br />
-    <a href="#Tengja">Tengja srt skrá við spilarann?</a><br />
-
+        <div class="questions">
+            <h2>Hvað hefur þú áhuga á að vita um?</h2><br />
+            <a href="#Um">Um Vefsíðuna?</a><br />
+            <a href="#Ná">Að ná í skrá?</a><br />
+            <a href="#Beiðni">Að búa til beiðni</a><br />
+            <a href="#Skrá">Að skrá sig inn?</a><br />
+            <a href="#Búa">Að búa til skrá?</a><br />
+            <a href="#Breyta">Að breyta skrá?</a><br />
+            <a href="#Tengja">Tengja srt skrá við spilarann?</a><br />
+        </div>
     <h4 id="Ná">Að ná í srt skrá</h4>
 
     <ol>
@@ -38,9 +39,13 @@
         <ol>
             <li>
                 <p>Til að búa til beiðni um að þýða texta þá ýtirðu fyrst á Beiðnir</p>
-                <img src="http://i1264.photobucket.com/albums/jj491/ivarinn/forsiacuteethafyrirbeiethnir_zpse7e93de5.png" alt="request" />
-                <p></p>
-             </li>
+                    <img src="http://i1264.photobucket.com/albums/jj491/ivarinn/forsiacuteethafyrirbeiethnir_zpse7e93de5.png" alt="request" />
+                <p>Þá færðu upp lista með skrám, ef skráin sem þú vilt láta þýða er í listanum geturðu kosið hana og þá geta allir séð hvað er vinsælast og farið þá að vinna í því. Undir listanum er takkinn Ný beiðni, þú ýtir á hann og þá ferðu yfir á aðra síðu.</p>
+                    <img src="http://i1264.photobucket.com/albums/jj491/ivarinn/niethurstoumlethutaflafyrirbeiethnir_zps965bc21f.png" alt="request" />
+                <p>Þar inni er form sem á að fylla út. Hafðu nafnið á beiðninni sama og nafn myndarinnar/þáttarins sem beiðnin á við, settu útgáfuár myndarinnar/þáttarins, veldu hvaða flokk skráin á að fara í og svo skrifarðu dagsetninguna á þeim degi sem skráin var sett inn.
+            Eftir að búið er að fylla út ýtir þú á choose file og nærð í skrána í tölvunni þinni og ýtir á senda.</p>
+                <img src="http://i1264.photobucket.com/albums/jj491/ivarinn/Nyacutejarbeiethnir_zps71aed981.png" alt="request" />
+            </li>
         </ol>
     <h4 id="Skrá">Að skrá sig inn</h4>
     <ol>
@@ -89,7 +94,7 @@
                 <img src="http://i1264.photobucket.com/albums/jj491/ivarinn/niethurstoumlethutaflafyrirbreytaskjaacutetexta_zps39d085d5.png" alt="edit" />
             </li>
             <li>
-                <p>Þá byrtist textaskrá með enskum texta og það er þitt að þýða hann yfir á íslensku eða það mál sem þú vilt.</p>
+                <p>Þá byrtist textaskrá með enskum texta og það er þitt að þýða textan yfir á íslensku.</p>
                 <img src="" alt="edit" />
             </li>
         </ol>
