@@ -55,7 +55,16 @@
                     @foreach (var item in Model.Req)
                     {
                         <li>
-                              <img src="http://lorempixum.com/100/100/nature/1">
+                            @if (@item.ImageBytes != null)
+                            {
+                                string imageBase64 = Convert.ToBase64String(@item.ImageBytes);
+                                string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+                                <img src="@imageSrc" width="55" height="35" />
+                            }
+                            else
+                            {
+                                <img src="http://content.clearchannel.com/cc-common/mlib/589/05/589_1369232682.jpg" id="picturesize" alt="photo" />
+                            }
                               <h3>@item.MediaName</h3>
                               <p> Útgáfu ár: @item.YearPublished</p>
                        </li>
@@ -72,7 +81,16 @@
                     @foreach (var item in Model.Sub)
                     {
                        <li>
-                              <img src="http://lorempixum.com/100/100/nature/1">
+                           @if (@item.ImageBytes != null)
+                           {
+                               string imageBase64 = Convert.ToBase64String(@item.ImageBytes);
+                               string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+                               <img src="@imageSrc" width="55" height="35" />
+                           }
+                           else
+                           {
+                               <img src="http://content.clearchannel.com/cc-common/mlib/589/05/589_1369232682.jpg" id="picturesize" alt="photo" />
+                           }
                               <h3>@item.MediaName</h3>
                               <p> Útgáfu ár: @item.YearPublished</p>
                               <p> Sett inn @item.DateCreated</p>
@@ -90,7 +108,16 @@
                     @foreach (var item in Model.Sub)
                     {
                         <li>
-                            <img src="http://lorempixum.com/100/100/nature/1">
+                            @if (@item.ImageBytes != null)
+                            {
+                                string imageBase64 = Convert.ToBase64String(@item.ImageBytes);
+                                string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+                                <img src="@imageSrc" width="55" height="35" />
+                            }
+                            else
+                            {
+                                <img src="http://content.clearchannel.com/cc-common/mlib/589/05/589_1369232682.jpg" id="picturesize" alt="photo" />
+                            }
                             <h3>@item.MediaName</h3>
                              <p> Útgáfu ár: @item.YearPublished</p>
                              <p> Sett inn @item.DateCreated</p>

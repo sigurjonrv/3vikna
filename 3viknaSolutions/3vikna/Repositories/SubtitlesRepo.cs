@@ -25,7 +25,7 @@ namespace _3vikna.Repositories
         public IQueryable<Subtitles> GetNewest()
         {
             var result = (from s in db.Subtitles
-                          orderby s.MediaName
+                          orderby s.DateCreated descending
                           select s).Take(5);
             return result;
         }
