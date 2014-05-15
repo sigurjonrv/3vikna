@@ -14,6 +14,9 @@ namespace _3vikna.Models
         public string Category { get; set; }
         public DateTime DateCreated { get; set; }
         public string File { get; set; }
+        public string ImageName { get; set; }
+        public byte[] ImageBytes { get; set; }
+        public string Extension { get; set; }
 
         public Subtitles()
         {
