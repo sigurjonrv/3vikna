@@ -32,7 +32,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Date, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Date)
+                @Html.TextBox("date", DateTime.Now.ToShortDateString())
                 @Html.ValidationMessageFor(model => model.Date)
             </div>
         </div>
@@ -46,6 +46,7 @@
         </div>
         <div>
             <input name="uploadFile" type="file" />
+            Mynd <input name="file" type="file" id="file" value="Mynd" />
             <input type="submit" value="Senda" class="btn btn-default" />
         </div>
     </div>

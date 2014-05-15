@@ -6,7 +6,7 @@
 
 <h2>NewScreenText</h2>
 
-@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @enctype = "multipart/form-data", id = "profilePictureForm" }))
 {
     @Html.AntiForgeryToken()
 
@@ -42,19 +42,17 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DateCreated, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DateCreated)
+                @Html.TextBox("date", DateTime.Now.ToShortDateString())
                 @Html.ValidationMessageFor(model => model.DateCreated)
             </div>
         </div>
         <div>
             <input name="uploadFile" type="file" />
+            Mynd <input name="file" type="file" id="file" value="Mynd" />
             <input type="submit" value="Senda" class="btn btn-default" />
         </div>
     </div>
 }
-<div>
-    @Html.ActionLink("Back News", "Index")
-</div>
 
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/jqueryval")
