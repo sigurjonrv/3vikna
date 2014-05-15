@@ -172,6 +172,15 @@ namespace _3vikna.Controllers
 
         public ActionResult Search(string searchBy, string search) //string searchBy, string search
         {
+            if(searchBy == "MediaNameSub")
+            {
+                if(search == "")
+                {
+                    return View("Search2",db.Subtitles.Where(x => x.Category == "MediaNameSub"));
+                }
+
+                return View("Search2", db.Subtitles.Where(x => x.MediaNameSub.StartsWith(search) || search == null).ToList());
+            }
                 if (searchBy == "MediaName")
                 {
                     if (search == "")
