@@ -294,3 +294,11 @@ input[type="checkbox"].input-validation-error {
     margin-left:100px;
 }
 
+.hjalp h4{
+     display: inline-block;
+     background-color: rgb(200,200,200);
+     padding: 5px 8px;  
+     margin-top: 10px;
+     border: solid 1px;
+     border-radius: 5px;
+}
