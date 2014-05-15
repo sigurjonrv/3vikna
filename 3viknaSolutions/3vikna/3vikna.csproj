@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BeginCollectionItem">
+      <HintPath>..\packages\BeginCollectionItem.1.2.1.0\lib\net35\BeginCollectionItem.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -241,6 +245,8 @@
     <Content Include="Views\Home\NewScreenText.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Home\EditSub.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Collection.cshtml" />
+    <Content Include="Views\Shared\_TestParital.cshtml" />
     <Content Include="Views\Home\Comment.cshtml" />
   </ItemGroup>
   <ItemGroup>

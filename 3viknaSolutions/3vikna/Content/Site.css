@@ -60,6 +60,12 @@ input[type="checkbox"].input-validation-error {
  height:auto;
  background : -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(40,40,40)));
 }
+.profile #navbar2 li .i3 a{
+ color: black;
+ height:auto;
+ background : -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(40,40,40)));
+}
+
 /*þetta er svo að navbarinn sýni hvar maður er SRV*/
 #navbar2{
     background : -webkit-gradient(linear, left top, left bottom, from(rgb(168,168,168)), to(rgb(69,69,69)));
@@ -274,9 +280,20 @@ input[type="checkbox"].input-validation-error {
 .changepassword{
     margin-left: 50px;
 }
-
 .foo input {
-    width: 400px;
+    width: 450px;
+}
+.translate{
+    position:fixed;
+}
+.takki2{
+   text-align:center;
+   margin-left: 41em;
+   position: fixed;
+   min-width: 38.5em;
+}
+.single-line{
+    min-width: 35em;
 }
 .profile input{
     max-width: 21em;

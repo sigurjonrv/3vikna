@@ -26,10 +26,10 @@
             {
                 <tr>
                     <td class="row3"> <img src="http://content.clearchannel.com/cc-common/mlib/589/05/589_1369232682.jpg" id="picturesize" alt="photo" /></td>
-                    <td class="row1">@Html.ActionLink(@item.MediaName, "EditSub", new { id = @item.ID })</td>
+                    <td class="row1">@item.MediaName</td>
                     <td class="row1">@item.YearPublished</td>
                     <td class="row2">@item.Date</td>
-                    <td class="row2"><div class="glyphicon glyphicon-arrow-up"></div> </td>
+                    <td class="row2">@item.UpvoteID<button type="button" id="Upvote"  class="glyphicon glyphicon-arrow-up">@Html.ActionLink("UP", "upvoteInc", new { @item.ID })</button></td>
                 </tr>
             }
         </tbody>

@@ -58,6 +58,23 @@ namespace _3vikna.Repositories
             return results;
         }
 
+        public IEnumerable<string> UserHasLiked(int? id)
+        {
+            var result = (from r in db.Upvote
+                          where r.ReqID == id
+                          select r.UserName);
+            return result;
+        }
+
+        public void AddUpvotes(int id, string strUser)
+        {
+            Upvote item = new Upvote();
+            item.ReqID = id;
+            item.UserName = strUser;
+            db.Upvote.Add(item);
+            db.SaveChanges();
+        }
+
         public IEnumerable<Requests> GetUpvotes()
         {
             var result = from c in db.Requests
@@ -66,6 +83,14 @@ namespace _3vikna.Repositories
             return result;
         }
 
+       /* public IEnumerable<Requests> GetUpvotes()
+        {
+            var result = from c in db.Requests
+                         orderby c.UpvoteID ascending
+                         select c;
+            return result;
+        }*/
+
         public void AddRequest(Requests s)
         {
             db.Requests.Add(s);
@@ -73,6 +98,23 @@ namespace _3vikna.Repositories
         }
         public void Save()
         {
+            db.SaveChanges();
+        }
+
+        public void UpdateDB(int id, Requests req)
+        {
+            var prev = (from a in db.Requests
+                        where a.ID == id
+                        select a).SingleOrDefault();
+
+            if (prev != null)
+            {
+                prev.File = req.File;
+                prev.Date = DateTime.Now;
+            }
+            else
+                return;
+
             db.SaveChanges();
         }
     }

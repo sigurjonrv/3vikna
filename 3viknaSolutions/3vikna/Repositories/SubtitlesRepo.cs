@@ -30,6 +30,29 @@ namespace _3vikna.Repositories
             return result;
         }
 
+        public string getNameById(int id)
+        {
+            var result = (from s in db.Subtitles
+                          where s.ID == id
+                          select s.MediaName).SingleOrDefault();
+            return result;
+        }
+
+        public Subtitles GetByID(int id)
+        {
+            var results = (from r in db.Subtitles
+                           where r.ID == id
+                           select r).SingleOrDefault();
+            return results;
+        }
+        
+        public string GetFileFromDB(int id)
+        {
+            var result = (from s in db.Subtitles
+                          where s.ID == id
+                          select s.File).SingleOrDefault();
+            return result;
+        }
         public IEnumerable<string> GetCommentByID(int id)
         {
             var result = (from s in db.Subtitles
@@ -43,6 +66,24 @@ namespace _3vikna.Repositories
             db.Subtitles.Add(s);
             //m_db.SaveChanges();
         }
+
+        public void UpdateDB(int id, Subtitles sub)
+        {
+            var prev = (from a in db.Subtitles
+                        where a.ID == id
+                        select a).SingleOrDefault();
+
+            if (prev != null)
+            {
+                prev.File = sub.File;
+                prev.DateCreated = DateTime.Now;
+            }
+            else
+                return;
+
+            db.SaveChanges();
+        }
+
         public void Save()
         {
             db.SaveChanges();
