@@ -49,7 +49,7 @@ namespace _3vikna.Models
         
 
         [Required]
-        [Display(Name = "Fullt nafn")]         
+        [Display(Name = "Notandanafn")]         
         public string UserName { get; set; }
 
         [Required]
