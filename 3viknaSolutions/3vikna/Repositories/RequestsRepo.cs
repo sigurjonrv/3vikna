@@ -41,6 +41,14 @@ namespace _3vikna.Repositories
                            select r).Take(5);
             return results;
         }
+
+        public IQueryable<string> GetCommentsByID()
+        {
+            var result = (from c in db.Comment
+                          orderby c.UserName
+                          select c.UserName);
+            return result;
+        }
         //SRV
         public Requests GetByID(int id)
         {
