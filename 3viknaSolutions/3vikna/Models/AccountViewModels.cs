@@ -45,26 +45,11 @@ namespace _3vikna.Models
 
     public class RegisterViewModel
     {
-        [Required]
-        [Display(Name = "Notandanafn")]         
-        public string UserName { get; set; }
+        
 
         [Required]
         [Display(Name = "Fullt nafn")]         
-        public string full_name { get; set; }
-
-        [Required]
-        [Display(Name = "Aldur")]         
-        public string age { get; set; }
-
-        [Required]
-        [DataType(DataType.EmailAddress)]
-        [Display(Name = "email")]          
-        public string email { get; set; }
-
-        [Required]
-        [Display(Name = "Karl")]         
-        public bool Karl { get; set; }
+        public string UserName { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "{0} verður að vera minnst {2} stafir að lengd.", MinimumLength = 6)]
