@@ -4,56 +4,56 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Nýr skjátexti</h2>
-@Html.Partial("navigationbar")
+<h2>NewScreenText</h2>
 
-<div class="newscreentext">
-    @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        @Html.AntiForgeryToken()
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
 
-        <div class="form-horizontal">
-            <hr />
-            @Html.ValidationSummary(true)
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.MediaName, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.MediaName)
-                    @Html.ValidationMessageFor(model => model.MediaName)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.YearPublished, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.YearPublished)
-                    <!--Html.EditorFor(model => model.Text)-->
-                    @Html.ValidationMessageFor(model => model.YearPublished)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Category, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.Category, ViewBag.Categories as List<SelectListItem>)
-                    @Html.ValidationMessageFor(model => model.Category)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.DateCreated, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.DateCreated)
-                    @Html.ValidationMessageFor(model => model.DateCreated)
-                </div>
-            </div>
-            <div>
-                <input name="uploadFile" type="file" />
-                <input type="submit" value="Senda" class="btn btn-default" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.MediaName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MediaName)
+                @Html.ValidationMessageFor(model => model.MediaName)
             </div>
         </div>
-    }
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.YearPublished, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.YearPublished)
+                <!--Html.EditorFor(model => model.Text)-->
+                @Html.ValidationMessageFor(model => model.YearPublished)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Category, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Category, ViewBag.Categories as List<SelectListItem>)
+                @Html.ValidationMessageFor(model => model.Category)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateCreated, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateCreated)
+                @Html.ValidationMessageFor(model => model.DateCreated)
+            </div>
+        </div>
+        <div>
+            <input name="uploadFile" type="file" />
+            <input type="submit" value="Senda" class="btn btn-default" />
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Back News", "Index")
 </div>
 
 @Scripts.Render("~/bundles/jquery")

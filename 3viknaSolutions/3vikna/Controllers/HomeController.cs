@@ -14,22 +14,24 @@ namespace _3vikna.Controllers
 
         SubtitlesRepo subtitleRepo = new SubtitlesRepo();
         RequestsRepo requestRepo = new RequestsRepo();
+        //CommentRepository CommendRepo = new CommentRepository();
         AppDataContext db = new AppDataContext();
+
         public ActionResult Index()
         {
             MainPageModelView vm = new MainPageModelView();
             vm.Req = requestRepo.GetAllByDate();
             vm.Sub = subtitleRepo.GetNewest();
-         
-            
+
+
             /*var model = SubtitleRepo.GetAllSubtitles();
             return View(model);*/
             return View(vm);
         }
-        
+
         public ActionResult RequestPage()
-        {    
-           return View(db.Requests);
+        {
+            return View(db.Requests);
 
         }
 
@@ -148,9 +150,9 @@ namespace _3vikna.Controllers
         public ActionResult Search(string searchBy, string search) //string searchBy, string search
         {
 
-            if(searchBy == "MediaName")
+            if (searchBy == "MediaName")
             {
-                if(search == "")
+                if (search == "")
                 {
                     return View(db.Requests.Where(x => x.Category == "Other"));
                 }
@@ -158,7 +160,7 @@ namespace _3vikna.Controllers
             }
             else if (searchBy == "Episodes")
             {
-                if(search == "")
+                if (search == "")
                 {
                     return View(db.Requests.Where(x => x.Category == "Episodes"));
                 }
@@ -166,7 +168,7 @@ namespace _3vikna.Controllers
             }
             else
             {
-                if(search == "")
+                if (search == "")
                 {
                     return View(db.Requests.Where(x => x.Category == "Movies"));
                 }
@@ -182,7 +184,6 @@ namespace _3vikna.Controllers
 
             return View();
         }
-
         public ActionResult EditSub(int id)
         {
             Requests model = new Requests();
@@ -208,5 +209,42 @@ namespace _3vikna.Controllers
             //model.File = model.File.Replace("\n", "<br />");
             return View(es);
         }
+
+        public ActionResult comment(int id)
+        {
+            //var model = CommentRepository.Instance.Gettingcomments(9);
+            var model = CommentRepository.Instance.GetComments(id);
+            CommentViewModel cm = new CommentViewModel();
+            cm.Com = model;
+            cm.subtitleId = id;
+            return View(cm);
+        }
+        [Authorize]
+        [HttpPost]
+        public ActionResult comment(FormCollection formData, int id)
+        {
+
+            String strComment = formData["CommentText"];
+            if (!String.IsNullOrEmpty(strComment))
+            {
+                Comment c = new Comment();
+
+                c.CommentText = strComment;
+                String strUser = User.Identity.Name;
+                c.UserName = strUser;
+                c.subtitleID = id;
+                CommentRepository.Instance.AddComment(c);
+                UpdateModel(c);
+                CommentRepository.Instance.Save();
+                return RedirectToAction("Comment");
+            }
+            else
+            {
+                ModelState.AddModelError("CommentText", "Comment text cannot be empty!");
+                return Index();
+            }
+        }
+
+
     }
 }

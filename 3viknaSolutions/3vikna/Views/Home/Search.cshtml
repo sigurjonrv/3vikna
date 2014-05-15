@@ -10,28 +10,28 @@
 
 @Html.Partial("Searchpartial")
 
-    <table id="RequestTable">
-        <thead>
-            <tr id="RequestTableHeader">
-                <th class="head"></th>
-                <th class="head">Myndir</th>
-                <th class="head">Útgáfuár</th>
-                <th class="head">Dagsetning</th>
-                <th class="head">Staða</th>
-                <th class="head">Kjósa</th>
-            </tr>
-        </thead>
-        @if (Model.Count() == 0)
-        {
-            <tbody id="Table1">
-                <tr>
-                    <td colspan="6">Engar niðurstöður fundust</td>
+<table id="RequestTable">
+    <thead>
+        <tr id="RequestTableHeader">
+            <th class="head"></th>
+            <th class="head">Myndir</th>
+            <th class="head">Útgáfuár</th>
+            <th class="head">Dagsetning</th>
+            <th class="head">Staða</th>
+            <th class="head">Kjósa</th>
+        </tr>
+    </thead>
+    @if (Model.Count() == 0)
+    {
+        <tbody id="Table1">
+            <tr>
+                <td colspan="6">Engar niðurstöður fundust</td>
 
-                </tr>
-            </tbody>
-        }
-        else
-        {
+            </tr>
+        </tbody>
+    }
+    else
+    {
         <tbody id="Table1">
             @foreach (var item in Model)
             {
@@ -45,7 +45,7 @@
                 </tr>
             }
         </tbody>
-        }
-    </table>
-        
+    }
+</table>
+
 

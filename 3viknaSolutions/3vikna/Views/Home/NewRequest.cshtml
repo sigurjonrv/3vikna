@@ -4,58 +4,55 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Nýjar beiðnir</h2>
-@Html.Partial("navigationbar")
-
 @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-        @Html.AntiForgeryToken()
-       
-        <div class="form-horizontal">
-            <hr />
-            @Html.ValidationSummary(true)
+    @Html.AntiForgeryToken()
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.MediaName, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.MediaName)
-                    @Html.ValidationMessageFor(model => model.MediaName)
-                </div>
-            </div>
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.YearPublished, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.YearPublished)
-                    <!--Html.EditorFor(model => model.Text)-->
-                    @Html.ValidationMessageFor(model => model.YearPublished)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Category, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.Category, ViewBag.Categories as List<SelectListItem>)
-                    @Html.ValidationMessageFor(model => model.Category)
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Date, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Date)
-                    @Html.ValidationMessageFor(model => model.Date)
-                </div>
-            </div>
-
-            
-            <div>
-                <input name="uploadFile" type="file" />
-                <input type="submit" value="Senda" class="btn btn-default" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.MediaName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MediaName)
+                @Html.ValidationMessageFor(model => model.MediaName)
             </div>
         </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.YearPublished, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.YearPublished)
+                <!--Html.EditorFor(model => model.Text)-->
+                @Html.ValidationMessageFor(model => model.YearPublished)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date)
+                @Html.ValidationMessageFor(model => model.Date)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Category, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Category, ViewBag.Categories as List<SelectListItem>)
+                @Html.ValidationMessageFor(model => model.Category)
+            </div>
+        </div>
+        <div>
+            <input name="uploadFile" type="file" />
+            <input type="submit" value="Senda" class="btn btn-default" />
+        </div>
+    </div>
 }
-   
+<div>
+    @Html.ActionLink("Back News", "Index")
+</div>
 
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/jqueryval")

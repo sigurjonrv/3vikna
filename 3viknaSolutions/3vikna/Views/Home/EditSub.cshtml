@@ -3,7 +3,7 @@
     ViewBag.Title = "EditSub";
 }
 
-<h2>Breyta skjátexta</h2>
+<h2>EditSub</h2>
 @Html.Partial("navigationbar")
 
 
@@ -15,24 +15,26 @@
             @for (int i = 0; i < Model.lines.Length; i++)
             {
                 @Html.Raw(Model.lines[i] + "<br/>");
-                
-                if(Model.lines[i].Length > 2)
-                {
-                    if (Model.lines[i].First() == '\n')
-                    {
-                        if (!Model.lines[i].Substring(1,1).All(Char.IsDigit))
-                        {
-                            <div class="foo">
-                                @Html.EditorFor(model => Model.lines[i], new { size = 1000});
-                                @Html.ValidationMessageFor(model => Model.lines[i])
-                                @Html.Raw("<br />")</div>   
-                        }
-                    }
-                }
+
+                                                   if (Model.lines[i].Length > 2)
+                                                   {
+                                                       if (Model.lines[i].First() == '\n')
+                                                       {
+                                                           if (!Model.lines[i].Substring(1, 1).All(Char.IsDigit))
+                                                           {
+                                                            <div class="foo">
+                                                                @Html.EditorFor(model => Model.lines[i], new { size = 1000 });
+                                                                @Html.ValidationMessageFor(model => Model.lines[i])
+                                                                @Html.Raw("<br />")
+                                                            </div>
+                                                           }
+                                                       }
+                                                   }
 
             }
             <input type="submit" value="Senda" class="btn btn-default" />
-@Html.ActionLink("Vista", "EditSub", "Home", new {model = Model.lines})
-        </ul>
+            @Html.ActionLink("Vista", "EditSub", "Home", new { model = Model.lines })
+    </ul>
+
 }
 

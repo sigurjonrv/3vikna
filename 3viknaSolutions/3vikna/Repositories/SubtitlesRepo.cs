@@ -30,6 +30,14 @@ namespace _3vikna.Repositories
             return result;
         }
 
+        public IEnumerable<string> GetCommentByID(int id)
+        {
+            var result = (from s in db.Subtitles
+                          where s.ID == id
+                          select s.Comments);
+            return result;
+        }
+
         public void AddSubtitle(Subtitles s)
         {
             db.Subtitles.Add(s);
