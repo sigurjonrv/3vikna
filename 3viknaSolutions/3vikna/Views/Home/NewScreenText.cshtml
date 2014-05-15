@@ -15,10 +15,10 @@
         @Html.ValidationSummary(true)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MediaName, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.MediaNameSub, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MediaName)
-                @Html.ValidationMessageFor(model => model.MediaName)
+                @Html.EditorFor(model => model.MediaNameSub)
+                @Html.ValidationMessageFor(model => model.MediaNameSub)
             </div>
         </div>
 
