@@ -278,4 +278,19 @@ input[type="checkbox"].input-validation-error {
 .foo input {
     width: 400px;
 }
+.profile input{
+    max-width: 21em;
+}
+
+.login input{
+    max-width: 21em;
+}
+
+.register input{
+    max-width: 21em;
+}
+
+.newscreentext{
+    margin-left:100px;
+}
 

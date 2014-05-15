@@ -170,11 +170,13 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppDataContext.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\EditSub.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MainPageModelView.cs" />
     <Compile Include="Models\Requests.cs" />
     <Compile Include="Models\Subtitles.cs" />
+    <Compile Include="Models\Upvote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\RequestsRepo.cs" />
     <Compile Include="Repositories\SubtitlesRepo.cs" />

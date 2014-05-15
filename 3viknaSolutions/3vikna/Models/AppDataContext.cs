@@ -17,5 +17,7 @@ namespace _3vikna.Models
 
         public DbSet<Subtitles> Subtitles { get; set; }
         public DbSet<Requests> Requests { get; set; }
+        public DbSet<Comment> Comment { get; set; }
+        public DbSet<Upvote> Upvote { get; set; }
     }
 }
