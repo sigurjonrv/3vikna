@@ -8,7 +8,7 @@ namespace _3vikna.Models
     public class Subtitles
     {
         public int ID { get; set; }
-        public string MediaName { get; set; }
+        public string MediaNameSub { get; set; }
         public string YearPublished { get; set; }
         public string Comments { get; set; }
         public string Category { get; set; }
@@ -17,6 +17,7 @@ namespace _3vikna.Models
         public string ImageName { get; set; }
         public byte[] ImageBytes { get; set; }
         public string Extension { get; set; }
+        public bool IsFinished { get; set; }
 
         public Subtitles()
         {

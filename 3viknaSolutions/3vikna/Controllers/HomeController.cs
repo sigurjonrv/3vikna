@@ -331,6 +331,16 @@ namespace _3vikna.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")] //athuga
+        public void SafeToPublish(int id)
+        {
+            Subtitles sub = new Subtitles();
+            sub = subtitleRepo.GetByID(id);
+            sub.IsFinished = true;
+            UpdateModel(sub);
+            subtitleRepo.Save();
+        }
+
 
     }
 }
