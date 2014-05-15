@@ -26,6 +26,7 @@ namespace _3vikna.Models
         [Display(Name = "Staðfest lykilorð")]
         [Compare("NewPassword", ErrorMessage = "Lykilorð og staðfest lykilorð passa ekki saman.")]
         public string ConfirmPassword { get; set; }
+
     }
 
     public class LoginViewModel
