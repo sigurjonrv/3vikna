@@ -17,7 +17,10 @@ namespace _3vikna.Models
         public string ImageName { get; set; }
         public byte[] ImageBytes { get; set; }
         public string Extension { get; set; }
+
         public bool IsFinished { get; set; }
+
+
         public Subtitles()
         {
             DateCreated = DateTime.Now;
