@@ -75,6 +75,14 @@ namespace _3vikna.Repositories
             db.SaveChanges();
         }
 
+        public IEnumerable<Requests> SortByUpvotes()
+        {
+            var result = (from r in db.Requests
+                          orderby r.UpvoteID descending
+                          select r);
+            return result;
+        }
+
         public IEnumerable<Requests> GetUpvotes()
         {
             var result = from c in db.Requests

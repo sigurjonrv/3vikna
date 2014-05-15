@@ -17,6 +17,7 @@ namespace _3vikna.Controllers
         //CommentRepository CommendRepo = new CommentRepository();
         AppDataContext db = new AppDataContext();
 
+
         public ActionResult Index()
         {
             MainPageModelView vm = new MainPageModelView();
@@ -31,7 +32,7 @@ namespace _3vikna.Controllers
 
         public ActionResult RequestPage()
         {
-            return View(db.Requests);
+            return View(requestRepo.SortByUpvotes());
 
         }
 
@@ -54,7 +55,7 @@ namespace _3vikna.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewRequest(int? id, FormCollection form, HttpPostedFileBase uploadFile)
+        public ActionResult NewRequest(int? id, FormCollection form, HttpPostedFileBase uploadFile, HttpPostedFileBase file)
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
             Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
@@ -62,10 +63,19 @@ namespace _3vikna.Controllers
             Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
             ViewBag.Categories = Categories;
 
-            var reader = new StreamReader(uploadFile.InputStream);
             Requests item = new Requests();
+            if (uploadFile != null)
+            {
+                var reader = new StreamReader(uploadFile.InputStream);
+                item.File = reader.ReadToEnd();
+            }
 
-            item.File = reader.ReadToEnd();
+            if (file != null)
+            {
+                item.Extension = file.ContentType;
+                item.ImageName = file.FileName;
+                item.ImageBytes = ConvertToBytes(file);
+            }
             if (form != null)
             {
                 requestRepo.AddRequest(item);
@@ -111,7 +121,7 @@ namespace _3vikna.Controllers
         }
         [Authorize]
         [HttpPost]
-        public ActionResult NewScreenText(int? id, FormCollection form, HttpPostedFileBase uploadFile)
+        public ActionResult NewScreenText(int? id, FormCollection form, HttpPostedFileBase uploadFile, HttpPostedFileBase file)
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
             Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
@@ -124,6 +134,13 @@ namespace _3vikna.Controllers
             {
                 var reader = new StreamReader(uploadFile.InputStream);
                 item.File = reader.ReadToEnd();
+            }
+
+            if (file != null)
+            {
+                item.Extension = file.ContentType;
+                item.ImageName = file.FileName;
+                item.ImageBytes = ConvertToBytes(file);
             }
             if (form != null)
             {
@@ -138,6 +155,14 @@ namespace _3vikna.Controllers
             }
         }
 
+        public byte[] ConvertToBytes(HttpPostedFileBase file)
+        {
+            byte[] imageBytes = null;
+            BinaryReader reader = new BinaryReader(file.InputStream);
+            imageBytes = reader.ReadBytes((int)file.ContentLength);
+            return imageBytes;
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description pagee.";
@@ -147,34 +172,31 @@ namespace _3vikna.Controllers
 
         public ActionResult Search(string searchBy, string search) //string searchBy, string search
         {
-
-            if (searchBy == "MediaName")
-            {
-                if (search == "")
+                if (searchBy == "MediaName")
                 {
-                    return View(db.Requests.Where(x => x.Category == "Other"));
+                    if (search == "")
+                    {
+                        return View(db.Requests.Where(x => x.Category == "Other"));
+                    }
+                    return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
                 }
-                return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
-            }
-            else if (searchBy == "Episodes")
-            {
-                if (search == "")
+                else if (searchBy == "Episodes")
                 {
-                    return View(db.Requests.Where(x => x.Category == "Episodes"));
+                    if (search == "")
+                    {
+                        return View(db.Requests.Where(x => x.Category == "Episodes"));
+                    }
+                    return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
                 }
-                return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
-            }
-            else
-            {
-                if (search == "")
+                else
                 {
-                    return View(db.Requests.Where(x => x.Category == "Movies"));
+                    if (search == "")
+                    {
+                        return View(db.Requests.Where(x => x.Category == "Movies"));
+                    }
+                    return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
                 }
-                return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
             }
-
-            //return View();
-        }
 
         public ActionResult Contact()
         {
@@ -222,7 +244,7 @@ namespace _3vikna.Controllers
             {
                 if (User.Identity.Name == item)
                 {
-                    return Alert();
+                    return Json(item, User.Identity.Name, JsonRequestBehavior.AllowGet);
                 }
             }
 

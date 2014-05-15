@@ -25,11 +25,22 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td class="row3"> <img src="http://content.clearchannel.com/cc-common/mlib/589/05/589_1369232682.jpg" id="picturesize" alt="photo" /></td>
+                    <td class="row3">
+                        @if (@item.ImageBytes != null)
+                        {
+                            string imageBase64 = Convert.ToBase64String(@item.ImageBytes);
+                            string imageSrc = string.Format("data:image/gif;base64,{0}", imageBase64);
+                            <img src="@imageSrc" width="55" height="35" />
+                        }
+                        else
+                        {
+                            <img src="http://content.clearchannel.com/cc-common/mlib/589/05/589_1369232682.jpg" id="picturesize" alt="photo" />
+                        }
+                    </td>
                     <td class="row1">@item.MediaName</td>
                     <td class="row1">@item.YearPublished</td>
                     <td class="row2">@item.Date</td>
-                    <td class="row2">@item.UpvoteID<button type="button" id="Upvote"  class="glyphicon glyphicon-arrow-up">@Html.ActionLink("UP", "upvoteInc", new { @item.ID })</button></td>
+                    <td class="row2">@item.UpvoteID<button type="button" onclick="Alert()" id="Upvote" class="glyphicon glyphicon-arrow-up">@Html.ActionLink("UP", "upvoteInc", new { @item.ID })</button></td>
                 </tr>
             }
         </tbody>
