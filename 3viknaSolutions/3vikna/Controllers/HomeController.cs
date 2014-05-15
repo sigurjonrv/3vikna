@@ -119,9 +119,7 @@ namespace _3vikna.Controllers
             {
                 var reader = new StreamReader(uploadFile.InputStream);
                 item.File = reader.ReadToEnd();
-
             }
-
             if (form != null)
             {
                 subtitleRepo.AddSubtitle(item);
@@ -157,28 +155,70 @@ namespace _3vikna.Controllers
         }
         public ActionResult EditSub(int id)
         {
-            Requests model = new Requests();
-            model = requestRepo.GetByID(id);
+            Subtitles model = new Subtitles();
+            model = subtitleRepo.GetByID(id);
             string lines = model.File;
             string[] line = lines.Split('\r');
             EditSub es = new EditSub();
             es.req = model;
-            es.lines = line;
+            es.lines = line.ToList();
             //model.File = model.File.Replace("\n \n", "<b /> yolo <br />");
             //model.File = model.File.Replace("\n\r\n", "<br /> yolo <br />");
             //model.File = model.File.Replace("\n", "<br />");
             return View(es);
         }
 
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult EditSub(EditSub es)
         {
-            UpdateModel(es.req.File);
-            requestRepo.Save();
+
+            foreach (var item in es.lines)
+            {
+                var stuff = item;
+                if (!stuff.StartsWith(Environment.NewLine))
+                {
+                    if (stuff.Length == 0) // athugar hvort að koðinn sé nokkuð tóma strengur
+                    {                       //og ef hann er það setur hann bil í staðinn, þarf að vera 3 á lengd.
+                        stuff = stuff + "   ";
+                    }
+                    else if (stuff.Substring(0, 1).All(Char.IsLetter) && (stuff.Length == 1))// bætir bili fyrir aftan
+                    {                                                                       //ef strengurinn nær ekki lagmarks lengd
+                        stuff = stuff + " " + " ";
+                    }
+                    else if (stuff.Substring(0, 1).All(Char.IsLetter) && (stuff.Length == 2))//sama her
+                    {
+                        stuff = stuff + " ";
+                    }
+                    if (stuff == "1")// þetta er special-cage fyri fyrsta strenginn i skránni
+                    {
+
+                    }
+                    else
+                    {
+                        stuff = Environment.NewLine + stuff; // bætir við \n fyrir framan hverja línu
+                    }
+
+                }
+                es.req.File += stuff; // bætir inn í strenginn i gangnagrinnun,
+            }
+            //es.req.File = string.Join("\r", es.lines.ToArray());
+            subtitleRepo.UpdateDB(es.req.ID, es.req);
             //model.File = model.File.Replace("\n \n", "<b /> yolo <br />");
             //model.File = model.File.Replace("\n\r\n", "<br /> yolo <br />");
             //model.File = model.File.Replace("\n", "<br />");
-            return View(es);
+            return RedirectToAction("RequestPage");
+        }
+
+        public ActionResult Download(int id) 
+        {
+            string str = subtitleRepo.GetFileFromDB(id);
+            byte[] bytes = new byte[str.Length * sizeof(char)];
+            System.Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
+            string name = subtitleRepo.getNameById(id);
+            name = name + ".srt";
+            return File(bytes, "txt/srt", name);
+            /*var file = db.Subtitles.First(f => f.ID == id);
+            return File(file.Data.ToArray(), "application/octet-stream",)*/
         }
 
 

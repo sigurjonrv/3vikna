@@ -5,34 +5,75 @@
 
 <h2>EditSub</h2>
 @Html.Partial("navigationbar")
-
-
 @using (Html.BeginForm())
 {
-    <ul class="list-group">
-        <li class="list-group-item">
-            <span class="badge" id="sub">14</span>
-            @for (int i = 0; i < Model.lines.Length; i++)
-            {
-                @Html.Raw(Model.lines[i] + "<br/>");
-                
-                if(Model.lines[i].Length > 2)
-                {
-                    if (Model.lines[i].First() == '\n')
-                    {
-                        if (!Model.lines[i].Substring(1,1).All(Char.IsDigit))
-                        {
-                            <div class="foo">
-                                @Html.EditorFor(model => Model.lines[i], new { size = 1000});
-                                @Html.ValidationMessageFor(model => Model.lines[i])
-                                @Html.Raw("<br />")</div>   
-                        }
-                    }
-                }
+    <div class="takki2">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title"><b> ýttu hér til að hlaða inn breytingunum sem þú hefur gert</b></h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <li> Varast skal að senda inn ef að gluggarnir eru tómir.</li>
+                    <li> Varast skal að nota tvípungt( : ) inn í gluggan.</li>
+                    <li> Varast skal að breya textanum í gluggunum ef að hann er ekki rétt þýddur.</li>
+                    <li> Varast skal að senda inn skástrik( \ ). </li>
+                    <li> Varast skal að senda inn "String Escape characters" t.d. (\n, \r, \r..)".</li>
+                </ul>
+                <input type="submit" value="Senda" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
 
-            }
-            <input type="submit" value="Senda" class="btn btn-default" />
-@Html.ActionLink("Vista", "EditSub", "Home", new {model = Model.lines})
-        </ul>
+    for (int i = 0; i < Model.lines.Count; i++)
+    {
+        if (Model.lines[i] == "\n")// veida \n
+        {
+            @Html.Raw("</div></div>");
+        }
+        else if (Model.lines[i + 1] == "\n")// texti
+        {
+            // @Html.Raw("\n");
+            @Html.Raw(Model.lines[i] + "<br/>");
+    <span class="taxta-box>"> @Html.EditorFor(model => Model.lines[i], new { size = 1000 })</span>
+    @Html.Raw("<br />");
+        }
+
+        else if (Model.lines[i].Length < 4)// veidir numer minni en 2 digits
+        {
+            @Html.Raw("<div class=\"panel panel-primary\">");
+    @Html.Raw("<div class=\"panel-heading\">");
+    @Html.Raw("<b>" + Model.lines[i] + "</b>" + "<br/>");
+        }
+
+        else if (Model.lines[i + 1].Substring(3, 1) == ":")// veida numerinn
+        {
+            @Html.Raw("<div class=\"panel panel-primary\">");
+    @Html.Raw("<div class=\"panel-heading\">");
+    @Html.Raw("<b>" + Model.lines[i] + "</b>" + "<br/>");
+        }
+
+        else if (Model.lines[i].Substring(3, 1) == ":") // veida timann
+        {
+            @Html.Raw("<b>" + Model.lines[i] + "</b>" + "<br/>");
+    @Html.Raw("\n"); //prufa
+    @Html.Raw("</div>");
+    @Html.Raw("<div class=\"panel-body\">");
+        }
+
+        else // textinn
+        {
+
+            @Html.Raw("\n");
+    @Html.Raw(Model.lines[i] + "<br/>");
+    @Html.EditorFor(model => Model.lines[i], new { size = 1000 });
+    @Html.Raw("<br />");
+
+        }
+        @Html.HiddenFor(model => model.req.Category)
+        @Html.HiddenFor(model => model.req.DateCreated)
+        @Html.HiddenFor(model => model.req.ID)
+        @Html.HiddenFor(model => model.lines[i])
+    }
+
 }
-

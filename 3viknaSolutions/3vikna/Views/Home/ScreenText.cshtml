@@ -27,10 +27,10 @@
             {
                 <tr>
                     <td class="row3"> <img src="http://content.clearchannel.com/cc-common/mlib/589/05/589_1369232682.jpg" id="picturesize" alt="photo" /></td>
-                    <td class="row1">@item.MediaName</td>
+                    <td class="row1">@Html.ActionLink(@item.MediaName, "EditSub", new { id = @item.ID })</td>
                     <td class="row1">@item.YearPublished</td>
                     <td class="row2">VANTAR_MYND</td>
-                    <td class="row2"><img src="https://fbcdn-photos-h-a.akamaihd.net/hphotos-ak-prn2/v/t34.0-11/10306971_578242318958052_2069168489_t.jpg?oh=43193cddb8a7557e26de3eddd40328e9&oe=536C8873&__gda__=1399612150_e7214f058f835ec492b617185e261525" alt="photo" /></td>
+                    <td class="row2">@Html.ActionLink("download file", "download", new { @item.ID})</td>
                 </tr>
             }
         </tbody>

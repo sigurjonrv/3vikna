@@ -67,5 +67,22 @@ namespace _3vikna.Repositories
         {
             db.SaveChanges();
         }
+
+        public void UpdateDB(int id, Requests req)
+        {
+            var prev = (from a in db.Requests
+                        where a.ID == id
+                        select a).SingleOrDefault();
+
+            if (prev != null)
+            {
+                prev.File = req.File;
+                prev.Date = DateTime.Now;
+            }
+            else
+                return;
+
+            db.SaveChanges();
+        }
     }
 }

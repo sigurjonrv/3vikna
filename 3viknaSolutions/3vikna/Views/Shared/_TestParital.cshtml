@@ -1,0 +1,25 @@
+﻿@model string
+
+
+@using (Html.BeginCollectionItem("lines"))
+{
+
+        if(Model.Length > 2)
+        {
+            if(!Model.Substring(1,1).All(Char.IsDigit))
+            {
+    
+                <div class="foo">
+                    @Html.TextBoxFor(model => Model)
+                    @Html.ValidationMessageFor(model => Model)
+                    @Html.Raw("<br />")
+                </div>
+            }
+        }
+        else
+        {
+            @Model
+            @Html.HiddenFor(model => Model)   
+        }
+}
+    

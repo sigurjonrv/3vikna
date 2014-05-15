@@ -60,6 +60,12 @@ input[type="checkbox"].input-validation-error {
  height:auto;
  background : -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(40,40,40)));
 }
+.profile #navbar2 li .i3 a{
+ color: black;
+ height:auto;
+ background : -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(40,40,40)));
+}
+
 /*þetta er svo að navbarinn sýni hvar maður er SRV*/
 #navbar2{
     background : -webkit-gradient(linear, left top, left bottom, from(rgb(168,168,168)), to(rgb(69,69,69)));
@@ -148,15 +154,13 @@ input[type="checkbox"].input-validation-error {
     border-bottom-left-radius:3px;
     color: white;
 }
-#search {
+#searchPartial {
 
-   position: relative;
-   padding-top: 1em;
-   padding-left: 9em;
-   padding-right: 9em;
-   margin-left:auto;
-   margin-right:auto;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  text-align:center;
 }
+
 .image{
 
     margin-left:5px;
@@ -276,8 +280,18 @@ input[type="checkbox"].input-validation-error {
 .changepassword{
     margin-left: 50px;
 }
-
 .foo input {
-    width: 400px;
+    width: 450px;
 }
-
+.translate{
+    position:fixed;
+}
+.takki2{
+   text-align:center;
+   margin-left: 41em;
+   position: fixed;
+   min-width: 38.5em;
+}
+.single-line{
+    min-width: 35em;
+}
