@@ -5,10 +5,10 @@
     { 
 
       <b> Leita að :</b> @Html.TextBox("search") 
-      <text>Kvikmynd</text> @Html.RadioButton("searchBy", "Movies", true) 
+      <text>Kvikmynd</text> @Html.RadioButton("searchBy", "Movies") 
        <text>Þætti</text> @Html.RadioButton("searchBy", "Episodes")
        <text> Öðru efni </text> @Html.RadioButton("searchBy", "MediaName")
-        <text> Beidnir </text> @Html.RadioButton("searchBy", "MediaNameSub")
+        <text> Skjátextar </text> @Html.RadioButton("searchBy", "MediaNameSub",true)
         
         
     <form action="http://localhost:65081/Home/Search">

@@ -176,7 +176,8 @@ namespace _3vikna.Controllers
             {
                 if(search == "")
                 {
-                    return View("Search2",db.Subtitles.Where(x => x.Category == "MediaNameSub"));
+                   
+                    return View("Search2",db.Subtitles.Select(x => x).ToList());
                 }
 
                 return View("Search2", db.Subtitles.Where(x => x.MediaNameSub.StartsWith(search) || search == null).ToList());
