@@ -41,6 +41,14 @@ namespace _3vikna.Repositories
                            select r).Take(5);
             return results;
         }
+
+        public IQueryable<string> GetCommentsByID()
+        {
+            var result = (from c in db.Comment
+                          orderby c.UserName
+                          select c.UserName);
+            return result;
+        }
         //SRV
         public Requests GetByID(int id)
         {
@@ -50,6 +58,23 @@ namespace _3vikna.Repositories
             return results;
         }
 
+        public IEnumerable<string> UserHasLiked(int? id)
+        {
+            var result = (from r in db.Upvote
+                          where r.ReqID == id
+                          select r.UserName);
+            return result;
+        }
+
+        public void AddUpvotes(int id, string strUser)
+        {
+            Upvote item = new Upvote();
+            item.ReqID = id;
+            item.UserName = strUser;
+            db.Upvote.Add(item);
+            db.SaveChanges();
+        }
+
         public IEnumerable<Requests> GetUpvotes()
         {
             var result = from c in db.Requests
@@ -57,6 +82,14 @@ namespace _3vikna.Repositories
                          select c;
             return result;
         }
+
+       /* public IEnumerable<Requests> GetUpvotes()
+        {
+            var result = from c in db.Requests
+                         orderby c.UpvoteID ascending
+                         select c;
+            return result;
+        }*/
 
         public void AddRequest(Requests s)
         {

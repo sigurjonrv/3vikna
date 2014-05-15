@@ -295,3 +295,19 @@ input[type="checkbox"].input-validation-error {
 .single-line{
     min-width: 35em;
 }
+.profile input{
+    max-width: 21em;
+}
+
+.login input{
+    max-width: 21em;
+}
+
+.register input{
+    max-width: 21em;
+}
+
+.newscreentext{
+    margin-left:100px;
+}
+

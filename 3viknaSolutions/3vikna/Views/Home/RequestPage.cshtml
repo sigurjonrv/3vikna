@@ -17,7 +17,6 @@
                 <th class="head">Myndir</th>
                 <th class="head">Útgáfuár</th>
                 <th class="head">Dagsetning</th>
-                <th class="head">Staða</th>
                 <th class="head">Kjósa</th>
             </tr>
         </thead>
@@ -30,9 +29,7 @@
                     <td class="row1">@item.MediaName</td>
                     <td class="row1">@item.YearPublished</td>
                     <td class="row2">@item.Date</td>
-                    <td class="row2">Í VINNSLU</td>
-                    <td class="row2"><div class="glyphicon glyphicon-arrow-up"></div> </td>
-                    <td class="row2">@item.UpvoteID<button type="button" id="Upvote" class="glyphicon glyphicon-arrow-up">@Html.ActionLink("UP", "upvoteInc", new { @item.ID })</button></td>
+                    <td class="row2">@item.UpvoteID<button type="button" id="Upvote"  class="glyphicon glyphicon-arrow-up">@Html.ActionLink("UP", "upvoteInc", new { @item.ID })</button></td>
                 </tr>
             }
         </tbody>

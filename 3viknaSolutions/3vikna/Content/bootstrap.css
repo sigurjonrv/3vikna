@@ -405,7 +405,13 @@ hr {
 p {
   margin: 0 0 10px;
 }
-
+.hjalp li p{
+     background-color: rgb(200,200,200);
+     padding-left: 5px;
+     margin-top: 10px;
+     border: solid 1px;
+     border-radius: 5px; /*SRV*/
+}
 .lead {
   margin-bottom: 20px;
   font-size: 16.099999999999998px;

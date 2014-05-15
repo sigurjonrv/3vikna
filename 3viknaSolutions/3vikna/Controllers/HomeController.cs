@@ -14,21 +14,25 @@ namespace _3vikna.Controllers
 
         SubtitlesRepo subtitleRepo = new SubtitlesRepo();
         RequestsRepo requestRepo = new RequestsRepo();
+        //CommentRepository CommendRepo = new CommentRepository();
         AppDataContext db = new AppDataContext();
+
         public ActionResult Index()
         {
-
             MainPageModelView vm = new MainPageModelView();
             vm.Req = requestRepo.GetAllByDate();
             vm.Sub = subtitleRepo.GetNewest();
-            
+
+
             /*var model = SubtitleRepo.GetAllSubtitles();
             return View(model);*/
             return View(vm);
         }
+
         public ActionResult RequestPage()
         {
             return View(db.Requests);
+
         }
 
         [HttpGet]
@@ -45,6 +49,7 @@ namespace _3vikna.Controllers
             Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
             Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
             ViewBag.Categories = Categories;
+
             return View();
         }
 
@@ -140,11 +145,35 @@ namespace _3vikna.Controllers
             return View();
         }
 
-        public ActionResult Search()
+        public ActionResult Search(string searchBy, string search) //string searchBy, string search
         {
-            ViewBag.Message = "Your application description pagee";
 
-            return View();
+            if (searchBy == "MediaName")
+            {
+                if (search == "")
+                {
+                    return View(db.Requests.Where(x => x.Category == "Other"));
+                }
+                return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
+            }
+            else if (searchBy == "Episodes")
+            {
+                if (search == "")
+                {
+                    return View(db.Requests.Where(x => x.Category == "Episodes"));
+                }
+                return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
+            }
+            else
+            {
+                if (search == "")
+                {
+                    return View(db.Requests.Where(x => x.Category == "Movies"));
+                }
+                return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
+            }
+
+            //return View();
         }
 
         public ActionResult Contact()
@@ -167,7 +196,53 @@ namespace _3vikna.Controllers
             //model.File = model.File.Replace("\n", "<br />");
             return View(es);
         }
+        [HttpGet]
+        public ActionResult Alert()
+        {
+            return Json("You have liked this before", JsonRequestBehavior.AllowGet);
+        }
 
+        public void AddUpvotes(int id, string strUser)
+        {
+            Upvote item = new Upvote();
+            item.ReqID = id;
+            item.UserName = strUser;
+            db.Upvote.Add(item);
+            db.SaveChanges();
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult upvoteInc(int id)
+        {
+
+            IEnumerable<string> usersWhoHaveLiked = requestRepo.UserHasLiked(id);
+
+            foreach (var item in usersWhoHaveLiked)
+            {
+                if (User.Identity.Name == item)
+                {
+                    return Alert();
+                }
+            }
+
+            string strUser = User.Identity.Name;
+
+            //Upvote addUpvote = new Upvote();
+            //addUpvote.UserName = strUser;
+            //addUpvote.ReqID = id;
+            requestRepo.AddUpvotes(id, strUser);
+
+
+
+            //requestRepo.AddUpvotes(id, strUser);
+            Requests movie = (from u in db.Requests
+                              where u.ID == id
+                              select u).SingleOrDefault();
+            movie.UpvoteID += 1;
+            db.SaveChanges();
+            return RedirectToAction("RequestPage");
+        }
         [HttpPost, ValidateInput(false)]
         public ActionResult EditSub(EditSub es)
         {
@@ -219,6 +294,41 @@ namespace _3vikna.Controllers
             return File(bytes, "txt/srt", name);
             /*var file = db.Subtitles.First(f => f.ID == id);
             return File(file.Data.ToArray(), "application/octet-stream",)*/
+        }
+
+        public ActionResult comment(int id)
+        {
+            //var model = CommentRepository.Instance.Gettingcomments(9);
+            var model = CommentRepository.Instance.GetComments(id);
+            CommentViewModel cm = new CommentViewModel();
+            cm.Com = model;
+            cm.subtitleId = id;
+            return View(cm);
+        }
+        [Authorize]
+        [HttpPost]
+        public ActionResult comment(FormCollection formData, int id)
+        {
+
+            String strComment = formData["CommentText"];
+            if (!String.IsNullOrEmpty(strComment))
+            {
+                Comment c = new Comment();
+
+                c.CommentText = strComment;
+                String strUser = User.Identity.Name;
+                c.UserName = strUser;
+                c.subtitleID = id;
+                CommentRepository.Instance.AddComment(c);
+                UpdateModel(c);
+                CommentRepository.Instance.Save();
+                return RedirectToAction("Comment");
+            }
+            else
+            {
+                ModelState.AddModelError("CommentText", "Comment text cannot be empty!");
+                return Index();
+            }
         }
 
 

@@ -1,0 +1,40 @@
+﻿@model _3vikna.Models.CommentViewModel
+@{
+    Layout = "Comment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<body>
+
+    @Html.Partial("Searchpartial")
+
+    <ul class="list-group" style="max-width: 560px;">
+        @foreach (var item in Model.Com)
+        {
+            <li class="list-group-item">
+                <p>
+                    <span class="glyphicon glyphicon-user"></span>
+                    <span class="text-primary">@Html.DisplayFor(modelItem => item.UserName)</span>
+                    <span>@Html.DisplayFor(modelItem => item.CommentText)</span>
+                </p>
+            </li>
+        }
+        <li class="list-group-item">
+
+            @using (Html.BeginForm(new { @Model.subtitleId }))
+            {
+                <div class="form-horizontal">
+                    <label class="sr-only" for="CommentText">Comment</label>
+                    <textarea class="form-control" rows="3" id="CommentText" name="CommentText"></textarea>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </div>
+                @Html.ValidationSummary(false)
+            }
+        </li>
+    </ul>
+</body>
+
+
+
