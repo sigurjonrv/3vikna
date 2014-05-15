@@ -5359,6 +5359,9 @@ a.list-group-item:focus {
 .panel-body {
   padding: 15px;
 }
+.panel-body ul {
+text-align: center;
+}
 
 .panel-body:before,
 .panel-body:after {
