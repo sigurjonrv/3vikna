@@ -61,6 +61,11 @@ namespace _3vikna.Repositories
             return result;
         }
 
+        public void UpdateALL(int id, Subtitles sub)
+        {
+            
+        }
+
         public void AddSubtitle(Subtitles s)
         {
             db.Subtitles.Add(s);

@@ -2,7 +2,6 @@
 @{
     ViewBag.Title = "EditSub";
 }
-
 <h2>EditSub</h2>
 @Html.Partial("navigationbar")
 @using (Html.BeginForm())
@@ -28,16 +27,14 @@
             </div>
         </div>
     </div>
-
-    
     for (int i = 0; i < Model.lines.Count; i++)
     {
-        if (i == Model.lines.Count-1)
+        if (i == Model.lines.Count - 1)
         {
             @Html.Raw(Model.lines[i] + "<br/>");
-            <span class="taxta-box>"> @Html.EditorFor(model => Model.lines[i], new { size = 1000 })</span>
-            @Html.Raw("<br />");
-            @Html.Raw("</div></div>");
+    <span class="taxta-box>"> @Html.EditorFor(model => Model.lines[i], new { size = 1000 })</span>
+    @Html.Raw("<br />");
+    @Html.Raw("</div></div>");
         }
         else if (Model.lines[i] == "\n")// veida \n
         {
@@ -47,48 +44,42 @@
         {
             // @Html.Raw("\n");
             @Html.Raw(Model.lines[i] + "<br/>");
-            <span class="taxta-box>"> @Html.EditorFor(model => Model.lines[i], new { size = 1000 })</span>
-            @Html.Raw("<br />");
+    <span class="taxta-box>"> @Html.EditorFor(model => Model.lines[i], new { size = 1000 })</span>
+    @Html.Raw("<br />");
         }
-
         else if (Model.lines[i].Length < 4)// veidir numer minni en 2 digits
         {
             @Html.Raw("<div class=\"panel panel-primary\">");
-            @Html.Raw("<div class=\"panel-heading\">");
-            @Html.Raw("<b>" + Model.lines[i] + "</b>" + "<br/>");
+    @Html.Raw("<div class=\"panel-heading\">");
+    @Html.Raw("<b>" + Model.lines[i] + "</b>" + "<br/>");
         }
-
         else if (Model.lines[i + 1].Substring(3, 1) == ":")// veida numerinn
         {
             @Html.Raw("<div class=\"panel panel-primary\">");
-            @Html.Raw("<div class=\"panel-heading\">");
-            @Html.Raw("<b>" + Model.lines[i] + "</b>" + "<br/>");
+    @Html.Raw("<div class=\"panel-heading\">");
+    @Html.Raw("<b>" + Model.lines[i] + "</b>" + "<br/>");
         }
-
         else if (Model.lines[i].Substring(3, 1) == ":") // veida timann
         {
             @Html.Raw("<b>" + Model.lines[i] + "</b>" + "<br/>");
-            @Html.Raw("\n"); //prufa
-            @Html.Raw("</div>");
-            @Html.Raw("<div class=\"panel-body\">");
+    @Html.Raw("\n"); //prufa
+    @Html.Raw("</div>");
+    @Html.Raw("<div class=\"panel-body\">");
         }
-
         else // textinn
         {
-
             @Html.Raw("\n");
-            @Html.Raw(Model.lines[i] +"<br/>");
-            @Html.EditorFor(model => Model.lines[i], new { size = 1000 });
-            @Html.Raw("<br />");
-
+    @Html.Raw(Model.lines[i] + "<br/>");
+    @Html.EditorFor(model => Model.lines[i], new { size = 1000 });
+    @Html.Raw("<br />");
         }
-            @Html.HiddenFor(model => model.req.Category)
-            @Html.HiddenFor(model => model.req.DateCreated)
-            @Html.HiddenFor(model => model.req.ID)
-            @Html.HiddenFor(model => model.lines[i])
+        @Html.HiddenFor(model => model.req.Category)
+        @Html.HiddenFor(model => model.req.DateCreated)
+        @Html.HiddenFor(model => model.req.ID)
+        @Html.HiddenFor(model => model.lines[i])
     }
-     if(User.Identity.IsAuthenticated) // breyta i admin
-        { 
-             @Html.ActionLink("Publish3", "SafeToPublish", new { id = @Model.req.ID })
-        }
+    if (User.Identity.IsAuthenticated) // breyta i admin
+    {
+        @Html.ActionLink("Publish3", "SafeToPublish", new { id = @Model.req.ID })
+    }
 }
