@@ -15,9 +15,9 @@ namespace _3vikna.Controllers
 
         SubtitlesRepo subtitleRepo = new SubtitlesRepo();
         RequestsRepo requestRepo = new RequestsRepo();
-        //CommentRepository CommendRepo = new CommentRepository();
         AppDataContext db = new AppDataContext();
 
+        [HttpGet]
         public ActionResult Index()
         {
             MainPageModelView vm = new MainPageModelView();
@@ -25,16 +25,13 @@ namespace _3vikna.Controllers
             vm.Sub = subtitleRepo.GetNewest();
             vm.Sub2 = subtitleRepo.NotFinished();
 
-
-            /*var model = SubtitleRepo.GetAllSubtitles();
-            return View(model);*/
             return View(vm);
         }
 
+        [HttpGet]
         public ActionResult RequestPage()
         {
             return View(requestRepo.SortByUpvotes());
-
         }
 
         [HttpGet]
@@ -44,6 +41,7 @@ namespace _3vikna.Controllers
             return Json(model, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
         public ActionResult NewRequest()
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
@@ -65,9 +63,7 @@ namespace _3vikna.Controllers
             ViewBag.Categories = Categories;
 
             Requests item = new Requests();
-
-            
-            
+           
             if (file != null)
             {
                 item.Extension = file.ContentType;
@@ -83,10 +79,8 @@ namespace _3vikna.Controllers
             }
             return RedirectToAction("Index");
         }
-
-
-
-        public ActionResult ScreenText() //ER AD VINNA HERNA
+        [HttpGet]
+        public ActionResult ScreenText()
         {
             if (User.IsInRole("Administrator"))
             {
@@ -104,6 +98,7 @@ namespace _3vikna.Controllers
 
         }
         [Authorize]
+        [HttpGet]
         public ActionResult NewScreenText()
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
@@ -140,21 +135,18 @@ namespace _3vikna.Controllers
                 var reader = new StreamReader(uploadFile.InputStream);
                 item.File = reader.ReadToEnd();
             }
-
             if (file != null)
             {
                 item.Extension = file.ContentType;
                 item.ImageName = file.FileName;
                 item.ImageBytes = ConvertToBytes(file);
                 subtitleRepo.AddSubtitle(item);
-                //UpdateModel(item);
                 subtitleRepo.Save();
                 return RedirectToAction("Index");
             }
             else
             {
                 subtitleRepo.AddSubtitle(item);
-                //UpdateModel(item);
                 subtitleRepo.Save();
                 return RedirectToAction("Index");
             }
@@ -168,6 +160,7 @@ namespace _3vikna.Controllers
             return imageBytes;
         }
 
+        [HttpGet]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description pagee.";
@@ -219,6 +212,8 @@ namespace _3vikna.Controllers
 
             return View();
         }
+
+        [HttpGet]
         public ActionResult EditSub(int id)
         {
             Subtitles model = new Subtitles();
@@ -228,11 +223,9 @@ namespace _3vikna.Controllers
             EditSub es = new EditSub();
             es.req = model;
             es.lines = line.ToList();
-            //model.File = model.File.Replace("\n \n", "<b /> yolo <br />");
-            //model.File = model.File.Replace("\n\r\n", "<br /> yolo <br />");
-            //model.File = model.File.Replace("\n", "<br />");
             return View(es);
         }
+
         [HttpGet]
         public ActionResult Alert()
         {
@@ -252,9 +245,7 @@ namespace _3vikna.Controllers
         [Authorize]
         public ActionResult upvoteInc(int id)
         {
-
             IEnumerable<string> usersWhoHaveLiked = requestRepo.UserHasLiked(id);
-
             foreach (var item in usersWhoHaveLiked)
             {
                 if (User.Identity.Name == item)
@@ -264,15 +255,7 @@ namespace _3vikna.Controllers
             }
 
             string strUser = User.Identity.Name;
-
-            //Upvote addUpvote = new Upvote();
-            //addUpvote.UserName = strUser;
-            //addUpvote.ReqID = id;
             requestRepo.AddUpvotes(id, strUser);
-
-
-
-            //requestRepo.AddUpvotes(id, strUser);
             Requests movie = (from u in db.Requests
                               where u.ID == id
                               select u).SingleOrDefault();
@@ -280,6 +263,7 @@ namespace _3vikna.Controllers
             db.SaveChanges();
             return RedirectToAction("RequestPage");
         }
+
         [Authorize]
         [HttpPost, ValidateInput(false)]
         public ActionResult EditSub(EditSub es)
@@ -315,11 +299,7 @@ namespace _3vikna.Controllers
                 }
                 es.req.File += stuff; // bætir inn í strenginn i gangnagrinnun,
             }
-            //es.req.File = string.Join("\r", es.lines.ToArray());
             subtitleRepo.UpdateDB(es.req.ID, es.req);
-            //model.File = model.File.Replace("\n \n", "<b /> yolo <br />");
-            //model.File = model.File.Replace("\n\r\n", "<br /> yolo <br />");
-            //model.File = model.File.Replace("\n", "<br />");
             return RedirectToAction("RequestPage");
         }
 
@@ -331,13 +311,10 @@ namespace _3vikna.Controllers
             string name = subtitleRepo.getNameById(id);
             name = name + ".srt";
             return File(bytes, "txt/srt", name);
-            /*var file = db.Subtitles.First(f => f.ID == id);
-            return File(file.Data.ToArray(), "application/octet-stream",)*/
         }
 
         public ActionResult comment(int id)
         {
-            //var model = CommentRepository.Instance.Gettingcomments(9);
             var model = CommentRepository.Instance.GetComments(id);
             string name = subtitleRepo.getNameById(id);
             CommentViewModel cm = new CommentViewModel();
@@ -350,12 +327,10 @@ namespace _3vikna.Controllers
         [HttpPost]
         public ActionResult comment(FormCollection formData, int id)
         {
-
             String strComment = formData["CommentText"];
             if (!String.IsNullOrEmpty(strComment))
             {
                 Comment c = new Comment();
-
                 c.CommentText = strComment;
                 String strUser = User.Identity.Name;
                 c.UserName = strUser;
@@ -382,7 +357,5 @@ namespace _3vikna.Controllers
             subtitleRepo.Save();
             return RedirectToAction("Index");
         }
-
-
     }
 }
