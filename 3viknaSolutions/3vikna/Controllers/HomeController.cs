@@ -113,15 +113,9 @@ namespace _3vikna.Controllers
                 return View("Error");
             }
         }
-<<<<<<< HEAD
 
-
-
-        public ActionResult ScreenText() 
-=======
         [HttpGet]
         public ActionResult ScreenText()
->>>>>>> 8e9b12eca92248c558fdcb62663f71f6e3b02418
         {
             try
             {
