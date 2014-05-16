@@ -9,5 +9,6 @@ namespace _3vikna.Models
     {
         public IEnumerable<_3vikna.Models.Comment> Com { get; set; }
         public int subtitleId { get; set; }
+        public string MediaName { get; set; }
     }
 }

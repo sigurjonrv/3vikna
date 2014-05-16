@@ -17,7 +17,6 @@ namespace _3vikna.Controllers
         //CommentRepository CommendRepo = new CommentRepository();
         AppDataContext db = new AppDataContext();
 
-
         public ActionResult Index()
         {
             MainPageModelView vm = new MainPageModelView();
@@ -55,7 +54,7 @@ namespace _3vikna.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewRequest(int? id, FormCollection form, HttpPostedFileBase uploadFile, HttpPostedFileBase file)
+        public ActionResult NewRequest(int? id, FormCollection form, HttpPostedFileBase file)
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
             Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
@@ -64,11 +63,6 @@ namespace _3vikna.Controllers
             ViewBag.Categories = Categories;
 
             Requests item = new Requests();
-            if (uploadFile != null)
-            {
-                var reader = new StreamReader(uploadFile.InputStream);
-                item.File = reader.ReadToEnd();
-            }
 
             if (file != null)
             {
@@ -118,7 +112,7 @@ namespace _3vikna.Controllers
         }
         [Authorize]
         [HttpPost]
-        public ActionResult NewScreenText(int? id, FormCollection form, HttpPostedFileBase uploadFile, HttpPostedFileBase file)
+        public ActionResult NewScreenText(int id, FormCollection form, HttpPostedFileBase uploadFile, HttpPostedFileBase file)
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
             Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
@@ -276,12 +270,14 @@ namespace _3vikna.Controllers
             db.SaveChanges();
             return RedirectToAction("RequestPage");
         }
+        [Authorize]
         [HttpPost, ValidateInput(false)]
         public ActionResult EditSub(EditSub es)
         {
-
+            int counter = 0;
             foreach (var item in es.lines)
             {
+                counter++;
                 var stuff = item;
                 if (!stuff.StartsWith(Environment.NewLine))
                 {
@@ -333,9 +329,11 @@ namespace _3vikna.Controllers
         {
             //var model = CommentRepository.Instance.Gettingcomments(9);
             var model = CommentRepository.Instance.GetComments(id);
+            string name = subtitleRepo.getNameById(id);
             CommentViewModel cm = new CommentViewModel();
             cm.Com = model;
             cm.subtitleId = id;
+            cm.MediaName = name; 
             return View(cm);
         }
         [Authorize]
@@ -364,14 +362,16 @@ namespace _3vikna.Controllers
             }
         }
 
+
         [Authorize(Roles = "Admin")] //athuga
-        public void SafeToPublish(int id)
+        public ActionResult SafeToPublish(int id)
         {
             Subtitles sub = new Subtitles();
             sub = subtitleRepo.GetByID(id);
             sub.IsFinished = true;
             UpdateModel(sub);
             subtitleRepo.Save();
+            return RedirectToAction("Index");
         }
 
 
