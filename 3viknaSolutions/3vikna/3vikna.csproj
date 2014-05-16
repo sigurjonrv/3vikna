@@ -178,7 +178,7 @@
     <Compile Include="Models\CommentViewModel.cs" />
     <Compile Include="Models\EditSub.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\MainPageModelView.cs" />
+    <Compile Include="Models\MainPageViewModel.cs" />
     <Compile Include="Models\Requests.cs" />
     <Compile Include="Models\Subtitles.cs" />
     <Compile Include="Models\Upvote.cs" />

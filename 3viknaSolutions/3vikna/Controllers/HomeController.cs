@@ -21,7 +21,7 @@ namespace _3vikna.Controllers
         {
             try
             {
-                MainPageModelView vm = new MainPageModelView();
+                MainPageViewModel vm = new MainPageViewModel();
                 vm.Req = requestRepo.GetAllByDate();
                 vm.Sub = subtitleRepo.GetNewest();
                 vm.Sub2 = subtitleRepo.NotFinished();
@@ -83,35 +83,28 @@ namespace _3vikna.Controllers
         [HttpPost]
         public ActionResult NewRequest(int? id, FormCollection form, HttpPostedFileBase file)
         {
-            try
+            List<SelectListItem> Categories = new List<SelectListItem>();
+            Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
+            Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
+            Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
+            ViewBag.Categories = Categories;
+
+            Requests item = new Requests();
+
+            if (file != null)
             {
-                List<SelectListItem> Categories = new List<SelectListItem>();
-                Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
-                Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
-                Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
-                ViewBag.Categories = Categories;
-
-                Requests item = new Requests();
-
-                if (file != null)
-                {
-                    item.Extension = file.ContentType;
-                    item.ImageName = file.FileName;
-                    item.ImageBytes = ConvertToBytes(file);
-                }
-                if (form != null)
-                {
-                    requestRepo.AddRequest(item);
-                    UpdateModel(item);
-                    requestRepo.Save();
-                    return RedirectToAction("Index");
-                }
+                item.Extension = file.ContentType;
+                item.ImageName = file.FileName;
+                item.ImageBytes = ConvertToBytes(file);
+            }
+            if (form != null)
+            {
+                requestRepo.AddRequest(item);
+                UpdateModel(item);
+                requestRepo.Save();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View("Error");
-            }
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -150,8 +143,7 @@ namespace _3vikna.Controllers
         [HttpPost]
         public ActionResult NewScreenText(int? id, FormCollection form, HttpPostedFileBase uploadFile, HttpPostedFileBase file)
         {
-            try
-            {
+
                 List<SelectListItem> Categories = new List<SelectListItem>();
                 Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
                 Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
@@ -159,22 +151,42 @@ namespace _3vikna.Controllers
                 ViewBag.Categories = Categories;
 
                 Subtitles item = new Subtitles();
+                if(uploadFile == null)
+                {
+                    return View("Error");
+                }
                 if (form != null)
                 {
                     UpdateModel(item);
                 }
-                if (uploadFile == null)
-                {
-                    return View("Error");
-                }
                 string uploadFileext = Path.GetExtension(uploadFile.FileName);
-                string fileExt = Path.GetExtension(file.FileName);
-                if (String.IsNullOrEmpty(uploadFileext) || !uploadFileext.Equals(".srt", StringComparison.OrdinalIgnoreCase))
+                if (file != null)
                 {
-                    return View("Error");
+                    string fileExt = Path.GetExtension(file.FileName);
+                    if (String.IsNullOrEmpty(fileExt) || fileExt.Equals(".png", StringComparison.OrdinalIgnoreCase))
+                    {
+                        item.Extension = file.ContentType;
+                        item.ImageName = file.FileName;
+                        item.ImageBytes = ConvertToBytes(file);
+                    }
+                    else if (String.IsNullOrEmpty(fileExt) || fileExt.Equals(".jpg", StringComparison.OrdinalIgnoreCase))
+                    {
+                        item.Extension = file.ContentType;
+                        item.ImageName = file.FileName;
+                        item.ImageBytes = ConvertToBytes(file);
+                    }
+                    else if (String.IsNullOrEmpty(fileExt) || fileExt.Equals(".jpeg", StringComparison.OrdinalIgnoreCase))
+                    {
+                        item.Extension = file.ContentType;
+                        item.ImageName = file.FileName;
+                        item.ImageBytes = ConvertToBytes(file);
+                    }
+                    else
+                    {
+                        return View("Error");
+                    }
                 }
-                if (String.IsNullOrEmpty(fileExt) || !fileExt.Equals(".png", StringComparison.OrdinalIgnoreCase) ||
-                    !fileExt.Equals(".jpeg", StringComparison.OrdinalIgnoreCase))
+                if (String.IsNullOrEmpty(uploadFileext) || !uploadFileext.Equals(".srt", StringComparison.OrdinalIgnoreCase))
                 {
                     return View("Error");
                 }
@@ -185,9 +197,6 @@ namespace _3vikna.Controllers
                 }
                 if (file != null)
                 {
-                    item.Extension = file.ContentType;
-                    item.ImageName = file.FileName;
-                    item.ImageBytes = ConvertToBytes(file);
                     subtitleRepo.AddSubtitle(item);
                     subtitleRepo.Save();
                     return RedirectToAction("Index");
@@ -198,11 +207,7 @@ namespace _3vikna.Controllers
                     subtitleRepo.Save();
                     return RedirectToAction("Index");
                 }
-            }
-            catch
-            {
-                return View("Error");
-            }
+                //return RedirectToAction("Index");
         }
 
         public byte[] ConvertToBytes(HttpPostedFileBase file)
