@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using _3vikna.Models;
 using _3vikna.Repositories;
 using System.IO;
+using System.ComponentModel.DataAnnotations;
 
 namespace _3vikna.Controllers
 {
@@ -22,6 +23,7 @@ namespace _3vikna.Controllers
             MainPageModelView vm = new MainPageModelView();
             vm.Req = requestRepo.GetAllByDate();
             vm.Sub = subtitleRepo.GetNewest();
+            vm.Sub2 = subtitleRepo.NotFinished();
 
 
             /*var model = SubtitleRepo.GetAllSubtitles();
@@ -64,6 +66,8 @@ namespace _3vikna.Controllers
 
             Requests item = new Requests();
 
+            
+            
             if (file != null)
             {
                 item.Extension = file.ContentType;
@@ -130,7 +134,10 @@ namespace _3vikna.Controllers
                 var reader = new StreamReader(uploadFile.InputStream);
                 item.File = reader.ReadToEnd();
             }
-
+            if (file == null)
+            {
+                return new ValidationResult("Please upload a file!");
+            }
             if (file != null)
             {
                 item.Extension = file.ContentType;
@@ -361,7 +368,6 @@ namespace _3vikna.Controllers
                 return Index();
             }
         }
-
 
         [Authorize(Roles = "Admin")] //athuga
         public ActionResult SafeToPublish(int id)
