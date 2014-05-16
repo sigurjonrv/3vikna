@@ -15,7 +15,7 @@
         @Html.ValidationSummary(true)
 
         <div class="form-group">
-            @Html.Label("Heiti sjónvarpsefnis", new { @class = "control-label col-md-2" })
+            @Html.Label("Heiti sjónvarpsefni", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.MediaName)
                 @Html.ValidationMessageFor(model => model.MediaName)
@@ -23,7 +23,7 @@
         </div>
 
         <div class="form-group">
-            @Html.Label("Útgáfuár", new { @class = "control-label col-md-2" })
+            @Html.Label("Útgáfuár" ,new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.YearPublished)
                 <!--Html.EditorFor(model => model.Text)-->
@@ -46,11 +46,8 @@
                 @Html.ValidationMessageFor(model => model.Category)
             </div>
         </div>
-        <div class="form-group">
-            @Html.Label("Mynd", new { @class = "control-label col-md-2" })
-            <input class="control-label col-md-2" type="file" id="file" value="Mynd" />
-        </div>
-        <div class="form-group">
+        <div>
+            Mynd <input name="file" type="file" id="file" value="Mynd" />
             <input type="submit" value="Senda" class="btn btn-default" />
         </div>
     </div>

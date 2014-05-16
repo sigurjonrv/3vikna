@@ -83,35 +83,28 @@ namespace _3vikna.Controllers
         [HttpPost]
         public ActionResult NewRequest(int? id, FormCollection form, HttpPostedFileBase file)
         {
-            try
+            List<SelectListItem> Categories = new List<SelectListItem>();
+            Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
+            Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
+            Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
+            ViewBag.Categories = Categories;
+
+            Requests item = new Requests();
+
+            if (form != null)
             {
-                List<SelectListItem> Categories = new List<SelectListItem>();
-                Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
-                Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
-                Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
-                ViewBag.Categories = Categories;
-
-                Requests item = new Requests();
-
-                if (file != null)
-                {
-                    item.Extension = file.ContentType;
-                    item.ImageName = file.FileName;
-                    item.ImageBytes = ConvertToBytes(file);
-                }
-                if (form != null)
-                {
-                    requestRepo.AddRequest(item);
-                    UpdateModel(item);
-                    requestRepo.Save();
-                    return RedirectToAction("Index");
-                }
+                UpdateModel(item);
+            }
+            if (file != null)
+            {
+                item.Extension = file.ContentType;
+                item.ImageName = file.FileName;
+                item.ImageBytes = ConvertToBytes(file);
+                requestRepo.AddRequest(item);
+                requestRepo.Save();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View("Error");
-            }
+            return RedirectToAction("Index");
         }
 
         [HttpGet]

@@ -332,4 +332,6 @@ input[type="checkbox"].input-validation-error {
      border: solid 1px;
      border-radius: 5px;
 }
-
+.inn{
+  padding: 20px;
+}
