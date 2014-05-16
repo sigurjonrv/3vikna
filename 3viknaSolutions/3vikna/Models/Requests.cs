@@ -10,11 +10,14 @@ namespace _3vikna.Models
     {
         public int ID { get; set; }
 
-        [Required]
+        [Required (ErrorMessage = "Það þarf að skrifa inn heiti sjónvarpsefnis")]
         public string MediaName { get; set; }
+        [Required(ErrorMessage = "Það þarf að skrifa inn útgáfuár")]
         public string YearPublished { get; set; }
+        [Required(ErrorMessage = "Það þarf að vera dagsetning")]
         public DateTime Date { get; set; }
         public string Category { get; set; }
+        [Required(ErrorMessage = "Það þarf að upphala .srt skrá")]
         public string File { get; set; }
         public int UpvoteID { get; set; }
         public string ImageName { get; set; }
