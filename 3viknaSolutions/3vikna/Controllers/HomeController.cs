@@ -270,6 +270,7 @@ namespace _3vikna.Controllers
             db.SaveChanges();
             return RedirectToAction("RequestPage");
         }
+
         [Authorize]
         [HttpPost, ValidateInput(false)]
         public ActionResult EditSub(EditSub es)
@@ -315,26 +316,42 @@ namespace _3vikna.Controllers
 
         public ActionResult Download(int id) 
         {
-            string str = subtitleRepo.GetFileFromDB(id);
-            byte[] bytes = new byte[str.Length * sizeof(char)];
-            System.Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
-            string name = subtitleRepo.getNameById(id);
-            name = name + ".srt";
-            return File(bytes, "txt/srt", name);
-            /*var file = db.Subtitles.First(f => f.ID == id);
-            return File(file.Data.ToArray(), "application/octet-stream",)*/
+            try
+            {
+                string str = subtitleRepo.GetFileFromDB(id);
+                byte[] bytes = new byte[str.Length * sizeof(char)];
+                System.Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
+                string name = subtitleRepo.getNameById(id);
+                name = name + ".srt";
+                return File(bytes, "txt/srt", name);
+                /*var file = db.Subtitles.First(f => f.ID == id);
+                return File(file.Data.ToArray(), "application/octet-stream",)*/
+            }
+            catch
+            {
+                return View("Error");
+            }
+            
         }
 
         public ActionResult comment(int id)
         {
-            //var model = CommentRepository.Instance.Gettingcomments(9);
-            var model = CommentRepository.Instance.GetComments(id);
-            string name = subtitleRepo.getNameById(id);
-            CommentViewModel cm = new CommentViewModel();
-            cm.Com = model;
-            cm.subtitleId = id;
-            cm.MediaName = name; 
-            return View(cm);
+            try
+            {
+                //var model = CommentRepository.Instance.Gettingcomments(9);
+                var model = CommentRepository.Instance.GetComments(id);
+                string name = subtitleRepo.getNameById(id);
+                CommentViewModel cm = new CommentViewModel();
+                cm.Com = model;
+                cm.subtitleId = id;
+                cm.MediaName = name; 
+                return View(cm);
+            }
+            catch
+            {
+                return View("Error");
+            }
+            
         }
         [Authorize]
         [HttpPost]
@@ -362,12 +379,7 @@ namespace _3vikna.Controllers
             }
         }
 
-
-<<<<<<< HEAD
         [Authorize(Roles = "Admin")] 
-=======
-        [Authorize(Roles = "Admin")] //athuga
->>>>>>> b8983b3a7695958754f6873c1b32adfb491a2297
         public ActionResult SafeToPublish(int id)
         {
             Subtitles sub = new Subtitles();
@@ -377,7 +389,5 @@ namespace _3vikna.Controllers
             subtitleRepo.Save();
             return RedirectToAction("Index");
         }
-
-
     }
 }
