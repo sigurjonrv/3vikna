@@ -123,6 +123,10 @@ namespace _3vikna.Controllers
             {
                 UpdateModel(item);
             }
+            if (file == null)
+            {
+                return View("Error");
+            }
             string ext = Path.GetExtension(uploadFile.FileName);
             if (String.IsNullOrEmpty(ext) || !ext.Equals(".srt", StringComparison.OrdinalIgnoreCase))
             {          

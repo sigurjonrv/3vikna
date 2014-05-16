@@ -15,7 +15,7 @@
         @Html.ValidationSummary(true)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MediaNameSub, new { @class = "control-label col-md-2" })
+            @Html.Label("Heiti sjónvarpsefnis", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.MediaNameSub)
                 @Html.ValidationMessageFor(model => model.MediaNameSub)
@@ -23,7 +23,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.YearPublished, new { @class = "control-label col-md-2" })
+            @Html.Label("Útgáfuár", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.YearPublished)
                 <!--Html.EditorFor(model => model.Text)-->
@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Category, new { @class = "control-label col-md-2" })
+            @Html.Label("Flokkur", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.Category, ViewBag.Categories as List<SelectListItem>)
                 @Html.ValidationMessageFor(model => model.Category)
@@ -40,24 +40,24 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DateCreated, new { @class = "control-label col-md-2" })
+            @Html.Label("Dagsetning", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextBox("date", DateTime.Now.ToShortDateString())
                 @Html.ValidationMessageFor(model => model.DateCreated)
             </div>
         </div>
-        <div>
-            <div class="inn">
-                <input name="uploadFile" type="file" />
-            </div>
-            <div class="inn">
-                Mynd <input name="file" type="file" id="file" value="Mynd" />
-            </div>
-            <div class="inn">
+        <div class="form-group">
+            @Html.Label("Upphlaða .srt Skrá", new { @class = "control-label col-md-2" })
+            <input name="uploadFile" type="file" />
+        </div>
+        <div class="form-group">
+            @Html.Label("Mynd", new { @class = "control-label col-md-2" })
+            <input class="control-label col-md-2" type="file" id="file" value="Mynd" />
+        </div>
+            <div class="form-group">
                 <input type="submit" value="Senda" class="btn btn-default" />
             </div>
         </div>
-    </div>
 }
 
 @Scripts.Render("~/bundles/jquery")
