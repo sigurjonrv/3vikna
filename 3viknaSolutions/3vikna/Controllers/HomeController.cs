@@ -360,13 +360,9 @@ namespace _3vikna.Controllers
             }
         }
 
-<<<<<<< HEAD
-        [Authorize(Roles = "Admin")]
-        public void SafeToPublish(int id)
-=======
-        [Authorize(Roles = "Admin")] //athuga
+
+        [Authorize(Roles = "Admin")] 
         public ActionResult SafeToPublish(int id)
->>>>>>> 87cebff0db2de564ea95beb3574ab4d3e616b4a1
         {
             Subtitles sub = new Subtitles();
             sub = subtitleRepo.GetByID(id);
