@@ -65,6 +65,11 @@ input[type="checkbox"].input-validation-error {
  height:auto;
  background : -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(40,40,40)));
 }
+.about #navbar2 li .i5 a{
+  color: black;
+ height:auto;
+ background : -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(40,40,40)));
+}
 
 /*þetta er svo að navbarinn sýni hvar maður er SRV*/
 
