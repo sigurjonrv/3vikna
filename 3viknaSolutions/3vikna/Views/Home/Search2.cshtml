@@ -60,7 +60,7 @@
                     <td class="row2">@Html.ActionLink("comment", "comment", new { @item.ID }) ></td>
                     @if (item.IsFinished)
                     {
-                        <td class="row2">@Html.ActionLink("download file", "download", new { @item.ID })</td>
+                        <td class="row2">@Html.ActionLink("Sækja skrá", "download", new { @item.ID })</td>
                     }
                     else
                     {
@@ -71,5 +71,17 @@
         </tbody>
     }
 </table>
+
+<div id="RequestButton">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form action="http://localhost:65081/Home/NewScreenText">
+            <input type="submit" value="Nýr Skjátexti">
+        </form>
+    }
+</div>
+
+
+
 
 

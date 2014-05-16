@@ -86,7 +86,7 @@ namespace _3vikna.Controllers
 
 
 
-        public ActionResult ScreenText() //ER AD VINNA HERNA
+        public ActionResult ScreenText() 
         {
             if (User.IsInRole("Administrator"))
             {
