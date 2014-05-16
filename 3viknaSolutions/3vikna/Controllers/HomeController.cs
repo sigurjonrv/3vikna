@@ -121,7 +121,7 @@ namespace _3vikna.Controllers
         }
         [Authorize]
         [HttpPost]
-        public ActionResult NewScreenText(int? id, FormCollection form, HttpPostedFileBase uploadFile, HttpPostedFileBase file)
+        public ActionResult NewScreenText(int id, FormCollection form, HttpPostedFileBase uploadFile, HttpPostedFileBase file)
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
             Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
@@ -278,9 +278,10 @@ namespace _3vikna.Controllers
         [HttpPost, ValidateInput(false)]
         public ActionResult EditSub(EditSub es)
         {
-
+            int counter = 0;
             foreach (var item in es.lines)
             {
+                counter++;
                 var stuff = item;
                 if (!stuff.StartsWith(Environment.NewLine))
                 {

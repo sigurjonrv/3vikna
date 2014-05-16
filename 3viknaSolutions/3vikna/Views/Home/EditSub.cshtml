@@ -29,9 +29,17 @@
         </div>
     </div>
 
+    
     for (int i = 0; i < Model.lines.Count; i++)
     {
-        if (Model.lines[i] == "\n")// veida \n
+        if (i == Model.lines.Count-1)
+        {
+            @Html.Raw(Model.lines[i] + "<br/>");
+            <span class="taxta-box>"> @Html.EditorFor(model => Model.lines[i], new { size = 1000 })</span>
+            @Html.Raw("<br />");
+            @Html.Raw("</div></div>");
+        }
+        else if (Model.lines[i] == "\n")// veida \n
         {
             @Html.Raw("</div></div>");
         }
@@ -69,7 +77,7 @@
         {
 
             @Html.Raw("\n");
-            @Html.Raw(Model.lines[i] + "<br/>");
+            @Html.Raw(Model.lines[i] +"<br/>");
             @Html.EditorFor(model => Model.lines[i], new { size = 1000 });
             @Html.Raw("<br />");
 
