@@ -65,6 +65,11 @@ input[type="checkbox"].input-validation-error {
  height:auto;
  background : -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(40,40,40)));
 }
+.about #navbar2 li .i5 a{
+  color: black;
+ height:auto;
+ background : -webkit-gradient(linear, left top, left bottom, from(rgb(180,180,180)), to(rgb(40,40,40)));
+}
 
 /*þetta er svo að navbarinn sýni hvar maður er SRV*/
 
@@ -308,11 +313,9 @@ input[type="checkbox"].input-validation-error {
 }
 .upvote{
   font-weight:bold;
-  background-color: green;
-  border-radius: 10px;
-  padding-left: 4px;
-  padding-right: 4px;
-  border: solid 2px;
+  color: green;
+  font-size: 1.5em;
+  
 }
 
 .newscreentext{
@@ -327,4 +330,6 @@ input[type="checkbox"].input-validation-error {
      border: solid 1px;
      border-radius: 5px;
 }
-
+.inn{
+  padding: 20px;
+}

@@ -4,11 +4,12 @@
     @using(Html.BeginForm("Search", "Home", FormMethod.Get))
     { 
 
-      <b> Leita að :</b> @Html.TextBox("search") 
-      <text>Kvikmynd</text> @Html.RadioButton("searchBy", "Movies") 
+    <b> Leita að :</b> @Html.TextBox("search") 
+      <text>Kvikmynd</text> @Html.RadioButton("searchBy", "Movies", true) 
        <text>Þætti</text> @Html.RadioButton("searchBy", "Episodes")
-       <text> Öðru efni </text> @Html.RadioButton("searchBy", "MediaName")
-        <text> Skjátextar </text> @Html.RadioButton("searchBy", "MediaNameSub",true)
+       <text> Öðru efni </text> @Html.RadioButton("searchBy", "Other") 
+       <b> Veldu annað hvort:</b>  <text> Beiðnir </text> @Html.RadioButton("searchBy2", "MediaName")
+        <text> Skjátextar </text> @Html.RadioButton("searchBy2", "MediaNameSub",true)
         
         
     <form action="http://localhost:65081/Home/Search">

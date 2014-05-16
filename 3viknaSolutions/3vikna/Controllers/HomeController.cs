@@ -91,20 +91,25 @@ namespace _3vikna.Controllers
 
             Requests item = new Requests();
 
+            if (form != null)
+            {
+                UpdateModel(item);
+            }
             if (file != null)
             {
                 item.Extension = file.ContentType;
                 item.ImageName = file.FileName;
                 item.ImageBytes = ConvertToBytes(file);
-            }
-            if (form != null)
-            {
                 requestRepo.AddRequest(item);
-                UpdateModel(item);
                 requestRepo.Save();
                 return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+            else
+            {
+                requestRepo.AddRequest(item);
+                requestRepo.Save();
+                return RedirectToAction("Index");
+            }
         }
 
         [HttpGet]
@@ -236,29 +241,11 @@ namespace _3vikna.Controllers
             }
         }
 
-        public ActionResult Search(string searchBy, string search) //string searchBy, string search
+        public ActionResult Search(string searchBy, string search, string searchBy2) //string searchBy, string search
         {
-            try
+            if (searchBy2 == "MediaName")
             {
-                if (searchBy == "MediaNameSub")
-                {
-                    if (search == "")
-                    {
-
-                        return View("Search2", db.Subtitles.Select(x => x).ToList());
-                    }
-
-                    return View("Search2", db.Subtitles.Where(x => x.MediaNameSub.StartsWith(search) || search == null).ToList());
-                }
-                if (searchBy == "MediaName")
-                {
-                    if (search == "")
-                    {
-                        return View(db.Requests.Where(x => x.Category == "Other"));
-                    }
-                    return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
-                }
-                else if (searchBy == "Episodes")
+                if (searchBy == "Episodes")
                 {
                     if (search == "")
                     {
@@ -266,22 +253,64 @@ namespace _3vikna.Controllers
                     }
                     return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
                 }
-                else
+                else if (searchBy == "Movies")
                 {
                     if (search == "")
                     {
                         return View(db.Requests.Where(x => x.Category == "Movies"));
                     }
+
                     return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
                 }
+                else
+                {
+                    if (searchBy == "Other")
+                    {
+                        if (search == "")
+                        {
+                           return View(db.Requests.Where(x => x.Category == "Other"));
+                        }
+                        return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
+                    }
+
+                }
+
             }
-            catch
+            if (searchBy2 == "MediaNameSub")
             {
-                return View("Error");
+                if (searchBy == "Episodes")
+                {
+                    if (search == "")
+                    {
+                        return View("Search2", db.Subtitles.Where(x => x.Category == "Episodes"));
+                    }
+                    return View("Search2", db.Subtitles.Where(x => x.MediaNameSub.StartsWith(search) || search == null).ToList());
+                }
+                else if (searchBy == "Movies")
+                {
+                    if (search == "")
+                    {
+                        return View("Search2", db.Subtitles.Where(x => x.Category == "Movies"));
+                    }
+                    return View("Search2", db.Subtitles.Where(x => x.MediaNameSub.StartsWith(search) || search == null).ToList());
+                }
+                else
+                {
+                    if (searchBy == "Other")
+                    {
+                        if (search == "")
+                        {
+                            return View("Search2", db.Subtitles.Where(x => x.Category == "Other"));
+                        }
+                        return View("Search2", db.Subtitles.Where(x => x.MediaNameSub.StartsWith(search) || search == null).ToList());
+                    }
+
+                }
             }
+            return View("Search2", db.Subtitles.Where(x => x.Category == "Movies"));
         }
 
-        public ActionResult Contact()
+        public ActionResult Help()
         {
             try
             {

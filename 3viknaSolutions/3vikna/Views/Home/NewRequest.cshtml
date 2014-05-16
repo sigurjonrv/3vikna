@@ -15,7 +15,7 @@
         @Html.ValidationSummary(true)
 
         <div class="form-group">
-            @Html.Label("Heiti sjónvarpsefnis", new { @class = "control-label col-md-2" })
+            @Html.Label("Heiti sjónvarpsefni", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.MediaName)
                 @Html.ValidationMessageFor(model => model.MediaName)
@@ -23,7 +23,7 @@
         </div>
 
         <div class="form-group">
-            @Html.Label("Útgáfuár", new { @class = "control-label col-md-2" })
+            @Html.Label("Útgáfuár" ,new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.YearPublished)
                 <!--Html.EditorFor(model => model.Text)-->

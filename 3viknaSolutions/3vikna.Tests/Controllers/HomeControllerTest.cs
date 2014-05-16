@@ -45,7 +45,7 @@ namespace _3vikna.Tests.Controllers
             HomeController controller = new HomeController();
 
             // Act
-            ViewResult result = controller.Contact() as ViewResult;
+            ViewResult result = controller.Help() as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);

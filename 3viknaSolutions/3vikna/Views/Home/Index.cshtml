@@ -62,7 +62,7 @@
                             }
                             else
                             {
-                                <img src="http://content.clearchannel.com/cc-common/mlib/589/05/589_1369232682.jpg" id="picturesize" alt="photo" />
+                                <img src="http://i91.photobucket.com/albums/k305/sjon2/Movie_icon_2_zpseec47153.png" id="picturesize" alt="photo" />
                             }
                               <h3>@item.MediaName</h3>
                               <p> Útgáfu ár: @item.YearPublished</p>
@@ -71,7 +71,6 @@
                         //<li class="noDotsInMainPageList">@item.MediaName</li>
                     }
                 </ul>
-            <!--<p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>-->
         </div>
         <div class="col-md-4">
             <h2>Nýjustu skjátextar</h2>
@@ -88,7 +87,7 @@
                            }
                            else
                            {
-                               <img src="http://content.clearchannel.com/cc-common/mlib/589/05/589_1369232682.jpg" id="picturesize" alt="photo" />
+                                <img src="http://i91.photobucket.com/albums/k305/sjon2/Movie_icon_2_zpseec47153.png" id="picturesize" alt="photo" />
                            }
 
                               <h3>@Html.ActionLink(@item.MediaNameSub, "download", new { @item.ID })</h3>
@@ -114,9 +113,9 @@
                             }
                             else
                             {
-                                <img src="http://content.clearchannel.com/cc-common/mlib/589/05/589_1369232682.jpg" id="picturesize" alt="photo" />
+                                <img src="http://i91.photobucket.com/albums/k305/sjon2/Movie_icon_2_zpseec47153.png" id="picturesize" alt="photo" />
                             }
-                            <h3>@item.MediaNameSub</h3>
+                            <h3>@Html.ActionLink(@item.MediaNameSub, "EditSub", new { id = @item.ID })</h3>
                              <p> Útgáfu ár: @item.YearPublished</p>
                              <p> Sett inn @item.DateCreated</p>
                        </li>
