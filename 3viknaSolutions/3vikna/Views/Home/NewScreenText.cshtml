@@ -5,7 +5,7 @@
 }
 
 <h2>NewScreenText</h2>
-
+@Html.Partial("navigationbar")
 @using (Html.BeginForm(null, null, FormMethod.Post, new { @enctype = "multipart/form-data", id = "profilePictureForm" }))
 {
     @Html.AntiForgeryToken()
