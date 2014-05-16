@@ -19,9 +19,6 @@ namespace _3vikna.Models
         public string Extension { get; set; }
         public bool IsFinished { get; set; }
 
-        public bool IsFinished { get; set; }
-
-
         public Subtitles()
         {
             DateCreated = DateTime.Now;
