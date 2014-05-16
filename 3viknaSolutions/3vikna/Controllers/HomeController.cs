@@ -12,7 +12,6 @@ namespace _3vikna.Controllers
 {
     public class HomeController : Controller
     {
-
         SubtitlesRepo subtitleRepo = new SubtitlesRepo();
         RequestsRepo requestRepo = new RequestsRepo();
         AppDataContext db = new AppDataContext();
@@ -95,7 +94,6 @@ namespace _3vikna.Controllers
             {
                 return View(db.Subtitles);
             }
-
         }
         [Authorize]
         [HttpGet]
