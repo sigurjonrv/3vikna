@@ -33,7 +33,7 @@ namespace _3vikna.Repositories
             this.m_comments.Add(commment2);
 
         }
-        public IEnumerable<Comment> GetComments(int id)
+        public IEnumerable<Comment> GetComments(int? id)
         {
             var result = from c in db.Comment
                          where c.subtitleID == id

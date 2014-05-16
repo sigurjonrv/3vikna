@@ -280,10 +280,14 @@ namespace _3vikna.Controllers
         }
 
         [HttpGet]
-        public ActionResult EditSub(int id)
+        public ActionResult EditSub(int? id)
         {
             try
             {
+                if(id == null)
+                {
+                    throw new NullReferenceException();
+                }
                 Subtitles model = new Subtitles();
                 model = subtitleRepo.GetByID(id);
                 string lines = model.File;
@@ -298,10 +302,9 @@ namespace _3vikna.Controllers
                 return View("Error");
             }
         }
+
         public void AddUpvotes(int id, string strUser)
         {
-
-
             Upvote item = new Upvote();
             item.ReqID = id;
             item.UserName = strUser;
@@ -385,11 +388,11 @@ namespace _3vikna.Controllers
             }
         }
 
-        public ActionResult Download(int id)
+        public ActionResult Download(int? id)
         {
             try
             {
-                if (id == null)
+                if (id.HasValue == false)
                 {
                     throw  new NullReferenceException();
                 }
@@ -407,17 +410,28 @@ namespace _3vikna.Controllers
         }
 
 
-        public ActionResult comment(int id)
+        public ActionResult comment(int? id)
         {
             try
             {
-                var model = CommentRepository.Instance.GetComments(id);
-                string name = subtitleRepo.getNameById(id);
-                CommentViewModel cm = new CommentViewModel();
-                cm.Com = model;
-                cm.subtitleId = id;
-                cm.MediaName = name;
-                return View(cm);
+                if(id.HasValue)
+                {
+                    var model = CommentRepository.Instance.GetComments(id);
+                    string name = subtitleRepo.getNameById(id);
+                    if(name == null)
+                    {
+                        throw new Exception();
+                    }
+                    CommentViewModel cm = new CommentViewModel();
+                    cm.Com = model;
+                    cm.subtitleId = id.Value;
+                    cm.MediaName = name;
+                    return View(cm);
+                }
+                else
+                {
+                    throw new NullReferenceException();
+                }
             }
             catch
             {

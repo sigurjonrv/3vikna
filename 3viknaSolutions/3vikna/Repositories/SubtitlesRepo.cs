@@ -31,7 +31,7 @@ namespace _3vikna.Repositories
             return result;
         }
 
-        public string getNameById(int id)
+        public string getNameById(int? id)
         {
             var result = (from s in db.Subtitles
                           where s.ID == id
@@ -48,7 +48,7 @@ namespace _3vikna.Repositories
             return result;
         }
 
-        public Subtitles GetByID(int id)
+        public Subtitles GetByID(int? id)
         {
             var results = (from r in db.Subtitles
                            where r.ID == id
@@ -56,7 +56,7 @@ namespace _3vikna.Repositories
             return results;
         }
         
-        public string GetFileFromDB(int id)
+        public string GetFileFromDB(int? id)
         {
             var result = (from s in db.Subtitles
                           where s.ID == id
