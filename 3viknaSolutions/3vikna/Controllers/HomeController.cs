@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using _3vikna.Models;
 using _3vikna.Repositories;
 using System.IO;
+using System.ComponentModel.DataAnnotations;
 
 namespace _3vikna.Controllers
 {
@@ -22,6 +23,7 @@ namespace _3vikna.Controllers
             MainPageModelView vm = new MainPageModelView();
             vm.Req = requestRepo.GetAllByDate();
             vm.Sub = subtitleRepo.GetNewest();
+            vm.Sub2 = subtitleRepo.NotFinished();
 
 
             /*var model = SubtitleRepo.GetAllSubtitles();
@@ -64,6 +66,8 @@ namespace _3vikna.Controllers
 
             Requests item = new Requests();
 
+            
+            
             if (file != null)
             {
                 item.Extension = file.ContentType;
@@ -110,9 +114,10 @@ namespace _3vikna.Controllers
 
             return View();
         }
+
         [Authorize]
         [HttpPost]
-        public ActionResult NewScreenText(int id, FormCollection form, HttpPostedFileBase uploadFile, HttpPostedFileBase file)
+        public ActionResult NewScreenText(int? id, FormCollection form, HttpPostedFileBase uploadFile, HttpPostedFileBase file)
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
             Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
@@ -124,6 +129,11 @@ namespace _3vikna.Controllers
             if (form != null)
             {
                 UpdateModel(item);
+            }
+            string ext = Path.GetExtension(uploadFile.FileName);
+            if (String.IsNullOrEmpty(ext) || !ext.Equals(".srt", StringComparison.OrdinalIgnoreCase))
+            {          
+                return View("Error");
             }
             if (uploadFile != null)
             {

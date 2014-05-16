@@ -67,12 +67,13 @@ input[type="checkbox"].input-validation-error {
 }
 
 /*þetta er svo að navbarinn sýni hvar maður er SRV*/
+
 #navbar2{
     background : -webkit-gradient(linear, left top, left bottom, from(rgb(168,168,168)), to(rgb(69,69,69)));
     list-style-type: none; 
     border-radius: 5px;
-
 }
+
 #navbar2 img{
     max-height:1.8em;
     max-width:2em;

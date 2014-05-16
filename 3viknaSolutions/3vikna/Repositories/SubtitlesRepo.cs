@@ -25,6 +25,7 @@ namespace _3vikna.Repositories
         public IQueryable<Subtitles> GetNewest()
         {
             var result = (from s in db.Subtitles
+                          where s.IsFinished == true
                           orderby s.DateCreated descending
                           select s).Take(5);
             return result;
@@ -35,6 +36,15 @@ namespace _3vikna.Repositories
             var result = (from s in db.Subtitles
                           where s.ID == id
                           select s.MediaNameSub).SingleOrDefault();
+            return result;
+        }
+        
+        public IEnumerable<Subtitles> NotFinished()
+        {
+            var result = (from s in db.Subtitles
+                          where s.IsFinished == false
+                          orderby s.DateCreated descending
+                          select s);
             return result;
         }
 
