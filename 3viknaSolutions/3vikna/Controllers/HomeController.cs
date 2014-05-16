@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using _3vikna.Models;
 using _3vikna.Repositories;
 using System.IO;
-using System.ComponentModel.DataAnnotations;
 
 namespace _3vikna.Controllers
 {
@@ -20,148 +19,199 @@ namespace _3vikna.Controllers
 
         public ActionResult Index()
         {
-            MainPageModelView vm = new MainPageModelView();
-            vm.Req = requestRepo.GetAllByDate();
-            vm.Sub = subtitleRepo.GetNewest();
-            vm.Sub2 = subtitleRepo.NotFinished();
+            try
+            {
+                MainPageModelView vm = new MainPageModelView();
+                vm.Req = requestRepo.GetAllByDate();
+                vm.Sub = subtitleRepo.GetNewest();
 
 
-            /*var model = SubtitleRepo.GetAllSubtitles();
-            return View(model);*/
-            return View(vm);
+                /*var model = SubtitleRepo.GetAllSubtitles();
+                return View(model);*/
+                return View(vm);
+            }
+            catch
+            {
+                return View("Error");
+            }
+            
         }
 
         public ActionResult RequestPage()
         {
-            return View(requestRepo.SortByUpvotes());
-
+            try
+            {
+                return View(requestRepo.SortByUpvotes());
+            }
+           catch
+            {
+                return View("Error");
+            }
         }
 
         [HttpGet]
         public ActionResult GetUpvotes()
         {
-            var model = requestRepo.GetUpvotes();
-            return Json(model, JsonRequestBehavior.AllowGet);
+            try
+            {
+                var model = requestRepo.GetUpvotes();
+                return Json(model, JsonRequestBehavior.AllowGet);
+            }
+            catch
+            {
+                return View("Error");
+            }
+            
         }
 
         public ActionResult NewRequest()
         {
-            List<SelectListItem> Categories = new List<SelectListItem>();
-            Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
-            Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
-            Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
-            ViewBag.Categories = Categories;
-
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult NewRequest(int? id, FormCollection form, HttpPostedFileBase file)
-        {
-            List<SelectListItem> Categories = new List<SelectListItem>();
-            Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
-            Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
-            Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
-            ViewBag.Categories = Categories;
-
-            Requests item = new Requests();
-
-            
-            
-            if (file != null)
-            {
-                item.Extension = file.ContentType;
-                item.ImageName = file.FileName;
-                item.ImageBytes = ConvertToBytes(file);
-            }
-            if (form != null)
-            {
-                requestRepo.AddRequest(item);
-                UpdateModel(item);
-                requestRepo.Save();
-                return RedirectToAction("Index");
-            }
-            return RedirectToAction("Index");
-        }
-
-
-
-        public ActionResult ScreenText() //ER AD VINNA HERNA
-        {
-            if (User.IsInRole("Administrator"))
+            try 
             {
                 List<SelectListItem> Categories = new List<SelectListItem>();
                 Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
                 Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
                 Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
                 ViewBag.Categories = Categories;
-                return View("NewRequest");
-            }
-            else
-            {
-                return View(db.Subtitles);
-            }
 
+                return View();
+            }
+            catch
+            {
+                return View("Error");
+            }
+           
         }
+
+        [HttpPost]
+        public ActionResult NewRequest(int? id, FormCollection form, HttpPostedFileBase file)
+        {
+            try
+            {
+                List<SelectListItem> Categories = new List<SelectListItem>();
+                Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
+                Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
+                Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
+                ViewBag.Categories = Categories;
+
+                Requests item = new Requests();
+
+                if (file != null)
+                {
+                    item.Extension = file.ContentType;
+                    item.ImageName = file.FileName;
+                    item.ImageBytes = ConvertToBytes(file);
+                }
+                if (form != null)
+                {
+                    requestRepo.AddRequest(item);
+                    UpdateModel(item);
+                    requestRepo.Save();
+                    return RedirectToAction("Index");
+                }
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View("Error");
+            }
+           
+        }
+
+
+
+        public ActionResult ScreenText() //ER AD VINNA HERNA
+        {
+            try
+            {
+                if (User.IsInRole("Administrator"))
+                {
+                    List<SelectListItem> Categories = new List<SelectListItem>();
+                    Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
+                    Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
+                    Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
+                    ViewBag.Categories = Categories;
+                    return View("NewRequest");
+                }
+                else
+                {
+                    return View(db.Subtitles);
+                }
+            }
+            catch
+            {
+                return View("Error");
+            }
+        }
+
         [Authorize]
         public ActionResult NewScreenText()
         {
-            List<SelectListItem> Categories = new List<SelectListItem>();
-            Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
-            Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
-            Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
-            ViewBag.Categories = Categories;
-
-            return View();
-        }
-
-        [Authorize]
-        [HttpPost]
-        public ActionResult NewScreenText(int? id, FormCollection form, HttpPostedFileBase uploadFile, HttpPostedFileBase file)
-        {
-            List<SelectListItem> Categories = new List<SelectListItem>();
-            Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
-            Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
-            Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
-            ViewBag.Categories = Categories;
-
-            Subtitles item = new Subtitles();
-            if (form != null)
+            try
             {
-                UpdateModel(item);
+                List<SelectListItem> Categories = new List<SelectListItem>();
+                Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
+                Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
+                Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
+                ViewBag.Categories = Categories;
+
+                return View();
             }
-            string ext = Path.GetExtension(uploadFile.FileName);
-            if (String.IsNullOrEmpty(ext) || !ext.Equals(".srt", StringComparison.OrdinalIgnoreCase))
-            {          
+            catch
+            {
                 return View("Error");
             }
-            if (uploadFile != null)
+        }
+        [Authorize]
+        [HttpPost]
+        public ActionResult NewScreenText(int id, FormCollection form, HttpPostedFileBase uploadFile, HttpPostedFileBase file)
+        {
+            try
             {
-                var reader = new StreamReader(uploadFile.InputStream);
-                item.File = reader.ReadToEnd();
-            }
+                List<SelectListItem> Categories = new List<SelectListItem>();
+                Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
+                Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
+                Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
+                ViewBag.Categories = Categories;
 
-            if (file != null)
-            {
-                item.Extension = file.ContentType;
-                item.ImageName = file.FileName;
-                item.ImageBytes = ConvertToBytes(file);
-                subtitleRepo.AddSubtitle(item);
-                //UpdateModel(item);
-                subtitleRepo.Save();
-                return RedirectToAction("Index");
+                Subtitles item = new Subtitles();
+                if (form != null)
+                {
+                    UpdateModel(item);
+                }
+                if (uploadFile != null)
+                {
+                    var reader = new StreamReader(uploadFile.InputStream);
+                    item.File = reader.ReadToEnd();
+                }
+
+                if (file != null)
+                {
+                    item.Extension = file.ContentType;
+                    item.ImageName = file.FileName;
+                    item.ImageBytes = ConvertToBytes(file);
+                    subtitleRepo.AddSubtitle(item);
+                    //UpdateModel(item);
+                    subtitleRepo.Save();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    subtitleRepo.AddSubtitle(item);
+                    //UpdateModel(item);
+                    subtitleRepo.Save();
+                    return RedirectToAction("Index");
+                }
             }
-            else
+            catch
             {
-                subtitleRepo.AddSubtitle(item);
-                //UpdateModel(item);
-                subtitleRepo.Save();
-                return RedirectToAction("Index");
+                return View("Error");
             }
         }
 
         public byte[] ConvertToBytes(HttpPostedFileBase file)
         {
+
             byte[] imageBytes = null;
             BinaryReader reader = new BinaryReader(file.InputStream);
             imageBytes = reader.ReadBytes((int)file.ContentLength);
