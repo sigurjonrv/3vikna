@@ -25,14 +25,6 @@ namespace _3vikna.Repositories
             return m_requests;
         }
 
-        /*public IEnumerable<Requests> GetAllUnFinishedRequests()
-        {
-            var result = (from req in m_requests
-                          where req.IsFinished == false
-                          orderby req.MediaName ascending
-                          select req);
-            return result;
-        }*/
 
         public IEnumerable<Requests> GetAllByDate()
         {

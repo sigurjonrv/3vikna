@@ -113,6 +113,7 @@ namespace _3vikna.Controllers
                 return View("Error");
             }
         }
+
         [HttpGet]
         public ActionResult ScreenText()
         {
@@ -162,8 +163,18 @@ namespace _3vikna.Controllers
                 {
                     UpdateModel(item);
                 }
-                string ext = Path.GetExtension(uploadFile.FileName);
-                if (String.IsNullOrEmpty(ext) || !ext.Equals(".srt", StringComparison.OrdinalIgnoreCase))
+                if (uploadFile == null)
+                {
+                    return View("Error");
+                }
+                string uploadFileext = Path.GetExtension(uploadFile.FileName);
+                string fileExt = Path.GetExtension(file.FileName);
+                if (String.IsNullOrEmpty(uploadFileext) || !uploadFileext.Equals(".srt", StringComparison.OrdinalIgnoreCase))
+                {
+                    return View("Error");
+                }
+                if (String.IsNullOrEmpty(fileExt) || !fileExt.Equals(".png", StringComparison.OrdinalIgnoreCase) ||
+                    !fileExt.Equals(".jpeg", StringComparison.OrdinalIgnoreCase))
                 {
                     return View("Error");
                 }

@@ -44,7 +44,7 @@ namespace _3vikna.Repositories
             var result = (from s in db.Subtitles
                           where s.IsFinished == false
                           orderby s.DateCreated descending
-                          select s);
+                          select s).Take(5);
             return result;
         }
 

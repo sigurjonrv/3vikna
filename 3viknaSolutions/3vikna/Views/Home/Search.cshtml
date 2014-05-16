@@ -13,7 +13,8 @@
 <table id="RequestTable">
     <thead>
         <tr id="RequestTableHeader">
-            <th></th>
+            <th class="head"></th>
+            <th class="head">stig</th>
             <th class="head">Myndir</th>
             <th class="head">Útgáfuár</th>
             <th class="head">Dagsetning</th>
@@ -33,7 +34,7 @@
         <tbody id="Table1">
             @foreach (var item in Model)
             {
-               <tr>
+                <tr>
                     <td class="row3">
                         @if (@item.ImageBytes != null)
                         {
@@ -45,22 +46,25 @@
                         {
                             <img src="http://content.clearchannel.com/cc-common/mlib/589/05/589_1369232682.jpg" id="picturesize" alt="photo" />
                         }
+
+
                     </td>
+                    <td class="row1"><span class="upvote">@item.UpvoteID</span></td>
+                    <td class="row1">@item.MediaName</td>
                     <td class="row1">@item.YearPublished</td>
                     <td class="row2">@item.Date</td>
-                    <td class="row2">@item.UpvoteID<button type="button" onclick="Alert()" id="Upvote" class="glyphicon glyphicon-arrow-up">@Html.ActionLink("UP", "upvoteInc", new { @item.ID })</button></td>
+                    <td class="row2"><button type="button" onclick="Alert()" id="Upvote" class="glyphicon glyphicon-arrow-up">@Html.ActionLink("UP", "upvoteInc", new { @item.ID })</button></td>
                 </tr>
             }
         </tbody>
     }
 </table>
-@if (Model.Count() == 0)
-{
+
     <div id="RequestButton">
         <form action="http://localhost:65081/Home/NewRequest">
             <input type="submit" value="Ný Beiðni">
         </form>
     </div>
-}
+
 
 
