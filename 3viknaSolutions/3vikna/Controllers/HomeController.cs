@@ -6,218 +6,160 @@ using System.Web.Mvc;
 using _3vikna.Models;
 using _3vikna.Repositories;
 using System.IO;
+using System.ComponentModel.DataAnnotations;
 
 namespace _3vikna.Controllers
 {
     public class HomeController : Controller
     {
-
         SubtitlesRepo subtitleRepo = new SubtitlesRepo();
         RequestsRepo requestRepo = new RequestsRepo();
-        //CommentRepository CommendRepo = new CommentRepository();
         AppDataContext db = new AppDataContext();
 
+        [HttpGet]
         public ActionResult Index()
         {
-            try
-            {
-                MainPageModelView vm = new MainPageModelView();
-                vm.Req = requestRepo.GetAllByDate();
-                vm.Sub = subtitleRepo.GetNewest();
+            MainPageModelView vm = new MainPageModelView();
+            vm.Req = requestRepo.GetAllByDate();
+            vm.Sub = subtitleRepo.GetNewest();
+            vm.Sub2 = subtitleRepo.NotFinished();
 
-
-                /*var model = SubtitleRepo.GetAllSubtitles();
-                return View(model);*/
-                return View(vm);
-            }
-            catch
-            {
-                return View("Error");
-            }
-            
+            return View(vm);
         }
 
+        [HttpGet]
         public ActionResult RequestPage()
         {
-            try
-            {
-                return View(requestRepo.SortByUpvotes());
-            }
-           catch
-            {
-                return View("Error");
-            }
+            return View(requestRepo.SortByUpvotes());
         }
 
         [HttpGet]
         public ActionResult GetUpvotes()
         {
-            try
-            {
-                var model = requestRepo.GetUpvotes();
-                return Json(model, JsonRequestBehavior.AllowGet);
-            }
-            catch
-            {
-                return View("Error");
-            }
-            
+            var model = requestRepo.GetUpvotes();
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
         public ActionResult NewRequest()
         {
-            try 
-            {
-                List<SelectListItem> Categories = new List<SelectListItem>();
-                Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
-                Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
-                Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
-                ViewBag.Categories = Categories;
+            List<SelectListItem> Categories = new List<SelectListItem>();
+            Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
+            Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
+            Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
+            ViewBag.Categories = Categories;
 
-                return View();
-            }
-            catch
-            {
-                return View("Error");
-            }
-           
+            return View();
         }
 
         [HttpPost]
         public ActionResult NewRequest(int? id, FormCollection form, HttpPostedFileBase file)
         {
-            try
+            List<SelectListItem> Categories = new List<SelectListItem>();
+            Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
+            Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
+            Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
+            ViewBag.Categories = Categories;
+
+            Requests item = new Requests();
+
+            if (file != null)
             {
-                List<SelectListItem> Categories = new List<SelectListItem>();
-                Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
-                Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
-                Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
-                ViewBag.Categories = Categories;
-
-                Requests item = new Requests();
-
-                if (file != null)
-                {
-                    item.Extension = file.ContentType;
-                    item.ImageName = file.FileName;
-                    item.ImageBytes = ConvertToBytes(file);
-                }
-                if (form != null)
-                {
-                    requestRepo.AddRequest(item);
-                    UpdateModel(item);
-                    requestRepo.Save();
-                    return RedirectToAction("Index");
-                }
+                item.Extension = file.ContentType;
+                item.ImageName = file.FileName;
+                item.ImageBytes = ConvertToBytes(file);
+            }
+            if (form != null)
+            {
+                requestRepo.AddRequest(item);
+                UpdateModel(item);
+                requestRepo.Save();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View("Error");
-            }
-           
+            return RedirectToAction("Index");
         }
-
-
-
-        public ActionResult ScreenText() //ER AD VINNA HERNA
+        [HttpGet]
+        public ActionResult ScreenText()
         {
-            try
+
+            if (User.IsInRole("Administrator"))
             {
-                if (User.IsInRole("Administrator"))
-                {
-                    List<SelectListItem> Categories = new List<SelectListItem>();
-                    Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
-                    Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
-                    Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
-                    ViewBag.Categories = Categories;
-                    return View("NewRequest");
-                }
-                else
-                {
-                    return View(db.Subtitles);
-                }
+                List<SelectListItem> Categories = new List<SelectListItem>();
+                Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
+                Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
+                Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
+                ViewBag.Categories = Categories;
+                return View("NewRequest");
             }
-            catch
+            else
             {
-                return View("Error");
+                return View(db.Subtitles);
             }
         }
-
         [Authorize]
+        [HttpGet]
         public ActionResult NewScreenText()
         {
-            try
-            {
-                List<SelectListItem> Categories = new List<SelectListItem>();
-                Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
-                Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
-                Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
-                ViewBag.Categories = Categories;
+            List<SelectListItem> Categories = new List<SelectListItem>();
+            Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
+            Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
+            Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
+            ViewBag.Categories = Categories;
 
-                return View();
-            }
-            catch
-            {
-                return View("Error");
-            }
+            return View();
         }
+
         [Authorize]
         [HttpPost]
-        public ActionResult NewScreenText(int id, FormCollection form, HttpPostedFileBase uploadFile, HttpPostedFileBase file)
+        public ActionResult NewScreenText(int? id, FormCollection form, HttpPostedFileBase uploadFile, HttpPostedFileBase file)
         {
-            try
+            List<SelectListItem> Categories = new List<SelectListItem>();
+            Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
+            Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
+            Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
+            ViewBag.Categories = Categories;
+
+            Subtitles item = new Subtitles();
+            if (form != null)
             {
-                List<SelectListItem> Categories = new List<SelectListItem>();
-                Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
-                Categories.Add(new SelectListItem { Text = "Þættir", Value = "Episodes" });
-                Categories.Add(new SelectListItem { Text = "Annað", Value = "Other" });
-                ViewBag.Categories = Categories;
-
-                Subtitles item = new Subtitles();
-                if (form != null)
-                {
-                    UpdateModel(item);
-                }
-                if (uploadFile != null)
-                {
-                    var reader = new StreamReader(uploadFile.InputStream);
-                    item.File = reader.ReadToEnd();
-                }
-
-                if (file != null)
-                {
-                    item.Extension = file.ContentType;
-                    item.ImageName = file.FileName;
-                    item.ImageBytes = ConvertToBytes(file);
-                    subtitleRepo.AddSubtitle(item);
-                    //UpdateModel(item);
-                    subtitleRepo.Save();
-                    return RedirectToAction("Index");
-                }
-                else
-                {
-                    subtitleRepo.AddSubtitle(item);
-                    //UpdateModel(item);
-                    subtitleRepo.Save();
-                    return RedirectToAction("Index");
-                }
+                UpdateModel(item);
             }
-            catch
+            string ext = Path.GetExtension(uploadFile.FileName);
+            if (String.IsNullOrEmpty(ext) || !ext.Equals(".srt", StringComparison.OrdinalIgnoreCase))
             {
                 return View("Error");
+            }
+            if (uploadFile != null)
+            {
+                var reader = new StreamReader(uploadFile.InputStream);
+                item.File = reader.ReadToEnd();
+            }
+            if (file != null)
+            {
+                item.Extension = file.ContentType;
+                item.ImageName = file.FileName;
+                item.ImageBytes = ConvertToBytes(file);
+                subtitleRepo.AddSubtitle(item);
+                subtitleRepo.Save();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                subtitleRepo.AddSubtitle(item);
+                subtitleRepo.Save();
+                return RedirectToAction("Index");
             }
         }
 
         public byte[] ConvertToBytes(HttpPostedFileBase file)
         {
-
             byte[] imageBytes = null;
             BinaryReader reader = new BinaryReader(file.InputStream);
             imageBytes = reader.ReadBytes((int)file.ContentLength);
             return imageBytes;
         }
 
+        [HttpGet]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description pagee.";
@@ -227,41 +169,41 @@ namespace _3vikna.Controllers
 
         public ActionResult Search(string searchBy, string search) //string searchBy, string search
         {
-            if(searchBy == "MediaNameSub")
+            if (searchBy == "MediaNameSub")
             {
-                if(search == "")
+                if (search == "")
                 {
-                   
-                    return View("Search2",db.Subtitles.Select(x => x).ToList());
+
+                    return View("Search2", db.Subtitles.Select(x => x).ToList());
                 }
 
                 return View("Search2", db.Subtitles.Where(x => x.MediaNameSub.StartsWith(search) || search == null).ToList());
             }
-                if (searchBy == "MediaName")
+            if (searchBy == "MediaName")
+            {
+                if (search == "")
                 {
-                    if (search == "")
-                    {
-                        return View(db.Requests.Where(x => x.Category == "Other"));
-                    }
-                    return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
+                    return View(db.Requests.Where(x => x.Category == "Other"));
                 }
-                else if (searchBy == "Episodes")
-                {
-                    if (search == "")
-                    {
-                        return View(db.Requests.Where(x => x.Category == "Episodes"));
-                    }
-                    return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
-                }
-                else
-                {
-                    if (search == "")
-                    {
-                        return View(db.Requests.Where(x => x.Category == "Movies"));
-                    }
-                    return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
-                }
+                return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
             }
+            else if (searchBy == "Episodes")
+            {
+                if (search == "")
+                {
+                    return View(db.Requests.Where(x => x.Category == "Episodes"));
+                }
+                return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
+            }
+            else
+            {
+                if (search == "")
+                {
+                    return View(db.Requests.Where(x => x.Category == "Movies"));
+                }
+                return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
+            }
+        }
 
         public ActionResult Contact()
         {
@@ -269,6 +211,8 @@ namespace _3vikna.Controllers
 
             return View();
         }
+
+        [HttpGet]
         public ActionResult EditSub(int id)
         {
             Subtitles model = new Subtitles();
@@ -278,11 +222,9 @@ namespace _3vikna.Controllers
             EditSub es = new EditSub();
             es.req = model;
             es.lines = line.ToList();
-            //model.File = model.File.Replace("\n \n", "<b /> yolo <br />");
-            //model.File = model.File.Replace("\n\r\n", "<br /> yolo <br />");
-            //model.File = model.File.Replace("\n", "<br />");
             return View(es);
         }
+
         [HttpGet]
         public ActionResult Alert()
         {
@@ -302,9 +244,7 @@ namespace _3vikna.Controllers
         [Authorize]
         public ActionResult upvoteInc(int id)
         {
-
             IEnumerable<string> usersWhoHaveLiked = requestRepo.UserHasLiked(id);
-
             foreach (var item in usersWhoHaveLiked)
             {
                 if (User.Identity.Name == item)
@@ -314,15 +254,7 @@ namespace _3vikna.Controllers
             }
 
             string strUser = User.Identity.Name;
-
-            //Upvote addUpvote = new Upvote();
-            //addUpvote.UserName = strUser;
-            //addUpvote.ReqID = id;
             requestRepo.AddUpvotes(id, strUser);
-
-
-
-            //requestRepo.AddUpvotes(id, strUser);
             Requests movie = (from u in db.Requests
                               where u.ID == id
                               select u).SingleOrDefault();
@@ -366,15 +298,11 @@ namespace _3vikna.Controllers
                 }
                 es.req.File += stuff; // bætir inn í strenginn i gangnagrinnun,
             }
-            //es.req.File = string.Join("\r", es.lines.ToArray());
             subtitleRepo.UpdateDB(es.req.ID, es.req);
-            //model.File = model.File.Replace("\n \n", "<b /> yolo <br />");
-            //model.File = model.File.Replace("\n\r\n", "<br /> yolo <br />");
-            //model.File = model.File.Replace("\n", "<br />");
             return RedirectToAction("RequestPage");
         }
 
-        public ActionResult Download(int id) 
+        public ActionResult Download(int id)
         {
             try
             {
@@ -384,45 +312,32 @@ namespace _3vikna.Controllers
                 string name = subtitleRepo.getNameById(id);
                 name = name + ".srt";
                 return File(bytes, "txt/srt", name);
-                /*var file = db.Subtitles.First(f => f.ID == id);
-                return File(file.Data.ToArray(), "application/octet-stream",)*/
             }
-            catch
+            catch( NullReferenceException ex)
             {
                 return View("Error");
             }
-            
+           
         }
 
         public ActionResult comment(int id)
         {
-            try
-            {
-                //var model = CommentRepository.Instance.Gettingcomments(9);
-                var model = CommentRepository.Instance.GetComments(id);
-                string name = subtitleRepo.getNameById(id);
-                CommentViewModel cm = new CommentViewModel();
-                cm.Com = model;
-                cm.subtitleId = id;
-                cm.MediaName = name; 
-                return View(cm);
-            }
-            catch
-            {
-                return View("Error");
-            }
-            
+            var model = CommentRepository.Instance.GetComments(id);
+            string name = subtitleRepo.getNameById(id);
+            CommentViewModel cm = new CommentViewModel();
+            cm.Com = model;
+            cm.subtitleId = id;
+            cm.MediaName = name;
+            return View(cm);
         }
         [Authorize]
         [HttpPost]
         public ActionResult comment(FormCollection formData, int id)
         {
-
             String strComment = formData["CommentText"];
             if (!String.IsNullOrEmpty(strComment))
             {
                 Comment c = new Comment();
-
                 c.CommentText = strComment;
                 String strUser = User.Identity.Name;
                 c.UserName = strUser;
@@ -439,7 +354,7 @@ namespace _3vikna.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")] 
+        [Authorize(Roles = "Admin")]
         public ActionResult SafeToPublish(int id)
         {
             Subtitles sub = new Subtitles();
