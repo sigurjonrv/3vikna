@@ -6041,11 +6041,11 @@ body.modal-open,
 }
 
 .carousel-inner > .item {
-  position: relative;
-  display: none;
-  -webkit-transition: 0.6s ease-in-out left;
-          transition: 0.6s ease-in-out left;
-            
+     position: relative;
+     display: none;
+     -webkit-transition: 0.6s ease-in-out left;
+             transition: 0.6s ease-in-out left;
+}            
 
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
@@ -6053,9 +6053,8 @@ body.modal-open,
   height: auto;
   max-width: 100%;
   line-height: 1;
+}
 
-}
-}
 
 .carousel-inner > .active,
 .carousel-inner > .next,

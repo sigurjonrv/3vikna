@@ -9,7 +9,6 @@ namespace _3vikna.Models
 {
     public class ValidateFile : ValidationAttribute
     {
-        [AttributeUsage( AttributeTargets.Property )]
         public ValidationResult IsValid( HttpPostedFileBase file)
         {
             if (file == null)

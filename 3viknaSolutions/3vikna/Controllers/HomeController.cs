@@ -114,9 +114,10 @@ namespace _3vikna.Controllers
 
             return View();
         }
+
         [Authorize]
         [HttpPost]
-        public ActionResult NewScreenText(int id, FormCollection form, HttpPostedFileBase uploadFile, HttpPostedFileBase file)
+        public ActionResult NewScreenText(int? id, FormCollection form, HttpPostedFileBase uploadFile, HttpPostedFileBase file)
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
             Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
@@ -129,15 +130,17 @@ namespace _3vikna.Controllers
             {
                 UpdateModel(item);
             }
+            string ext = Path.GetExtension(uploadFile.FileName);
+            if (String.IsNullOrEmpty(ext) || !ext.Equals(".srt", StringComparison.OrdinalIgnoreCase))
+            {          
+                return View("Error");
+            }
             if (uploadFile != null)
             {
                 var reader = new StreamReader(uploadFile.InputStream);
                 item.File = reader.ReadToEnd();
             }
-            if (file == null)
-            {
-                return new ValidationResult("Please upload a file!");
-            }
+
             if (file != null)
             {
                 item.Extension = file.ContentType;
@@ -369,7 +372,7 @@ namespace _3vikna.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")] //athuga
+        [Authorize(Roles = "Admin")] 
         public ActionResult SafeToPublish(int id)
         {
             Subtitles sub = new Subtitles();
