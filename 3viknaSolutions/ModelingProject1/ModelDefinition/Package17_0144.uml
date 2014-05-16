@@ -1,0 +1,832 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="6ae29202-0c78-45d1-a447-1cfd9972dda2"
+  name="Migrations"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="c7011ed5-ac8a-43d9-8c28-2e90ce73663f"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3D_3vikna.Migrations"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="748db4b8-0e51-4e9b-b14b-d1724897313c"
+        name="Configuration"
+        visibility="Package"
+        isAbstract="false"
+        isLeaf="true"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="45ba738a-d329-4a4d-860f-5d53368e082f"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNotandi%2F3vikna%2F3viknaSolutions%2F3vikna%2Fbin%2F3vikna.dll Namespace%3D_3vikna.Migrations Type%3DConfiguration"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="3e6fdc2b-cb14-44b0-803d-9289bae6d3cb"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7b665a48-fc52-45eb-a81a-bf887f39d19f">
+                <propertyInstance
+                  Id="49015a5f-019b-47e9-87a9-fbc6e5b39abb"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7af78194-faa0-441d-8d9d-a9547ef18e59">
+                <propertyInstance
+                  Id="79e5f851-5530-4657-9ad0-989cd1ab78f2"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2af67672-5d9f-4867-a6e2-e5a67e0bd0df">
+                <propertyInstance
+                  Id="fa2eeddc-728c-4001-8b68-9dd8339a04ea"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="fcbef879-97f2-4f46-998b-d12f9da995b0">
+                <propertyInstance
+                  Id="6c63de66-22c8-4a51-9f3f-a5f2d573e78b"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="35329410-4fe8-4f82-8e0e-c8b86f069626">
+                <propertyInstance
+                  Id="55ec26d5-f965-47ac-b3d2-1298832f9632"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="e2b53183-adac-4ae6-9c1e-8ac0b8f478f3"
+            isSubstitutable="false">
+            <classMoniker
+              Id="857944b5-eb78-4bb2-a180-0c2a23c14913"
+              LastKnownName="DbMigrationsConfiguration&lt;AppDataContext‎&gt;"
+              LastKnownLocation="Package20_0144.uml" />
+          </generalization>
+          <generalization
+            Id="72bd26a3-5893-4e0c-a321-f422330978d0"
+            isSubstitutable="false">
+            <classMoniker
+              Id="a95ea196-f981-4837-8508-ec18c8abb2b2"
+              LastKnownName="DbMigrationsConfiguration"
+              LastKnownLocation="Package20_0144.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="926190fe-ff61-4c7f-92c0-9b93462b1ec2"
+            name="Seed"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="eca22b04-3771-4058-b310-d472c634f16d"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNotandi%2F3vikna%2F3viknaSolutions%2F3vikna%2Fbin%2F3vikna.dll Namespace%3D_3vikna.Migrations Type%3DConfiguration Member%3D(Name%3DSeed OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNotandi%2F3vikna%2F3viknaSolutions%2F3vikna%2Fbin%2F3vikna.dll Namespace%3D_3vikna.Models Type%3DAppDataContext)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8ddfa732-fa7e-465b-ab35-0c50deb34e59"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ec327b2f-45be-4c57-807b-e703faae6471">
+                    <propertyInstance
+                      Id="00075bcc-77fc-44ae-bdb1-87e9211d09dd"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9a8d0a26-543f-4a1a-8e7d-b597e083ce31">
+                    <propertyInstance
+                      Id="db3ac654-0e87-47af-91e0-93779165eff2"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6ba6ad65-3af5-440d-9c1e-7b3fbc1b8c9e">
+                    <propertyInstance
+                      Id="1389639d-6033-4d20-87cd-1a99a281b7c3"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="228fe85e-d5e6-4cf9-834e-3e008e87cac2">
+                    <propertyInstance
+                      Id="6ddc77df-ea12-4001-a326-2bd0b38639f2"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="901400a2-789f-4a5a-b7b6-c31f3ee71f25">
+                    <propertyInstance
+                      Id="124419d1-9360-4f18-8f1b-737c2559c24f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f58a38cb-e9d3-4e33-8326-b41d60684832">
+                    <propertyInstance
+                      Id="038d0d9c-d1eb-45bf-9aa5-f86b6d298f41"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f5271bdf-5d55-4d8e-a0d6-a80a77ed99d4"
+                  name="context"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="05d111d5-baf9-4fcb-be3c-e1bf6aa549a0"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNotandi%2F3vikna%2F3viknaSolutions%2F3vikna%2Fbin%2F3vikna.dll Namespace%3D_3vikna.Migrations Type%3DConfiguration Member%3D(Name%3DSeed OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNotandi%2F3vikna%2F3viknaSolutions%2F3vikna%2Fbin%2F3vikna.dll Namespace%3D_3vikna.Models Type%3DAppDataContext)]) ParameterIdentifier%3Dcontext"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="9d96eb23-ee0a-4322-bba9-1967fd6643bd"
+                      LastKnownName="AppDataContext"
+                      LastKnownLocation="Package8_0144.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="1efdaf43-2ea8-4ddd-9e43-6e90c459e08b"
+            name="Configuration"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="8a030112-e310-4778-b67e-e2644100d2de"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNotandi%2F3vikna%2F3viknaSolutions%2F3vikna%2Fbin%2F3vikna.dll Namespace%3D_3vikna.Migrations Type%3DConfiguration Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d7cc7e1c-6667-4871-b291-a9b0bcd57a46"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c535ca6e-4185-4b1c-af2d-f1716b3c002c">
+                    <propertyInstance
+                      Id="61b62fb9-42f3-4635-95ea-54846f529268"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9ec18e07-fb5b-48c1-91c6-1d3d2cf9e129">
+                    <propertyInstance
+                      Id="a8493fa7-7e15-4e04-876b-20be78b8f0e7"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dd0a57b3-57bb-4907-9d74-cf405e66bd50">
+                    <propertyInstance
+                      Id="d66a2eab-7406-4e12-8692-afe23247e601"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f3fc08e4-bdce-46a2-ab9b-fb27ad54c559">
+                    <propertyInstance
+                      Id="b29d63c1-71ca-4204-8e47-80619f997249"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="486df90e-562b-4e44-9283-bc273b825981">
+                    <propertyInstance
+                      Id="af96f411-49e0-4236-a435-5839f0ebe931"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fc64efd9-985c-4625-a122-46f85dd95cac">
+                    <propertyInstance
+                      Id="27ca32bb-7d6f-43ba-9ccc-c76c3461582f"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="2d7fccfc-5743-45bf-9757-6dcf7a7b7c9c"
+        name="InitialCreate"
+        isAbstract="false"
+        isLeaf="true"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="4c76c0d3-fd4c-4930-ac44-f3cd231951db"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNotandi%2F3vikna%2F3viknaSolutions%2F3vikna%2Fbin%2F3vikna.dll Namespace%3D_3vikna.Migrations Type%3DInitialCreate"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="c56f5971-49e4-483f-a1b5-658468425eae"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="26771d3e-d0c7-4063-bf84-344c204b2a57">
+                <propertyInstance
+                  Id="ad1a4c48-7896-4cda-8fe7-e68b8d785319"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="375f07dd-be04-49e7-bf28-4d591debfe79">
+                <propertyInstance
+                  Id="bbcc058a-55a3-4102-a47c-40c7dd8a19db"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="90d8779a-63da-40a8-b228-9463664384a6">
+                <propertyInstance
+                  Id="0e2978d4-5e1c-452b-ba4f-5c286dda053c"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d82beb44-4c7a-4cdd-8f2e-1707e4c3fdd6">
+                <propertyInstance
+                  Id="870b7858-6bed-427e-b0b0-a4b725b64932"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cb6458c4-678f-4972-8729-3bc9cfce9b0d">
+                <propertyInstance
+                  Id="f650a4d3-bee3-443c-a76d-00525876908d"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="b60375ce-3a7d-4ba0-a5e3-ce87070cdf3d">
+            <interfaceMoniker
+              Id="cdacaccf-84fc-4901-a883-7db75daa444a"
+              LastKnownName="IMigrationMetadata"
+              LastKnownLocation="Package22_0144.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <generalsInternal>
+          <generalization
+            Id="70ab0fe2-6424-419e-84f9-ffa4fb3e71ac"
+            isSubstitutable="false">
+            <classMoniker
+              Id="b69bb5fb-d2be-4063-8651-68d5831e03ca"
+              LastKnownName="DbMigration"
+              LastKnownLocation="Package20_0144.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="1575fa90-4e41-4a3d-bfad-a511e0fc6d04"
+            name="System‎.Data‎.Entity‎.Migrations‎.Infrastructure‎.IMigrationMetadata‎.Id"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="3231168a-584f-42fb-b43b-93e097438d73"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNotandi%2F3vikna%2F3viknaSolutions%2F3vikna%2Fbin%2F3vikna.dll Namespace%3D_3vikna.Migrations Type%3DInitialCreate Member%3DSystem.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.Id"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="afeed6e5-cf81-48f5-9de8-9a01fb975155"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6d0aac81-dac4-40eb-a205-923ee7a853c4">
+                    <propertyInstance
+                      Id="bc2e164d-cfb4-4b08-ba43-8fcc39248ff7"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4619e6eb-ff00-482b-b75c-f3cc2fa9da1d">
+                    <propertyInstance
+                      Id="ad1a3495-3c9d-43ca-b256-fd740b66596f"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="648488a4-9c1a-49a0-862e-7561612c10c1">
+                    <propertyInstance
+                      Id="302c7fe7-1767-4720-a969-9347a13eeafb"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="869859b1-e218-498d-ad18-8312f2b4bf19">
+                    <propertyInstance
+                      Id="5877ef0e-5a16-43ce-b48e-0bad6ba79ac1"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="66016d23-2943-4837-8db8-edb9c832f086">
+                    <propertyInstance
+                      Id="90c833f1-8ad1-4fa3-9595-22e8dcb23a0a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="774e3b78-2a59-4e5a-90c5-1f170b64875f">
+                    <propertyInstance
+                      Id="d52368a2-eb97-47c6-918b-2e762f2717ba"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4493d1f1-64c4-41de-9cd7-90afa3d98949">
+                    <propertyInstance
+                      Id="52288748-d6b1-4334-a014-47ba6efba185"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="ddbf5267-716d-4f51-a6f6-9472acb1637b"
+            name="System‎.Data‎.Entity‎.Migrations‎.Infrastructure‎.IMigrationMetadata‎.Source"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="fe96af9c-f41c-4d26-9ce6-5a670b27de55"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNotandi%2F3vikna%2F3viknaSolutions%2F3vikna%2Fbin%2F3vikna.dll Namespace%3D_3vikna.Migrations Type%3DInitialCreate Member%3DSystem.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.Source"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="580cc078-4ea7-4470-8877-fc786b3da409"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="82f240de-6f28-4b01-ae74-7c8a7d954aab">
+                    <propertyInstance
+                      Id="37aee29c-1887-4c7a-8a82-7314c56528bc"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5097194a-887f-44b5-99f1-34827f8ce77a">
+                    <propertyInstance
+                      Id="0d72dd6d-edd6-4d6b-b568-4c410496b78a"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5c493d29-5c0e-40b8-9e67-6860fce2604f">
+                    <propertyInstance
+                      Id="dc616f99-e935-4932-a480-491f17c77a78"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d774ac87-3768-4e42-95ca-3d2f1fe2fda8">
+                    <propertyInstance
+                      Id="3071547d-de7b-441f-8529-dd322063c816"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6f9be642-aaab-47ec-b504-9b95c03ec97d">
+                    <propertyInstance
+                      Id="656087fe-81a8-4151-90bd-27c711f2119e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b83eafde-4597-49da-bd69-fe9996fac076">
+                    <propertyInstance
+                      Id="cce9a6c4-2745-4881-839c-becfd1da2185"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ed106cd5-4ceb-4d5f-bd2c-f8f212fd90ab">
+                    <propertyInstance
+                      Id="8450eab9-bb9b-430b-a524-70e6659b01f2"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="22b2ad3d-2061-4c58-8896-1c5905aa683f"
+            name="System‎.Data‎.Entity‎.Migrations‎.Infrastructure‎.IMigrationMetadata‎.Target"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="34ea87e6-2acc-4ebb-912e-2fe46b5f2c5d"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNotandi%2F3vikna%2F3viknaSolutions%2F3vikna%2Fbin%2F3vikna.dll Namespace%3D_3vikna.Migrations Type%3DInitialCreate Member%3DSystem.Data.Entity.Migrations.Infrastructure.IMigrationMetadata.Target"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7b51a965-2f94-4639-97d7-388a91cac660"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d81f079f-cb7a-4d4e-b0b0-27756f92f536">
+                    <propertyInstance
+                      Id="a6735999-8e09-4733-862c-447fd7a4a678"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7d2a0112-2aa9-4c3d-b314-4a5423c48947">
+                    <propertyInstance
+                      Id="25d3e0f7-eeb7-4246-b2e3-93b716dd3b13"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0d1560aa-39d4-4944-ab38-71d280aba7fa">
+                    <propertyInstance
+                      Id="4cae0cda-d69b-4468-887d-3633eb2b16d5"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f4e01763-4f46-4156-9597-d55aa2bfb219">
+                    <propertyInstance
+                      Id="e2f196c8-3d0f-41de-b020-997b219a2525"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b00fe76c-394c-465a-adca-8a9f0a2a564e">
+                    <propertyInstance
+                      Id="598f7fc6-3365-45f2-aeca-59e440e87bff"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8830187a-71df-4832-a270-616e9bf84a80">
+                    <propertyInstance
+                      Id="d05e91a2-2571-41b2-9de5-95f094e15282"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6448348b-0b41-4514-b2d2-3ebc766bbc6d">
+                    <propertyInstance
+                      Id="7a9aefed-b215-494a-90e4-1d5e870234bd"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="ed6559bd-dc81-4740-873b-1148aa9b18fc"
+            name="Resources"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="ba2638c4-589c-42ec-94e9-4fd385ecf373"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNotandi%2F3vikna%2F3viknaSolutions%2F3vikna%2Fbin%2F3vikna.dll Namespace%3D_3vikna.Migrations Type%3DInitialCreate Member%3DResources"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a2796f45-e247-4aab-96b7-d5a513a8d4c5"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="730379ad-2922-4aab-afcc-9162525f962c">
+                    <propertyInstance
+                      Id="b98cd2ab-dd10-4ff8-b971-a2dd124d6ad5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cb45124b-82f2-424e-ab9e-d1f4c67467e0">
+                    <propertyInstance
+                      Id="09297525-6db3-4a74-aa8a-072261df390d"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="55010f24-0c56-42ee-b553-9a1904230359">
+                    <propertyInstance
+                      Id="66720416-8002-4def-a09a-f712fa6d56bd"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="66883cbe-82d7-4981-bbcf-c20a5b4cb96d">
+                    <propertyInstance
+                      Id="d90163a2-b5ae-4992-af6d-86f3d981b711"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="124c3a30-22a8-4159-8bc1-4eb8c68426cc">
+                    <propertyInstance
+                      Id="b7631c80-3106-408c-be74-d00b9f4c024b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="d4d50f0d-eade-4a3f-9811-81659d2ffad7"
+                LastKnownName="ResourceManager"
+                LastKnownLocation="Package21_0144.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="d9b2cbef-7fd4-4790-9617-e7f73915e899"
+            name="InitialCreate"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="141a40ec-304e-4560-a34b-57040805a18f"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNotandi%2F3vikna%2F3viknaSolutions%2F3vikna%2Fbin%2F3vikna.dll Namespace%3D_3vikna.Migrations Type%3DInitialCreate Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1ba9347a-fa6f-4461-bd23-cdd7e1c24ac9"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="41f54e09-3568-4f7e-9adc-d61a3617a76b">
+                    <propertyInstance
+                      Id="35ccebc2-dc1f-4794-84fa-d4083d70f770"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0fca9330-6fcd-415b-a214-dfaa30019270">
+                    <propertyInstance
+                      Id="56ffe707-0978-4275-baf0-514650a910f3"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7e1fa1cf-1967-4c7b-937d-0871be761e01">
+                    <propertyInstance
+                      Id="e460a8a5-b027-4665-bcf5-a2bebed81d43"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0b79a49f-76db-4ac9-ba56-cb0cb1f3a530">
+                    <propertyInstance
+                      Id="b22f41ae-686b-4b25-a358-df4e43982b5a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="58740bb6-c8c8-4975-8423-38888e3da296">
+                    <propertyInstance
+                      Id="89c6b587-4e96-4e48-8e74-7c92fa7e33ba"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bfac4d6d-05c0-4dec-b09d-fd179bb6879e">
+                    <propertyInstance
+                      Id="a5cde583-0be4-42c3-943f-39f7b42457a4"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="3f0808d1-2c51-47c1-8376-e64daf714840"
+            name="Down"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="59895ac9-edca-44ca-bd8e-699355545748"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNotandi%2F3vikna%2F3viknaSolutions%2F3vikna%2Fbin%2F3vikna.dll Namespace%3D_3vikna.Migrations Type%3DInitialCreate Member%3DDown"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e5b0d952-0b28-4d8f-b4d8-5ca157d10723"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f36fe1d9-aabe-46a6-a59e-a9d7666f7b37">
+                    <propertyInstance
+                      Id="ca7d1cbe-b549-49ad-aa67-27f9ac7e99d7"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="df146d41-0606-45d2-9bfa-41f1c8066792">
+                    <propertyInstance
+                      Id="b78f6745-07e3-47ed-8f3f-92274cf95b2d"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f18a7abe-fa3c-48e9-afef-d286bcc6a4eb">
+                    <propertyInstance
+                      Id="65769793-683d-49bb-9f83-7f4641434795"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="89548ac7-c67d-4ebd-b755-bdd3a2dbb8fa">
+                    <propertyInstance
+                      Id="5cc71fbc-3201-424d-a2a4-3e2683d6302a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="89efa471-8ffc-4a19-a772-95aa3aec7eef">
+                    <propertyInstance
+                      Id="9901bb93-2f32-4d54-9232-7c28db3962ee"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ce3f3094-17a6-4533-83bf-37a4956eaeb8">
+                    <propertyInstance
+                      Id="e827ab90-7937-4049-b9fd-88e3e11a914c"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="ec45d497-767a-4e35-9bb7-83f632e71bd7"
+            name="Up"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="f0b1757f-554d-4a5c-b1a8-c451a80f1697"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNotandi%2F3vikna%2F3viknaSolutions%2F3vikna%2Fbin%2F3vikna.dll Namespace%3D_3vikna.Migrations Type%3DInitialCreate Member%3DUp"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="316f67b3-3a64-4f63-809d-8bdb209a7d63"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aa60c8b4-79ec-412e-aff3-cd747c7edaf5">
+                    <propertyInstance
+                      Id="537f5405-ace6-40ad-a30c-102ceb3323ce"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e3279d02-60cf-4c98-9ac2-3e878aad0a9e">
+                    <propertyInstance
+                      Id="67c61c2d-2424-41a6-8628-90a7d77cd230"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="861359ec-adf3-40e9-a97d-66391a67a934">
+                    <propertyInstance
+                      Id="5f1377ca-2070-4e25-a8a6-3a2e350296f3"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="58cf473d-cd4b-4ea1-9332-1a98e85b7a4f">
+                    <propertyInstance
+                      Id="0c58df90-0fb5-4a36-a274-64ae2544e8a3"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a6d0a5af-aaba-46ef-9210-2f153be04401">
+                    <propertyInstance
+                      Id="3c72638c-446b-4d8c-98c3-b6bef3c74b4c"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3b8abc0c-56f4-438a-bab0-89313e4c8b16">
+                    <propertyInstance
+                      Id="77f20cc4-cbce-493a-a5c1-08b3637cd78a"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
