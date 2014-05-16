@@ -329,9 +329,11 @@ namespace _3vikna.Controllers
         {
             //var model = CommentRepository.Instance.Gettingcomments(9);
             var model = CommentRepository.Instance.GetComments(id);
+            string name = subtitleRepo.getNameById(id);
             CommentViewModel cm = new CommentViewModel();
             cm.Com = model;
             cm.subtitleId = id;
+            cm.MediaName = name; 
             return View(cm);
         }
         [Authorize]
@@ -361,7 +363,11 @@ namespace _3vikna.Controllers
         }
 
 
+<<<<<<< HEAD
         [Authorize(Roles = "Admin")] 
+=======
+        [Authorize(Roles = "Admin")] //athuga
+>>>>>>> b8983b3a7695958754f6873c1b32adfb491a2297
         public ActionResult SafeToPublish(int id)
         {
             Subtitles sub = new Subtitles();
