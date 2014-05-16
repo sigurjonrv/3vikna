@@ -27,6 +27,10 @@
                     </ul>
                 </div>
                 <input type="submit" value="Senda" class="btn btn-default" />
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) // breyta i admin
+                {
+                    @Html.ActionLink("Publish", "SafeToPublish", new { id = @Model.req.ID })
+                }
             </div>
         </div>
     </div>
@@ -80,9 +84,5 @@
         @Html.HiddenFor(model => model.req.DateCreated)
         @Html.HiddenFor(model => model.req.ID)
         @Html.HiddenFor(model => model.lines[i])
-    }
-    if (User.Identity.IsAuthenticated) // breyta i admin
-    {
-        @Html.ActionLink("Publish3", "SafeToPublish", new { id = @Model.req.ID })
     }
 }
