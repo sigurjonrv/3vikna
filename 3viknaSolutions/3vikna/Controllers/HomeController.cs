@@ -83,10 +83,7 @@ namespace _3vikna.Controllers
                 requestRepo.Save();
                 return RedirectToAction("Index");
             }
-            else
-            {
-                return View("Error");
-            }
+            return RedirectToAction("Index");
         }
 
 
@@ -130,6 +127,10 @@ namespace _3vikna.Controllers
             ViewBag.Categories = Categories;
 
             Subtitles item = new Subtitles();
+            if (form != null)
+            {
+                UpdateModel(item);
+            }
             if (uploadFile != null)
             {
                 var reader = new StreamReader(uploadFile.InputStream);
@@ -141,17 +142,17 @@ namespace _3vikna.Controllers
                 item.Extension = file.ContentType;
                 item.ImageName = file.FileName;
                 item.ImageBytes = ConvertToBytes(file);
-            }
-            if (form != null)
-            {
                 subtitleRepo.AddSubtitle(item);
-                UpdateModel(item);
+                //UpdateModel(item);
                 subtitleRepo.Save();
                 return RedirectToAction("Index");
             }
             else
             {
-                return View("Error");
+                subtitleRepo.AddSubtitle(item);
+                //UpdateModel(item);
+                subtitleRepo.Save();
+                return RedirectToAction("Index");
             }
         }
 
