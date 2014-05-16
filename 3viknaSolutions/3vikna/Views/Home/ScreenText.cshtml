@@ -40,11 +40,24 @@
                     </td>
 
 
-
-                    <td class="row1">@Html.ActionLink(@item.MediaName, "EditSub", new { id = @item.ID })</td>
+                    @if(item.IsFinished)
+                    {
+                          <td class="row1">@item.MediaNameSub</td>
+                    }
+                    else
+                    {
+                         <td class="row1">@Html.ActionLink(@item.MediaNameSub, "EditSub", new { id = @item.ID })</td>
+                    }
                     <td class="row1">@item.YearPublished</td>
                     <td class="row2">@Html.ActionLink("comment", "comment", new { @item.ID }) ></td>
-                    <td class="row2">@Html.ActionLink("download file", "download", new { @item.ID})</td>
+                    @if(item.IsFinished)
+                    {
+                        <td class="row2">@Html.ActionLink("download file", "download", new { @item.ID})</td>
+                    }
+                    else
+                    {
+                        <td class="row2">Í Vinnslu </td>
+                    }
                 </tr>
             }
         </tbody>

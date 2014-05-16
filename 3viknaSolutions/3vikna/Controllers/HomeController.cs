@@ -83,10 +83,7 @@ namespace _3vikna.Controllers
                 requestRepo.Save();
                 return RedirectToAction("Index");
             }
-            else
-            {
-                return View("Error");
-            }
+            return RedirectToAction("Index");
         }
 
 
@@ -130,6 +127,10 @@ namespace _3vikna.Controllers
             ViewBag.Categories = Categories;
 
             Subtitles item = new Subtitles();
+            if (form != null)
+            {
+                UpdateModel(item);
+            }
             if (uploadFile != null)
             {
                 var reader = new StreamReader(uploadFile.InputStream);
@@ -141,17 +142,17 @@ namespace _3vikna.Controllers
                 item.Extension = file.ContentType;
                 item.ImageName = file.FileName;
                 item.ImageBytes = ConvertToBytes(file);
-            }
-            if (form != null)
-            {
                 subtitleRepo.AddSubtitle(item);
-                UpdateModel(item);
+                //UpdateModel(item);
                 subtitleRepo.Save();
                 return RedirectToAction("Index");
             }
             else
             {
-                return View("Error");
+                subtitleRepo.AddSubtitle(item);
+                //UpdateModel(item);
+                subtitleRepo.Save();
+                return RedirectToAction("Index");
             }
         }
 
@@ -172,6 +173,16 @@ namespace _3vikna.Controllers
 
         public ActionResult Search(string searchBy, string search) //string searchBy, string search
         {
+            if(searchBy == "MediaNameSub")
+            {
+                if(search == "")
+                {
+                   
+                    return View("Search2",db.Subtitles.Select(x => x).ToList());
+                }
+
+                return View("Search2", db.Subtitles.Where(x => x.MediaNameSub.StartsWith(search) || search == null).ToList());
+            }
                 if (searchBy == "MediaName")
                 {
                     if (search == "")
@@ -351,6 +362,16 @@ namespace _3vikna.Controllers
                 ModelState.AddModelError("CommentText", "Comment text cannot be empty!");
                 return Index();
             }
+        }
+
+        [Authorize(Roles = "Admin")] //athuga
+        public void SafeToPublish(int id)
+        {
+            Subtitles sub = new Subtitles();
+            sub = subtitleRepo.GetByID(id);
+            sub.IsFinished = true;
+            UpdateModel(sub);
+            subtitleRepo.Save();
         }
 
 

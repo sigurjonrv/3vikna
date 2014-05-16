@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="484666eb-f9ad-4b53-962e-3f7a4509f179"
+  name="Controllers"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="d11d4575-03c8-49aa-a1d8-8f7a74b6831d"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3D_3vikna.Tests.Controllers"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="a350c38d-8dc4-4b52-bea8-256a58184969"
+        name="HomeControllerTest"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="e9a371a8-4684-46ff-8e36-01c925dcc38e"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNotandi%2F3vikna%2F3viknaSolutions%2F3vikna.Tests%2Fbin%2FDebug%2F3vikna.Tests.dll Namespace%3D_3vikna.Tests.Controllers Type%3DHomeControllerTest"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="9c26970d-bbcd-49ee-a9b3-7076e4df9682"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f8b545bb-2d31-44f1-8b73-bfc0132118d5">
+                <propertyInstance
+                  Id="d25cb574-6a7e-46e1-8c2f-935ea52c3fc2"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a9914367-2e3a-481c-99af-59a38eabe966">
+                <propertyInstance
+                  Id="5d4fc68f-eaa3-41f0-90ae-1975b214f6ad"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="86b67192-be52-440c-8f11-8c75b4f07bf4">
+                <propertyInstance
+                  Id="e59048a5-7a26-44cc-bc0d-6c25c4af9908"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1c3bb3e4-0f72-4c09-8bd8-d074cd236a31">
+                <propertyInstance
+                  Id="217be7ca-a113-4ffd-812e-8941ad0e1ab5"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9bbc5e3d-f135-412e-9e69-82915ff4bb4c">
+                <propertyInstance
+                  Id="d100791e-2dfc-4c01-bb49-903c1bc05b19"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="a8f8b653-e506-476a-9233-71addcc5bb0f"
+            name="Index"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="abfbec2b-0bf4-4d7d-a541-539558fd1992"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNotandi%2F3vikna%2F3viknaSolutions%2F3vikna.Tests%2Fbin%2FDebug%2F3vikna.Tests.dll Namespace%3D_3vikna.Tests.Controllers Type%3DHomeControllerTest Member%3DIndex"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="3a805105-558c-4c2c-97c8-29ecd9addd99"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b6f49a89-8318-4ccc-8043-03730ff9219b">
+                    <propertyInstance
+                      Id="3aa3a51e-93d9-42ae-9aaa-15a7bcdbae51"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2db35956-a19e-40a1-8ae6-a4f3dee9f97b">
+                    <propertyInstance
+                      Id="7473d41d-8d8f-4df7-afb0-9d065edbec49"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5e2dcc77-f38b-43b4-89e8-45c2a3f48f59">
+                    <propertyInstance
+                      Id="b0d87e35-9f23-4428-a832-f04e9e917064"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="43c8e8d6-b52d-46c4-b19d-ec4189e8dca2">
+                    <propertyInstance
+                      Id="ca983449-54d5-4cf6-809c-fcdb30dffb73"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="06a00c63-2028-42c5-9465-635e43b4b88c">
+                    <propertyInstance
+                      Id="aeda3df6-92a6-4002-8c8e-35255888a2b7"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="65d4efd4-09f1-4fcc-97f8-94b0af3df039">
+                    <propertyInstance
+                      Id="0c501317-2689-4f17-b7db-a2ed9ba6495f"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="fe026765-f950-48bd-aa00-56953585490c"
+            name="About"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="0982ba29-2329-451f-bcee-65bf64ed417f"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNotandi%2F3vikna%2F3viknaSolutions%2F3vikna.Tests%2Fbin%2FDebug%2F3vikna.Tests.dll Namespace%3D_3vikna.Tests.Controllers Type%3DHomeControllerTest Member%3DAbout"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="cc173325-a390-42d8-ac35-a61e11bb9f6a"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0349d4b3-80f2-4f27-a912-cfaac22f0443">
+                    <propertyInstance
+                      Id="09fd7cf0-0b94-41f9-9403-497ff7c821ae"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="021f7492-2611-4e95-8b60-613faed607d3">
+                    <propertyInstance
+                      Id="cc2f5301-1138-41d8-9f31-158c08628bc3"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="68496d4a-b9e6-4503-b601-5a26c02a249e">
+                    <propertyInstance
+                      Id="c787a04d-7215-4f27-8fa1-7097d60b610d"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="491eab8a-b466-40aa-99b5-7f93975ba4b3">
+                    <propertyInstance
+                      Id="14bff996-416a-4618-bf08-9d388f0baa78"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4b5e4e84-30cd-4b14-9eb5-3a5722fc082c">
+                    <propertyInstance
+                      Id="e1f907b8-8c63-4f4f-a991-8368328b77c1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6b647aba-6cc2-45f0-b649-123a035fbe0f">
+                    <propertyInstance
+                      Id="9d671dbf-b1b5-4c85-ac54-8442eebac797"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="9043fc66-e2be-4a05-aa6e-d6c16e71e6a4"
+            name="Contact"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="cfaa4503-56bc-4e29-b808-6bfa8879f285"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNotandi%2F3vikna%2F3viknaSolutions%2F3vikna.Tests%2Fbin%2FDebug%2F3vikna.Tests.dll Namespace%3D_3vikna.Tests.Controllers Type%3DHomeControllerTest Member%3DContact"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="65a6978d-70dc-42c6-86f9-acfda72494fb"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6ad25de0-72cd-47eb-a4df-65413102d5ae">
+                    <propertyInstance
+                      Id="b8a08eda-ef05-4cf0-8f2e-416ca1117cfe"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="89c315c9-341d-4bad-8790-99ff3e500a44">
+                    <propertyInstance
+                      Id="7868c016-08ea-42b9-8adb-06820e647419"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4b7a49f1-df6f-48de-a1c5-70f3a811a781">
+                    <propertyInstance
+                      Id="15602ac1-1e76-41b9-9596-f9fde27df207"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7db45870-cdad-4ade-a3b0-76a95b5953b4">
+                    <propertyInstance
+                      Id="920b39f0-ef2f-4d80-8c93-ccfc43cfa45f"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cd850fb0-9220-4571-99f1-c00fdb6da5e7">
+                    <propertyInstance
+                      Id="35ec860e-75d1-4da9-be98-7408dd59053d"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fbf07307-f7ca-434e-94d8-2eb992518876">
+                    <propertyInstance
+                      Id="3e9c3bde-8928-480f-b177-73a4413ace9d"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="fe25d736-90f3-402b-9484-982fcadb3f82"
+            name="HomeControllerTest"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="4816bb5a-daad-426b-976d-d24a4194856c"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FNotandi%2F3vikna%2F3viknaSolutions%2F3vikna.Tests%2Fbin%2FDebug%2F3vikna.Tests.dll Namespace%3D_3vikna.Tests.Controllers Type%3DHomeControllerTest Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="70256c7c-a46e-4b78-92f4-5f87b4fc83ff"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0396a45b-6b7b-4412-8806-2064bc21ceea">
+                    <propertyInstance
+                      Id="68ac9b41-1020-480d-9527-a9dc1d688041"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cd827803-4a02-4670-8c1a-71acb30526ae">
+                    <propertyInstance
+                      Id="e3dbd14d-a11c-471d-9fa3-0100d9c6c5d9"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fdf0ee3e-f880-4414-b1b5-5919ffaed6f1">
+                    <propertyInstance
+                      Id="af2e1893-045a-46fa-a0d5-d70e8983bc39"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4c751bb2-cc60-40d1-933d-edfc1516c1cd">
+                    <propertyInstance
+                      Id="0e290768-8d3e-4a66-b638-c292e7e3a0a7"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="072d4e8c-5913-4fac-9a93-fca2477a24f0">
+                    <propertyInstance
+                      Id="b2ee5e8e-7c34-4e73-b709-d50f453420c1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="52721e25-b741-4a41-8571-2851ef0e389a">
+                    <propertyInstance
+                      Id="decd8c95-c2c0-4412-b836-a71f6c2217e9"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

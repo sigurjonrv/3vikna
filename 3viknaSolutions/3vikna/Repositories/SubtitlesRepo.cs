@@ -14,10 +14,10 @@ namespace _3vikna.Repositories
         {
             if (m_subtitles.Count == 0)
             {
-                m_subtitles.Add(new Subtitles { ID = 1, MediaName = "Hangover 3", YearPublished = "2012" });
-                m_subtitles.Add(new Subtitles { ID = 2, MediaName = "Rocky", YearPublished = "0000" });
-                m_subtitles.Add(new Subtitles { ID = 3, MediaName = "The Amzing Spider-Man 2", YearPublished = "2014" });
-                m_subtitles.Add(new Subtitles { ID = 4, MediaName = "Hangover 1", YearPublished = "2010" });
+                m_subtitles.Add(new Subtitles { ID = 1, MediaNameSub = "Hangover 3", YearPublished = "2012" });
+                m_subtitles.Add(new Subtitles { ID = 2, MediaNameSub = "Rocky", YearPublished = "0000" });
+                m_subtitles.Add(new Subtitles { ID = 3, MediaNameSub = "The Amzing Spider-Man 2", YearPublished = "2014" });
+                m_subtitles.Add(new Subtitles { ID = 4, MediaNameSub = "Hangover 1", YearPublished = "2010" });
             }
             return m_subtitles;
         }
@@ -34,7 +34,7 @@ namespace _3vikna.Repositories
         {
             var result = (from s in db.Subtitles
                           where s.ID == id
-                          select s.MediaName).SingleOrDefault();
+                          select s.MediaNameSub).SingleOrDefault();
             return result;
         }
 
@@ -59,6 +59,11 @@ namespace _3vikna.Repositories
                           where s.ID == id
                           select s.Comments);
             return result;
+        }
+
+        public void UpdateALL(int id, Subtitles sub)
+        {
+            
         }
 
         public void AddSubtitle(Subtitles s)

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="UMLClassDiagram3.viknaVerk">
+  <logicalClassDesignerModelMoniker Id="1c43335c-7222-456f-868c-34004e96d651" />
+  <nestedChildShapes>
+    <classShape Id="429d49f0-e1ac-4ed0-b7ad-859440beab2f" absoluteBounds="1, 0.875, 1.5, 1.6683043545484542" hideQualifiedName="false" increaseHeight="0.18800345897674561" customColor="181, 193, 223">
+      <classMoniker Id="274ce781-f4d0-489a-9df8-571746ce0046" LastKnownName="HomeControllerTest" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="5e44a899-c7dc-431e-8f6e-842964b0f71c" absoluteBounds="1.0150000000000001, 1.3903356393178306, 1.4700000000000002, 0.2011718675494194" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="b0ea8ace-1352-4a18-a072-8fadedf1951f" absoluteBounds="1.0150000000000001, 1.6015075068672497, 1.4700000000000002, 0.84179684768120444" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</logicalClassDesignerDiagram>
