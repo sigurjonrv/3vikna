@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<_3vikna.Models.Subtitles>
 @{
-    ViewBag.Title = "ScreenText";
+    ViewBag.Title = "Skjátextar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="screentext">
-    <h2>ScreenText</h2>
+    <h2>@ViewBag.Title</h2>
 
     @Html.Partial("navigationbar")
 
