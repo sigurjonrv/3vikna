@@ -17,7 +17,6 @@ namespace _3vikna.Controllers
         //CommentRepository CommendRepo = new CommentRepository();
         AppDataContext db = new AppDataContext();
 
-
         public ActionResult Index()
         {
             MainPageModelView vm = new MainPageModelView();
@@ -55,7 +54,7 @@ namespace _3vikna.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewRequest(int? id, FormCollection form, HttpPostedFileBase uploadFile, HttpPostedFileBase file)
+        public ActionResult NewRequest(int? id, FormCollection form, HttpPostedFileBase file)
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
             Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
@@ -64,11 +63,6 @@ namespace _3vikna.Controllers
             ViewBag.Categories = Categories;
 
             Requests item = new Requests();
-            if (uploadFile != null)
-            {
-                var reader = new StreamReader(uploadFile.InputStream);
-                item.File = reader.ReadToEnd();
-            }
 
             if (file != null)
             {
@@ -365,13 +359,14 @@ namespace _3vikna.Controllers
         }
 
         [Authorize(Roles = "Admin")] //athuga
-        public void SafeToPublish(int id)
+        public ActionResult SafeToPublish(int id)
         {
             Subtitles sub = new Subtitles();
             sub = subtitleRepo.GetByID(id);
             sub.IsFinished = true;
             UpdateModel(sub);
             subtitleRepo.Save();
+            return RedirectToAction("Index");
         }
 
 
