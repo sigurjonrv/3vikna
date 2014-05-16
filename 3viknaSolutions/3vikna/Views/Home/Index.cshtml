@@ -91,7 +91,7 @@
                                <img src="http://content.clearchannel.com/cc-common/mlib/589/05/589_1369232682.jpg" id="picturesize" alt="photo" />
                            }
 
-                              <h3>@Html.ActionLink(@item.MediaNameSub, "EditSub", new { id = @item.ID })</h3>
+                              <h3>@Html.ActionLink(@item.MediaNameSub, "download", new { @item.ID })</h3>
                               <p> Útgáfu ár: @item.YearPublished</p>
                               <p> Sett inn @item.DateCreated</p>
                        </li>

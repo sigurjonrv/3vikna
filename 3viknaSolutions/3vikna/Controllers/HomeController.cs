@@ -62,7 +62,7 @@ namespace _3vikna.Controllers
             ViewBag.Categories = Categories;
 
             Requests item = new Requests();
-           
+
             if (file != null)
             {
                 item.Extension = file.ContentType;
@@ -81,6 +81,7 @@ namespace _3vikna.Controllers
         [HttpGet]
         public ActionResult ScreenText()
         {
+
             if (User.IsInRole("Administrator"))
             {
                 List<SelectListItem> Categories = new List<SelectListItem>();
@@ -129,7 +130,7 @@ namespace _3vikna.Controllers
             }
             string ext = Path.GetExtension(uploadFile.FileName);
             if (String.IsNullOrEmpty(ext) || !ext.Equals(".srt", StringComparison.OrdinalIgnoreCase))
-            {          
+            {
                 return View("Error");
             }
             if (uploadFile != null)
@@ -172,41 +173,41 @@ namespace _3vikna.Controllers
 
         public ActionResult Search(string searchBy, string search) //string searchBy, string search
         {
-            if(searchBy == "MediaNameSub")
+            if (searchBy == "MediaNameSub")
             {
-                if(search == "")
+                if (search == "")
                 {
-                   
-                    return View("Search2",db.Subtitles.Select(x => x).ToList());
+
+                    return View("Search2", db.Subtitles.Select(x => x).ToList());
                 }
 
                 return View("Search2", db.Subtitles.Where(x => x.MediaNameSub.StartsWith(search) || search == null).ToList());
             }
-                if (searchBy == "MediaName")
+            if (searchBy == "MediaName")
+            {
+                if (search == "")
                 {
-                    if (search == "")
-                    {
-                        return View(db.Requests.Where(x => x.Category == "Other"));
-                    }
-                    return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
+                    return View(db.Requests.Where(x => x.Category == "Other"));
                 }
-                else if (searchBy == "Episodes")
-                {
-                    if (search == "")
-                    {
-                        return View(db.Requests.Where(x => x.Category == "Episodes"));
-                    }
-                    return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
-                }
-                else
-                {
-                    if (search == "")
-                    {
-                        return View(db.Requests.Where(x => x.Category == "Movies"));
-                    }
-                    return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
-                }
+                return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
             }
+            else if (searchBy == "Episodes")
+            {
+                if (search == "")
+                {
+                    return View(db.Requests.Where(x => x.Category == "Episodes"));
+                }
+                return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
+            }
+            else
+            {
+                if (search == "")
+                {
+                    return View(db.Requests.Where(x => x.Category == "Movies"));
+                }
+                return View(db.Requests.Where(x => x.MediaName.StartsWith(search) || search == null).ToList());
+            }
+        }
 
         public ActionResult Contact()
         {
@@ -305,14 +306,22 @@ namespace _3vikna.Controllers
             return RedirectToAction("RequestPage");
         }
 
-        public ActionResult Download(int id) 
+        public ActionResult Download(int id)
         {
-            string str = subtitleRepo.GetFileFromDB(id);
-            byte[] bytes = new byte[str.Length * sizeof(char)];
-            System.Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
-            string name = subtitleRepo.getNameById(id);
-            name = name + ".srt";
-            return File(bytes, "txt/srt", name);
+            try
+            {
+                string str = subtitleRepo.GetFileFromDB(id);
+                byte[] bytes = new byte[str.Length * sizeof(char)];
+                System.Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
+                string name = subtitleRepo.getNameById(id);
+                name = name + ".srt";
+                return File(bytes, "txt/srt", name);
+            }
+            catch( NullReferenceException ex)
+            {
+                return View("Error");
+            }
+           
         }
 
         public ActionResult comment(int id)
@@ -322,7 +331,7 @@ namespace _3vikna.Controllers
             CommentViewModel cm = new CommentViewModel();
             cm.Com = model;
             cm.subtitleId = id;
-            cm.MediaName = name; 
+            cm.MediaName = name;
             return View(cm);
         }
         [Authorize]
@@ -349,7 +358,7 @@ namespace _3vikna.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")] 
+        [Authorize(Roles = "Admin")]
         public ActionResult SafeToPublish(int id)
         {
             Subtitles sub = new Subtitles();
