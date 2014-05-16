@@ -112,7 +112,7 @@ namespace _3vikna.Controllers
         }
         [Authorize]
         [HttpPost]
-        public ActionResult NewScreenText(int id, FormCollection form, HttpPostedFileBase uploadFile, HttpPostedFileBase file)
+        public ActionResult NewScreenText(int? id, FormCollection form, HttpPostedFileBase uploadFile, HttpPostedFileBase file)
         {
             List<SelectListItem> Categories = new List<SelectListItem>();
             Categories.Add(new SelectListItem { Text = "Kvikmyndir", Value = "Movies" });
