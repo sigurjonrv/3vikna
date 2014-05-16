@@ -51,7 +51,7 @@
         <div class="col-md-4">
             <h2>Vinsælustu Beiðnir</h2>
                 <ul>
-                    @foreach (var item in Model.Req)
+                    @foreach (var item in Model.popularRequests)
                     {
                         <li>
                             @if (@item.ImageBytes != null)
@@ -76,7 +76,7 @@
             <h2>Nýjustu skjátextar</h2>
 
                 <ul>
-                    @foreach (var item in Model.Sub)
+                    @foreach (var item in Model.newestSubtitles)
                     {
                        <li>
                            @if (@item.ImageBytes != null)
@@ -102,7 +102,7 @@
             <h2>Í vinnslu</h2>
 
                 <ul>
-                    @foreach (var item in Model.Sub2)
+                    @foreach (var item in Model.notFinishedSubtitles)
                     {
                         <li>
                             @if (@item.ImageBytes != null)

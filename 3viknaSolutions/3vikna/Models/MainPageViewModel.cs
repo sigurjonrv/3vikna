@@ -7,8 +7,8 @@ namespace _3vikna.Models
 {
     public class MainPageViewModel
     {
-        public IEnumerable<_3vikna.Models.Requests> Req { get; set; }
-        public IEnumerable<_3vikna.Models.Subtitles> Sub2 { get; set; }
-        public IEnumerable<_3vikna.Models.Subtitles> Sub { get; set; }
+        public IEnumerable<_3vikna.Models.Requests> popularRequests { get; set; }
+        public IEnumerable<_3vikna.Models.Subtitles> newestSubtitles { get; set; }
+        public IEnumerable<_3vikna.Models.Subtitles> notFinishedSubtitles { get; set; }
     }
 }

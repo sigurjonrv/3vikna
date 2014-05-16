@@ -13,7 +13,6 @@ namespace _3vikna.Models
         public string MediaNameSub { get; set; }
         [Required(ErrorMessage = "Það þarf að skrifa inn útgáfuár")]
         public string YearPublished { get; set; }
-        public string Comments { get; set; }
         public string Category { get; set; }
         [Required(ErrorMessage = "Það þarf að vera dagsetning")]
         public DateTime DateCreated { get; set; }

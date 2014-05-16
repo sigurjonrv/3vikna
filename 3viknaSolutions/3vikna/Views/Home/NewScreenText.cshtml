@@ -1,10 +1,10 @@
 ﻿@model _3vikna.Models.Subtitles
 @{
-    ViewBag.Title = "NewScreenText";
+    ViewBag.Title = "Nýr skjátexti";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>NewScreenText</h2>
+<h2>@ViewBag.Title</h2>
 @Html.Partial("navigationbar")
 @using (Html.BeginForm(null, null, FormMethod.Post, new { @enctype = "multipart/form-data", id = "profilePictureForm" }))
 {

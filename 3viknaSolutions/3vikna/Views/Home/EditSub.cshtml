@@ -29,7 +29,7 @@
                 <input type="submit" value="Senda" class="btn btn-default" />
                 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin")) // breyta i admin
                 {
-                    @Html.ActionLink("Publish", "SafeToPublish", new { id = @Model.req.ID })
+                    @Html.ActionLink("Publish", "SafeToPublish", new { id = @Model.editSubtitle.ID })
                 }
             </div>
         </div>
@@ -80,9 +80,9 @@
     @Html.EditorFor(model => Model.lines[i], new { size = 1000 });
     @Html.Raw("<br />");
         }
-        @Html.HiddenFor(model => model.req.Category)
-        @Html.HiddenFor(model => model.req.DateCreated)
-        @Html.HiddenFor(model => model.req.ID)
+        @Html.HiddenFor(model => model.editSubtitle.Category)
+        @Html.HiddenFor(model => model.editSubtitle.DateCreated)
+        @Html.HiddenFor(model => model.editSubtitle.ID)
         @Html.HiddenFor(model => model.lines[i])
     }
 }

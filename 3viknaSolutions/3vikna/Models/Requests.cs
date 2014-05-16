@@ -17,7 +17,6 @@ namespace _3vikna.Models
         [Required(ErrorMessage = "Það þarf að vera dagsetning")]
         public DateTime Date { get; set; }
         public string Category { get; set; }
-        public string File { get; set; }
         public int UpvoteID { get; set; }
         public string ImageName { get; set; }
         public byte[] ImageBytes { get; set; }

@@ -10,21 +10,6 @@ namespace _3vikna.Repositories
     {
         private List<Requests> m_requests = new List<Requests>();
         AppDataContext db = new AppDataContext();
-        public List<Requests> GetAllRequests()
-        {
-            if (m_requests.Count == 0)
-            {
-                m_requests.Add(new Requests { ID = 1, MediaName = "Screen 1", YearPublished = "1999"/*, IsFinished = true*/});
-                m_requests.Add(new Requests { ID = 2, MediaName = "Scary Movie 2", YearPublished = "2002"/*, IsFinished = true */});
-                m_requests.Add(new Requests { ID = 3, MediaName = "Lion King", YearPublished = "1998" /*,IsFinished = true"*/ });
-                m_requests.Add(new Requests { ID = 4, MediaName = "Catch Me If You Can", YearPublished = "2001" /*, IsFinished = true*/ });
-                m_requests.Add(new Requests { ID = 5, MediaName = "X-Men: Days of Future Past", YearPublished = "2014"/*, IsFinished = false*/ });
-                m_requests.Add(new Requests { ID = 6, MediaName = "Bad Neighbours", YearPublished = "2014"/*, IsFinished = false*/ });
-                m_requests.Add(new Requests { ID = 7, MediaName = "Fed Up", YearPublished = "2014"/*, IsFinished = false */});
-            }
-            return m_requests;
-        }
-
 
         public IEnumerable<Requests> GetAllByDate()
         {
@@ -34,15 +19,15 @@ namespace _3vikna.Repositories
             return results;
         }
 
-        public IQueryable<string> GetCommentsByID()
+        /*public IQueryable<string> GetCommentsByID()
         {
             var result = (from c in db.Comment
                           orderby c.UserName
                           select c.UserName);
             return result;
-        }
+        }*/
         //SRV
-        public Requests GetByID(int id)
+        public Requests GetRequestsByID(int id)
         {
             var results = (from r in db.Requests
                            where r.ID == id
@@ -83,25 +68,7 @@ namespace _3vikna.Repositories
             return result;
         }
 
-       /* public IEnumerable<Requests> GetUpvotes()
-        {
-            var result = from c in db.Requests
-                         orderby c.UpvoteID ascending
-                         select c;
-            return result;
-        }*/
-
-        public void AddRequest(Requests s)
-        {
-            db.Requests.Add(s);
-            //m_db.SaveChanges();
-        }
-        public void Save()
-        {
-            db.SaveChanges();
-        }
-
-        public void UpdateDB(int id, Requests req)
+        public void UpdateRequestDB(int id, Requests req)
         {
             var prev = (from a in db.Requests
                         where a.ID == id
@@ -109,12 +76,20 @@ namespace _3vikna.Repositories
 
             if (prev != null)
             {
-                prev.File = req.File;
                 prev.Date = DateTime.Now;
             }
             else
                 return;
 
+            db.SaveChanges();
+        }
+
+        public void AddRequest(Requests s)
+        {
+            db.Requests.Add(s);
+        }
+        public void Save()
+        {
             db.SaveChanges();
         }
     }

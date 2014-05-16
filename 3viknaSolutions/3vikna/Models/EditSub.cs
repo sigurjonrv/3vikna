@@ -7,7 +7,7 @@ namespace _3vikna.Models
 {
     public class EditSub
     {
-        public Subtitles req { get; set; }
+        public Subtitles editSubtitle { get; set; }
         public List<string> lines { get; set; }
     }
 }

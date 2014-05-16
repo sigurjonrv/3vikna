@@ -10,19 +10,8 @@ namespace _3vikna.Repositories
     {
         private List<Subtitles> m_subtitles = new List<Subtitles>();
         AppDataContext db = new AppDataContext();
-        public List<Subtitles> GetAllSubtitles()
-        {
-            if (m_subtitles.Count == 0)
-            {
-                m_subtitles.Add(new Subtitles { ID = 1, MediaNameSub = "Hangover 3", YearPublished = "2012" });
-                m_subtitles.Add(new Subtitles { ID = 2, MediaNameSub = "Rocky", YearPublished = "0000" });
-                m_subtitles.Add(new Subtitles { ID = 3, MediaNameSub = "The Amzing Spider-Man 2", YearPublished = "2014" });
-                m_subtitles.Add(new Subtitles { ID = 4, MediaNameSub = "Hangover 1", YearPublished = "2010" });
-            }
-            return m_subtitles;
-        }
 
-        public IQueryable<Subtitles> GetNewest()
+        public IQueryable<Subtitles> GetNewestSubtitles()
         {
             var result = (from s in db.Subtitles
                           where s.IsFinished == true
@@ -31,7 +20,7 @@ namespace _3vikna.Repositories
             return result;
         }
 
-        public string getNameById(int? id)
+        public string GetSubtitleNameById(int? id)
         {
             var result = (from s in db.Subtitles
                           where s.ID == id
@@ -39,7 +28,7 @@ namespace _3vikna.Repositories
             return result;
         }
         
-        public IEnumerable<Subtitles> NotFinished()
+        public IEnumerable<Subtitles> NotFinishedSubtitles()
         {
             var result = (from s in db.Subtitles
                           where s.IsFinished == false
@@ -48,7 +37,7 @@ namespace _3vikna.Repositories
             return result;
         }
 
-        public Subtitles GetByID(int? id)
+        public Subtitles GetSubtitleByID(int? id)
         {
             var results = (from r in db.Subtitles
                            where r.ID == id
@@ -56,33 +45,22 @@ namespace _3vikna.Repositories
             return results;
         }
         
-        public string GetFileFromDB(int? id)
+        public string GetSubtitleFileFromDB(int? id)
         {
             var result = (from s in db.Subtitles
                           where s.ID == id
                           select s.File).SingleOrDefault();
             return result;
         }
-        public IEnumerable<string> GetCommentByID(int id)
+        /*public IEnumerable<string> GetCommentByID(int id)
         {
             var result = (from s in db.Subtitles
                           where s.ID == id
                           select s.Comments);
             return result;
-        }
+        }*/
 
-        public void UpdateALL(int id, Subtitles sub)
-        {
-            
-        }
-
-        public void AddSubtitle(Subtitles s)
-        {
-            db.Subtitles.Add(s);
-            //m_db.SaveChanges();
-        }
-
-        public void UpdateDB(int id, Subtitles sub)
+        public void UpdateSubtitleDB(int id, Subtitles sub)
         {
             var prev = (from a in db.Subtitles
                         where a.ID == id
@@ -97,6 +75,12 @@ namespace _3vikna.Repositories
                 return;
 
             db.SaveChanges();
+        }
+
+        public void AddSubtitle(Subtitles s)
+        {
+            db.Subtitles.Add(s);
+            //m_db.SaveChanges();
         }
 
         public void Save()
