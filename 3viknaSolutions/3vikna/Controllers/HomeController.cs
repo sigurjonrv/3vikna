@@ -327,9 +327,11 @@ namespace _3vikna.Controllers
         {
             //var model = CommentRepository.Instance.Gettingcomments(9);
             var model = CommentRepository.Instance.GetComments(id);
+            string name = subtitleRepo.getNameById(id);
             CommentViewModel cm = new CommentViewModel();
             cm.Com = model;
             cm.subtitleId = id;
+            cm.MediaName = name; 
             return View(cm);
         }
         [Authorize]
